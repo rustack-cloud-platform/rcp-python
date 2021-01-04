@@ -1,0 +1,15 @@
+__pycache__
+*.tmp
+*.pyc
+*.pyo
+.vscode/
+.tox/
+rustack_esu.egg-info/
+build/
+dist/
+.coverage
+.venv
+docs/_build
+.python-version
+demo.py
+TODO

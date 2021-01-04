@@ -1,0 +1,196 @@
+import os
+import re
+import sys
+from time import sleep, time
+
+import requests
+
+
+class NotFoundEx(Exception):
+    pass
+
+
+class TaskTimeoutEx(Exception):
+    pass
+
+
+class ObjectAlreadyHasId(Exception):
+    pass
+
+
+class ObjectHasNoId(Exception):
+    pass
+
+
+class Field:
+    def __init__(self, class_name=None, *, allow_none=False):
+        self._class_name = class_name
+        self._allow_none = allow_none
+
+    @property
+    def cls(self):
+        return resolve(self._class_name)
+
+
+class FieldList(Field):
+    pass
+
+
+def resolve(cls):
+    if isinstance(cls, str):
+        cls2 = []
+        for item in cls.split('.'):
+            # CamelCase to snake_case:
+            cls2.append(re.sub(r'(?<!^)(?=[A-Z])', '_', item).lower())
+        cls2 = '.'.join(cls2)  # esu.StorageProfile -> esu.storage_profile
+
+        cls = getattr(sys.modules[cls2], cls.split('.')[-1])
+
+    return cls
+
+
+class BaseAPI:
+    token = None
+    endpoint_url = 'https://cp.sbcloud.ru'
+
+    def __new__(cls, *args, token: str = None, **kwargs):
+        rules = {}
+        for k in cls.Meta.__dict__:
+            if k.startswith('_'):
+                continue
+            rules[k] = cls.Meta.__dict__[k]
+
+        instance = super().__new__(cls)
+        instance._rules = rules
+
+        for k in rules:
+            setattr(instance, k, None)
+
+        instance.token = token or os.environ.get('ESU_API_TOKEN', cls.token)
+        instance.endpoint_url = os.environ.get('ESU_API_URL', cls.endpoint_url)
+        instance.kwargs = kwargs
+        instance._fill()
+
+        return instance
+
+    def __repr__(self):
+        return '{} ({})'.format(self.__class__, self.id)
+
+    def _call(self, method, resource, **kwargs):
+        headers = {
+            'Authorization': 'Bearer {}'.format(self.token),
+            'Content-Type': 'application/json',
+            'Accept-Language': 'ru-ru'
+        }
+
+        url = '{}/{}'.format(self.endpoint_url, resource)
+        request_params = dict(url=url, headers=headers, timeout=30)
+        method = method.lower()
+
+        request_params['params' if method == 'get' else 'json'] = kwargs
+        method_ = getattr(requests, method)
+        resp = method_(**request_params)
+
+        answer = None
+        if resp.status_code == 404:
+            raise NotFoundEx('Resource not found')
+
+        if resp.status_code != 204:
+            answer = resp.json()
+
+        if resp.status_code > 299:
+            raise Exception(answer)
+
+        for task_id in resp.headers.get('X-Esu-Tasks', '').split(','):
+            task_id = task_id.strip()
+            if not task_id:
+                continue
+            self._wait_job(task_id)
+
+        return answer
+
+    def _wait_job(self, job_id):
+        start_time = time()
+
+        while True:
+            if time() - start_time > 600:
+                raise TaskTimeoutEx
+
+            try:
+                self._call('GET', 'v1/job/{}'.format(job_id))
+                sleep(1)
+            except NotFoundEx:
+                break
+
+    def _get_list(self, resource, cls, with_pages=True, **kwargs):
+        result = []
+
+        if not with_pages:
+            answer = self._call('GET', resource, **kwargs)
+            for item in answer:
+                instance = resolve(cls)(token=self.token, **item)
+                result.append(instance)
+            return result
+
+        page = 1
+        while True:
+            kwargs['page'] = page
+            try:
+                answer = self._call('GET', resource, **kwargs)
+            except NotFoundEx:
+                break
+
+            for item in answer['items']:
+                instance = resolve(cls)(token=self.token, **item)
+                result.append(instance)
+            page += 1
+
+        return result
+
+    def _fill(self):
+        for k, v in self.kwargs.items():
+            if k not in self._rules:
+                continue
+
+            fld = self._rules[k]
+            v_new = None
+
+            if fld._allow_none and v is None:
+                pass  # v_new is None
+            elif isinstance(fld, FieldList):
+                v_new = []
+                for obj in v:
+                    if v is None:
+                        raise ValueError
+
+                    if isinstance(obj, BaseAPI):
+                        v_new.append(obj)
+                    elif isinstance(obj, str):  # ID case
+                        v_new.append(fld.cls.get_object(obj, token=self.token))
+                    else:  # dict
+                        v_new.append(fld.cls(**obj))
+            elif isinstance(fld, Field):
+                if isinstance(v, BaseAPI) or fld.cls is None:
+                    v_new = v
+                elif isinstance(v, str):  # ID case
+                    v_new = fld.cls.get_object(v, token=self.token)
+                else:  # dict
+                    v_new = fld.cls(**v)
+
+            setattr(self, k, v_new)
+
+    def _get_object(self, resource, id):
+        self.kwargs = self._call('GET', '{}/{}'.format(resource, id))
+        self._fill()
+
+    def _commit_object(self, resource, **kwargs):
+        if self.id is None:
+            self.kwargs = self._call('POST', resource, **kwargs)
+        else:
+            self.kwargs = self._call('PUT', '{}/{}'.format(resource, self.id),
+                                     **kwargs)
+        self._fill()
+
+    def _destroy_object(self, resource, id):
+        self._call('DELETE', '{}/{}'.format(resource, id))
+        self.id = None

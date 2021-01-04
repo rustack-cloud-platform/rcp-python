@@ -1,0 +1,70 @@
+[MASTER]
+
+persistent=yes
+profile=no
+
+jobs=1
+unsafe-load-any-extension=no
+minimum-python-version=3.8
+optimize-ast=no
+
+
+[BASIC]
+string-quote=single
+triple-quote=double
+docstring-quote=double
+
+docstring-min-length=10
+
+good-names=i,k,v,vm,fh,id,ex
+
+bad-functions=map,filter,eval
+
+
+
+[MESSAGES CONTROL]
+# Disable the message. I took some from https://gist.github.com/xen/6334976
+disable=\
+    W0142, # star-args
+    W0403, # Relative imports
+    W0707,
+    W0222,
+    R0201, # Method could be a function
+    W0613, # Unused argument
+    R0902, # Too many instance attributes
+    R0903, # Too few public methods
+    R0914, # Too many local variables
+    R0401, # Cyclic import suspicious
+    C0411, # We will use iSort instead
+
+    C0111, # Missing docstring
+    R0912, # Too many branches
+
+    W0221, # Arguments number differs from %s method
+    W0235, # Useless super delegation
+    R0801, # Similar lines
+    W0622,  # redefined-builtin
+    W0201,  # attribute-defined-outside-init
+    E1101,  # no-member
+    W0212  # protected-access
+
+
+[FORMAT]
+
+# Maximum number of characters on a single line.
+max-line-length=79
+
+indent-string='    '
+expected-line-ending-format=LF
+
+[LOGGING]
+
+# Logging modules to check that the string format arguments are in logging
+# function parameter format
+logging-modules=logging
+
+# Maximum number of lines in a module
+max-module-lines=5000
+
+[DESIGN]
+max-parents=20
