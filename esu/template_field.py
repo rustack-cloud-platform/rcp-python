@@ -4,8 +4,8 @@ from esu.base import BaseAPI, Field
 class TemplateField(BaseAPI):
     """
     Args:
-        id (str): Идентификатор сети
-        name (str): Имя сети
+        id (str): Идентификатор поля шаблона
+        name (str): Имя поля шаблона
         default (str): Значение по умолчанию
         type (str): Тип
         required (boolean): Обязательное

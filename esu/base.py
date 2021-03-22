@@ -6,19 +6,23 @@ from time import sleep, time
 import requests
 
 
-class NotFoundEx(Exception):
+class BaseEx(Exception):
     pass
 
 
-class TaskTimeoutEx(Exception):
+class NotFoundEx(BaseEx):
     pass
 
 
-class ObjectAlreadyHasId(Exception):
+class TaskTimeoutEx(BaseEx):
     pass
 
 
-class ObjectHasNoId(Exception):
+class ObjectAlreadyHasId(BaseEx):
+    pass
+
+
+class ObjectHasNoId(BaseEx):
     pass
 
 
@@ -95,11 +99,10 @@ class BaseAPI:
         if resp.status_code == 404:
             raise NotFoundEx('Resource not found')
 
+        resp.raise_for_status()
+
         if resp.status_code != 204:
             answer = resp.json()
-
-        if resp.status_code > 299:
-            raise Exception(answer)
 
         for task_id in resp.headers.get('X-Esu-Tasks', '').split(','):
             task_id = task_id.strip()

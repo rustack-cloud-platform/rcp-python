@@ -1,5 +1,5 @@
 from esu.base import BaseAPI, Field, FieldList, ObjectAlreadyHasId, \
-    ObjectHasNoId
+    ObjectHasNoId, resolve
 
 
 class Router(BaseAPI):
@@ -104,7 +104,7 @@ class Router(BaseAPI):
         """
         port = self._call('POST', 'v1/port', router=self.id,
                           network=port.network.id)
-        self.ports.append(port)
+        self.ports.append(resolve('esu.Port')(token=self.token, **port))
 
     def remove_port(self, port):
         """

@@ -41,7 +41,7 @@ def test_create(rsps):
 
 
 @load_fixtures
-def t_est_create_with_subnet(rsps):
+def test_create_with_subnet(rsps):
     vdc_id = '70eb1ec5-3e54-4df8-a096-ec26526ec89b'
     vdc = Vdc.get_object(vdc_id)
 
@@ -54,7 +54,7 @@ def t_est_create_with_subnet(rsps):
     network.create()
 
     assert len(network.subnets) == 1
-    # assert network.name == 'Brand New Network'
+    assert network.name == 'Brand New Network with subnet'
     # assert network.vdc.id == vdc.id
 
 

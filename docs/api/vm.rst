@@ -21,6 +21,7 @@ Windows, может иметь несколько сетевых подключ�
 
 .. code-block:: python
 
+  from requests import HTTPError
   from esu import Manager, VmMetadata, Port, Disk, Vm
 
   vdc = Manager().get_all_vdcs()[0]  # Первый доступный пользователю ВЦОД
@@ -42,7 +43,13 @@ Windows, может иметь несколько сетевых подключ�
 
   vm = Vm(name='Новый сервер', cpu=2, ram=2, vdc=vdc, template=template,
           metadata=metadata, ports=[port], disks=[disk])
-  vm.create()
+
+  try:
+      vm.create()
+  except HTTPError as ex:
+      api_answer = ex.response.json()
+      print(f'Error has happend: {api_answer}')
+  
 
 
 Назначить случайный плавающий IP адрес на существующий виртуальный сервер:

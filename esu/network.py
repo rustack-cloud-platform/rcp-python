@@ -1,5 +1,5 @@
 from esu.base import BaseAPI, Field, FieldList, ObjectAlreadyHasId, \
-    ObjectHasNoId
+    ObjectHasNoId, resolve
 
 
 class Network(BaseAPI):
@@ -100,12 +100,12 @@ class Network(BaseAPI):
         if subnet.id:
             raise ValueError('You must pass a new Subnet object')
 
-        self._call('POST', 'v1/network/{}/subnet'.format(self.id),
-                   cidr=subnet.cidr, gateway=subnet.gateway,
-                   start_ip=subnet.start_ip, end_ip=subnet.end_ip,
-                   enable_dhcp=subnet.enable_dhcp, subnet_routes=[],
-                   dns_servers=[])
-        self.subnets.append(subnet)
+        subnet = self._call('POST', 'v1/network/{}/subnet'.format(self.id),
+                            cidr=subnet.cidr, gateway=subnet.gateway,
+                            start_ip=subnet.start_ip, end_ip=subnet.end_ip,
+                            enable_dhcp=subnet.enable_dhcp, subnet_routes=[],
+                            dns_servers=[])
+        self.subnets.append(resolve('esu.Subnet')(token=self.token, **subnet))
 
     def remove_subnet(self, subnet):
         """

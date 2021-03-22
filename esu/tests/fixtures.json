@@ -11,7 +11,7 @@
             "items": [
                 {
                     "id": "e3b13d8e-c8fe-4855-b148-810764789e15",
-                    "ctime": "2021-01-03T13:07:16.222958",
+                    "ctime": "2021-03-22T02:49:53.177616",
                     "projects": 1,
                     "contact_emails": [
                         {
@@ -26,6 +26,7 @@
                         "name": "default"
                     },
                     "internet": 10,
+                    "lan": 1000,
                     "payment_model": "postpay",
                     "payment_methods": [],
                     "contract": {
@@ -54,7 +55,7 @@
                 },
                 {
                     "id": "d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9",
-                    "ctime": "2021-01-03T13:07:16.095325",
+                    "ctime": "2021-03-22T02:49:53.101378",
                     "projects": 2,
                     "contact_emails": [
                         {
@@ -69,6 +70,7 @@
                         "name": "default"
                     },
                     "internet": 10,
+                    "lan": 1000,
                     "payment_model": "postpay",
                     "payment_methods": [],
                     "contract": {
@@ -232,7 +234,7 @@
             "items": [
                 {
                     "id": "fd20bb3b-b37c-4d77-8f3d-27c167b0d890",
-                    "ctime": "2021-01-03T13:07:16.232853",
+                    "ctime": "2021-03-22T02:49:53.182845",
                     "locked": false,
                     "job_id": null,
                     "name": "kvm",
@@ -244,7 +246,7 @@
                 },
                 {
                     "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
-                    "ctime": "2021-01-03T13:07:16.144404",
+                    "ctime": "2021-03-22T02:49:53.132319",
                     "locked": false,
                     "job_id": null,
                     "name": "kvm",
@@ -256,7 +258,7 @@
                 },
                 {
                     "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
-                    "ctime": "2021-01-03T13:07:16.108249",
+                    "ctime": "2021-03-22T02:49:53.109929",
                     "locked": false,
                     "job_id": null,
                     "name": "vmWare",
@@ -297,14 +299,14 @@
             "items": [
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335015",
-                    "ctime": "2021-01-03T13:07:16.220192",
+                    "ctime": "2021-03-22T02:49:53.175324",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -319,6 +321,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -326,14 +329,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335014",
-                    "ctime": "2021-01-03T13:07:16.217588",
+                    "ctime": "2021-03-22T02:49:53.174091",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -348,6 +351,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -355,14 +359,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335013",
-                    "ctime": "2021-01-03T13:07:16.215079",
+                    "ctime": "2021-03-22T02:49:53.172848",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -377,6 +381,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -384,14 +389,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335012",
-                    "ctime": "2021-01-03T13:07:16.212494",
+                    "ctime": "2021-03-22T02:49:53.171599",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -406,6 +411,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -413,14 +419,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335011",
-                    "ctime": "2021-01-03T13:07:16.208949",
+                    "ctime": "2021-03-22T02:49:53.170299",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -435,6 +441,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -442,14 +449,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335010",
-                    "ctime": "2021-01-03T13:07:16.206410",
+                    "ctime": "2021-03-22T02:49:53.168866",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -464,6 +471,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -471,14 +479,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335009",
-                    "ctime": "2021-01-03T13:07:16.203966",
+                    "ctime": "2021-03-22T02:49:53.167296",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -493,6 +501,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -500,14 +509,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335008",
-                    "ctime": "2021-01-03T13:07:16.201559",
+                    "ctime": "2021-03-22T02:49:53.165843",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -522,6 +531,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -529,14 +539,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335007",
-                    "ctime": "2021-01-03T13:07:16.198969",
+                    "ctime": "2021-03-22T02:49:53.164425",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -551,6 +561,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -558,14 +569,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335006",
-                    "ctime": "2021-01-03T13:07:16.196560",
+                    "ctime": "2021-03-22T02:49:53.162890",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -580,6 +591,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -602,14 +614,14 @@
             "items": [
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335005",
-                    "ctime": "2021-01-03T13:07:16.194086",
+                    "ctime": "2021-03-22T02:49:53.161303",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -624,6 +636,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -631,14 +644,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335004",
-                    "ctime": "2021-01-03T13:07:16.191640",
+                    "ctime": "2021-03-22T02:49:53.159440",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -653,6 +666,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -660,14 +674,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335003",
-                    "ctime": "2021-01-03T13:07:16.189208",
+                    "ctime": "2021-03-22T02:49:53.157794",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -682,6 +696,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -689,14 +704,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335002",
-                    "ctime": "2021-01-03T13:07:16.186763",
+                    "ctime": "2021-03-22T02:49:53.156146",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -711,6 +726,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -718,14 +734,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335001",
-                    "ctime": "2021-01-03T13:07:16.184322",
+                    "ctime": "2021-03-22T02:49:53.153883",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -740,6 +756,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -747,14 +764,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335000",
-                    "ctime": "2021-01-03T13:07:16.181860",
+                    "ctime": "2021-03-22T02:49:53.152127",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -769,6 +786,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -776,14 +794,14 @@
                 },
                 {
                     "id": "5506be98-0394-49ad-bb3d-e8ac183865a3",
-                    "ctime": "2021-01-03T13:07:16.174171",
+                    "ctime": "2021-03-22T02:49:53.147822",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -798,25 +816,29 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "370599e6-e1bf-45cc-9b66-a5ace6b9b439",
+                            "id": "cfae1346-a3e1-4891-84be-3f0decc0b077",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 10,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "e6f36ecc-5fee-485b-a5f0-7ed2caf2703d",
-                            "ctime": "2021-01-03T13:07:16.175762",
+                            "id": "2ec67e09-5ed3-46e4-a552-208a826e45de",
+                            "ctime": "2021-03-22T02:49:53.148722",
                             "network": {
                                 "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                                 "name": "Default",
@@ -841,7 +863,7 @@
                         },
                         {
                             "id": "9135f5f1-f640-4ac1-b400-456775ca78a3",
-                            "ctime": "2021-01-03T13:07:16.177310",
+                            "ctime": "2021-03-22T02:49:53.149662",
                             "network": {
                                 "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
                                 "name": "Default",
@@ -870,14 +892,14 @@
                 },
                 {
                     "id": "17580bd1-b548-4214-8614-6cfee656bd6f",
-                    "ctime": "2021-01-03T13:07:16.168437",
+                    "ctime": "2021-03-22T02:49:53.144441",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -892,25 +914,29 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "6e8b1e01-a8f4-4405-949e-1de1850329ec",
+                            "id": "a03cb3d6-82e1-43e0-a52b-e93cb948e7c6",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 10,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "c23f9204-91e0-4f57-9dd7-ec9fc8f09ca3",
-                            "ctime": "2021-01-03T13:07:16.170045",
+                            "id": "6bbb2964-20eb-414c-b5c1-e40effaf9332",
+                            "ctime": "2021-03-22T02:49:53.145221",
                             "network": {
                                 "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                                 "name": "Default",
@@ -939,14 +965,14 @@
                 },
                 {
                     "id": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
-                    "ctime": "2021-01-03T13:07:16.133850",
+                    "ctime": "2021-03-22T02:49:53.125929",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -961,38 +987,45 @@
                     "power": false,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "13538c3f-e58d-4a4f-9222-9e48743bd521",
+                            "id": "ff83ea25-f6b4-4b4f-8c98-0ada919dc9c7",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 14,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         },
                         {
                             "id": "5fbd6cf8-b346-434f-8192-884fb36f3c2c",
                             "name": "Disk 2",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 15,
                             "scsi": "0:1",
                             "is_root": false,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "00b1a167-400b-4ee4-8a80-83c934e1a06a",
-                            "ctime": "2021-01-03T13:07:16.135319",
+                            "id": "2dc53054-6942-489d-b2e5-934a42616a4a",
+                            "ctime": "2021-03-22T02:49:53.126718",
                             "network": {
                                 "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                                 "name": "Default",
@@ -1021,14 +1054,14 @@
                 },
                 {
                     "id": "b795bc88-5b9c-49b7-bed6-91669794bfda",
-                    "ctime": "2021-01-03T13:07:16.126300",
+                    "ctime": "2021-03-22T02:49:53.121695",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -1043,25 +1076,29 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "6618932f-bf90-4cd4-85f7-e7d2115f37be",
+                            "id": "2597f4b2-5ad2-46c7-b26a-2d7b8a5e3fb8",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 10,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "77d22b30-ad52-437d-996e-7de32e83e757",
-                            "ctime": "2021-01-03T13:07:16.128048",
+                            "id": "ff9af73c-eb21-4119-8184-a3a8445f0a90",
+                            "ctime": "2021-03-22T02:49:53.122633",
                             "network": {
                                 "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                                 "name": "Default",
@@ -1105,14 +1142,14 @@
             "items": [
                 {
                     "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
-                    "ctime": "2021-01-03T13:07:16.120181",
+                    "ctime": "2021-03-22T02:49:53.116721",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -1127,25 +1164,29 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "2a2c6ee0-b2d9-4e84-a31e-661349dd2ed9",
+                            "id": "a89febb2-a4eb-405d-a36c-c27338f1f119",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 11,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "d1f3a4bb-4648-413c-a70c-eb1394916560",
-                            "ctime": "2021-01-03T13:07:16.121987",
+                            "id": "a0ffcbd8-122c-4848-88d0-1487c770f5aa",
+                            "ctime": "2021-03-22T02:49:53.118664",
                             "network": {
                                 "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                                 "name": "Default",
@@ -1213,7 +1254,7 @@
         },
         "response": {
             "id": "d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9",
-            "ctime": "2021-01-03T13:07:16.095325",
+            "ctime": "2021-03-22T02:49:53.101378",
             "projects": 2,
             "contact_emails": [
                 {
@@ -1228,6 +1269,7 @@
                 "name": "default"
             },
             "internet": 10,
+            "lan": 1000,
             "payment_model": "postpay",
             "payment_methods": [],
             "contract": {
@@ -1453,7 +1495,7 @@
             "Allow": "GET, POST, HEAD, OPTIONS"
         },
         "response": {
-            "id": "77aacbaf-deff-432c-a06b-55dd96302a6e",
+            "id": "b9ed1656-76d3-4174-a350-7f68afbdb701",
             "client": {
                 "id": "d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9",
                 "name": "default",
@@ -1547,7 +1589,7 @@
             "items": [
                 {
                     "id": "fd20bb3b-b37c-4d77-8f3d-27c167b0d890",
-                    "ctime": "2021-01-03T13:07:16.232853",
+                    "ctime": "2021-03-22T02:49:53.182845",
                     "locked": false,
                     "job_id": null,
                     "name": "kvm",
@@ -1559,7 +1601,7 @@
                 },
                 {
                     "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
-                    "ctime": "2021-01-03T13:07:16.108249",
+                    "ctime": "2021-03-22T02:49:53.109929",
                     "locked": false,
                     "job_id": null,
                     "name": "vmWare",
@@ -1610,7 +1652,7 @@
         },
         "response": {
             "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
-            "ctime": "2021-01-03T13:07:16.108249",
+            "ctime": "2021-03-22T02:49:53.109929",
             "locked": false,
             "job_id": null,
             "name": "vmWare",
@@ -1631,7 +1673,7 @@
         },
         "response": {
             "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
-            "ctime": "2021-01-03T13:07:16.144404",
+            "ctime": "2021-03-22T02:49:53.132319",
             "locked": false,
             "job_id": null,
             "name": "kvm",
@@ -1649,13 +1691,13 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, POST, HEAD, OPTIONS",
-            "X-Esu-Tasks": "7c693e62-4b41-4499-b0d5-d01f32f520ff"
+            "X-Esu-Tasks": "2d2fd297-3990-4ae9-b419-cb1ef3049a3e"
         },
         "response": {
-            "id": "cec48f51-4582-4c52-a755-f0f01926cc3c",
-            "ctime": "2021-01-03T13:07:17.165989",
+            "id": "d4edeb9b-1029-4ee3-859d-4c0c54b0a69f",
+            "ctime": "2021-03-22T02:49:53.868866",
             "locked": true,
-            "job_id": "7c693e62-4b41-4499-b0d5-d01f32f520ff",
+            "job_id": "2d2fd297-3990-4ae9-b419-cb1ef3049a3e",
             "name": "Brand New Vdc",
             "project": {
                 "id": "a737cd39-e7a7-46b8-a756-fb8ccceeed8f",
@@ -1679,7 +1721,7 @@
         },
         "response": {
             "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
-            "ctime": "2021-01-03T13:07:16.108249",
+            "ctime": "2021-03-22T02:49:53.109929",
             "locked": false,
             "job_id": null,
             "name": "Vdc New Name",
@@ -1702,13 +1744,13 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
-            "X-Esu-Tasks": "ebf9db86-6cf3-4d88-8363-8e65ece4e460"
+            "X-Esu-Tasks": "d822e8fc-2c54-414f-ad92-67f3b108fb91"
         },
         "response": {
             "id": "fd20bb3b-b37c-4d77-8f3d-27c167b0d890",
-            "ctime": "2021-01-03T13:07:16.232853",
+            "ctime": "2021-03-22T02:49:53.182845",
             "locked": true,
-            "job_id": "ebf9db86-6cf3-4d88-8363-8e65ece4e460",
+            "job_id": "d822e8fc-2c54-414f-ad92-67f3b108fb91",
             "name": "kvm"
         },
         "request": {}
@@ -1725,14 +1767,14 @@
             "items": [
                 {
                     "id": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
-                    "ctime": "2021-01-03T13:07:16.133850",
+                    "ctime": "2021-03-22T02:49:53.125929",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -1747,38 +1789,45 @@
                     "power": false,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "13538c3f-e58d-4a4f-9222-9e48743bd521",
+                            "id": "ff83ea25-f6b4-4b4f-8c98-0ada919dc9c7",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 14,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         },
                         {
                             "id": "5fbd6cf8-b346-434f-8192-884fb36f3c2c",
                             "name": "Disk 2",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 15,
                             "scsi": "0:1",
                             "is_root": false,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "00b1a167-400b-4ee4-8a80-83c934e1a06a",
-                            "ctime": "2021-01-03T13:07:16.135319",
+                            "id": "2dc53054-6942-489d-b2e5-934a42616a4a",
+                            "ctime": "2021-03-22T02:49:53.126718",
                             "network": {
                                 "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                                 "name": "Default",
@@ -1807,14 +1856,14 @@
                 },
                 {
                     "id": "b795bc88-5b9c-49b7-bed6-91669794bfda",
-                    "ctime": "2021-01-03T13:07:16.126300",
+                    "ctime": "2021-03-22T02:49:53.121695",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -1829,25 +1878,29 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "6618932f-bf90-4cd4-85f7-e7d2115f37be",
+                            "id": "2597f4b2-5ad2-46c7-b26a-2d7b8a5e3fb8",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 10,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "77d22b30-ad52-437d-996e-7de32e83e757",
-                            "ctime": "2021-01-03T13:07:16.128048",
+                            "id": "ff9af73c-eb21-4119-8184-a3a8445f0a90",
+                            "ctime": "2021-03-22T02:49:53.122633",
                             "network": {
                                 "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                                 "name": "Default",
@@ -1876,14 +1929,14 @@
                 },
                 {
                     "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
-                    "ctime": "2021-01-03T13:07:16.120181",
+                    "ctime": "2021-03-22T02:49:53.116721",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -1898,25 +1951,29 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "2a2c6ee0-b2d9-4e84-a31e-661349dd2ed9",
+                            "id": "a89febb2-a4eb-405d-a36c-c27338f1f119",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 11,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "d1f3a4bb-4648-413c-a70c-eb1394916560",
-                            "ctime": "2021-01-03T13:07:16.121987",
+                            "id": "a0ffcbd8-122c-4848-88d0-1487c770f5aa",
+                            "ctime": "2021-03-22T02:49:53.118664",
                             "network": {
                                 "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                                 "name": "Default",
@@ -1974,14 +2031,14 @@
             "items": [
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335015",
-                    "ctime": "2021-01-03T13:07:16.220192",
+                    "ctime": "2021-03-22T02:49:53.175324",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -1996,6 +2053,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2003,14 +2061,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335014",
-                    "ctime": "2021-01-03T13:07:16.217588",
+                    "ctime": "2021-03-22T02:49:53.174091",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2025,6 +2083,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2032,14 +2091,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335013",
-                    "ctime": "2021-01-03T13:07:16.215079",
+                    "ctime": "2021-03-22T02:49:53.172848",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2054,6 +2113,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2061,14 +2121,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335012",
-                    "ctime": "2021-01-03T13:07:16.212494",
+                    "ctime": "2021-03-22T02:49:53.171599",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2083,6 +2143,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2090,14 +2151,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335011",
-                    "ctime": "2021-01-03T13:07:16.208949",
+                    "ctime": "2021-03-22T02:49:53.170299",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2112,6 +2173,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2119,14 +2181,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335010",
-                    "ctime": "2021-01-03T13:07:16.206410",
+                    "ctime": "2021-03-22T02:49:53.168866",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2141,6 +2203,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2148,14 +2211,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335009",
-                    "ctime": "2021-01-03T13:07:16.203966",
+                    "ctime": "2021-03-22T02:49:53.167296",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2170,6 +2233,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2177,14 +2241,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335008",
-                    "ctime": "2021-01-03T13:07:16.201559",
+                    "ctime": "2021-03-22T02:49:53.165843",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2199,6 +2263,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2206,14 +2271,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335007",
-                    "ctime": "2021-01-03T13:07:16.198969",
+                    "ctime": "2021-03-22T02:49:53.164425",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2228,6 +2293,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2235,14 +2301,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335006",
-                    "ctime": "2021-01-03T13:07:16.196560",
+                    "ctime": "2021-03-22T02:49:53.162890",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2257,6 +2323,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2279,14 +2346,14 @@
             "items": [
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335005",
-                    "ctime": "2021-01-03T13:07:16.194086",
+                    "ctime": "2021-03-22T02:49:53.161303",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2301,6 +2368,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2308,14 +2376,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335004",
-                    "ctime": "2021-01-03T13:07:16.191640",
+                    "ctime": "2021-03-22T02:49:53.159440",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2330,6 +2398,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2337,14 +2406,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335003",
-                    "ctime": "2021-01-03T13:07:16.189208",
+                    "ctime": "2021-03-22T02:49:53.157794",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2359,6 +2428,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2366,14 +2436,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335002",
-                    "ctime": "2021-01-03T13:07:16.186763",
+                    "ctime": "2021-03-22T02:49:53.156146",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2388,6 +2458,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2395,14 +2466,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335001",
-                    "ctime": "2021-01-03T13:07:16.184322",
+                    "ctime": "2021-03-22T02:49:53.153883",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2417,6 +2488,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2424,14 +2496,14 @@
                 },
                 {
                     "id": "3f69273f-1d77-4ef7-af31-c93221335000",
-                    "ctime": "2021-01-03T13:07:16.181860",
+                    "ctime": "2021-03-22T02:49:53.152127",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd101",
                         "name": "KVM Debian 10",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2446,6 +2518,7 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [],
                     "ports": [],
                     "floating": null,
@@ -2453,14 +2526,14 @@
                 },
                 {
                     "id": "5506be98-0394-49ad-bb3d-e8ac183865a3",
-                    "ctime": "2021-01-03T13:07:16.174171",
+                    "ctime": "2021-03-22T02:49:53.147822",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2475,25 +2548,29 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "370599e6-e1bf-45cc-9b66-a5ace6b9b439",
+                            "id": "cfae1346-a3e1-4891-84be-3f0decc0b077",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 10,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "e6f36ecc-5fee-485b-a5f0-7ed2caf2703d",
-                            "ctime": "2021-01-03T13:07:16.175762",
+                            "id": "2ec67e09-5ed3-46e4-a552-208a826e45de",
+                            "ctime": "2021-03-22T02:49:53.148722",
                             "network": {
                                 "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                                 "name": "Default",
@@ -2518,7 +2595,7 @@
                         },
                         {
                             "id": "9135f5f1-f640-4ac1-b400-456775ca78a3",
-                            "ctime": "2021-01-03T13:07:16.177310",
+                            "ctime": "2021-03-22T02:49:53.149662",
                             "network": {
                                 "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
                                 "name": "Default",
@@ -2547,14 +2624,14 @@
                 },
                 {
                     "id": "17580bd1-b548-4214-8614-6cfee656bd6f",
-                    "ctime": "2021-01-03T13:07:16.168437",
+                    "ctime": "2021-03-22T02:49:53.144441",
                     "locked": false,
                     "job_id": null,
                     "template": {
                         "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                         "name": "VMWARE Ubuntu 18",
                         "description": "",
-                        "icon": ""
+                        "icon": null
                     },
                     "vdc": {
                         "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -2569,25 +2646,29 @@
                     "power": true,
                     "hotadd_feature": false,
                     "snapshots": 0,
+                    "kubernetes": null,
                     "disks": [
                         {
-                            "id": "6e8b1e01-a8f4-4405-949e-1de1850329ec",
+                            "id": "a03cb3d6-82e1-43e0-a52b-e93cb948e7c6",
                             "name": "Disk 1",
                             "storage_profile": {
                                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                                "name": "SATA VMWARE"
+                                "name": "SATA VMWARE",
+                                "max_disk_size": 32768,
+                                "position": 1
                             },
                             "size": 10,
                             "scsi": "0:0",
                             "is_root": true,
                             "locked": false,
-                            "job_id": null
+                            "job_id": null,
+                            "has_snapshot": false
                         }
                     ],
                     "ports": [
                         {
-                            "id": "c23f9204-91e0-4f57-9dd7-ec9fc8f09ca3",
-                            "ctime": "2021-01-03T13:07:16.170045",
+                            "id": "6bbb2964-20eb-414c-b5c1-e40effaf9332",
+                            "ctime": "2021-03-22T02:49:53.145221",
                             "network": {
                                 "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                                 "name": "Default",
@@ -2643,22 +2724,23 @@
         },
         "response": [
             {
-                "id": "e2fe79bb-d00a-42ff-b5dc-9267c630f72f",
+                "id": "25e05ab7-28ad-48d4-8092-3b046170992e",
                 "name": "Ubuntu 18 (cloud)",
                 "description": "",
                 "group": {
                     "id": "00000000-0000-0000-0000-000000000000",
-                    "name": "Other templates",
-                    "icon": "",
                     "description": "",
+                    "name": "Other templates",
+                    "position": 1,
                     "system": true,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "ToochkaNew_cloud_ubuntu_18",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 1,
                 "min_hdd": 10,
@@ -2670,17 +2752,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "alipine_3.12",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2692,17 +2775,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "alpine_3.11",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2714,17 +2798,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "centos_7",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2736,17 +2821,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "centos_8",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2758,17 +2844,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "debian_10",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2780,17 +2867,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "debian_9",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2802,17 +2890,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "fedora_32",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2824,17 +2913,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "fedora_33",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2846,17 +2936,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "gentoo",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2868,17 +2959,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "ubuntu_16.04",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2890,17 +2982,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "ubuntu_18",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -2912,17 +3005,18 @@
                 "description": "",
                 "group": {
                     "id": "820b52a6-453a-4f25-adcd-7f1a7b2a6fa1",
-                    "name": "Windows Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Windows Family",
+                    "position": 2,
                     "system": false,
-                    "position": 2
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "windows_2010",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 2,
                 "min_ram": 4,
                 "min_hdd": 40,
@@ -2934,17 +3028,18 @@
                 "description": "",
                 "group": {
                     "id": "820b52a6-453a-4f25-adcd-7f1a7b2a6fa1",
-                    "name": "Windows Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Windows Family",
+                    "position": 2,
                     "system": false,
-                    "position": 2
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "windows_2012",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 2,
                 "min_ram": 4,
                 "min_hdd": 40,
@@ -2956,17 +3051,18 @@
                 "description": "",
                 "group": {
                     "id": "820b52a6-453a-4f25-adcd-7f1a7b2a6fa1",
-                    "name": "Windows Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Windows Family",
+                    "position": 2,
                     "system": false,
-                    "position": 2
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "windows_2016",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 2,
                 "min_ram": 4,
                 "min_hdd": 40,
@@ -2978,17 +3074,18 @@
                 "description": "",
                 "group": {
                     "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                    "name": "Linux Family",
-                    "icon": "",
                     "description": "",
+                    "name": "Linux Family",
+                    "position": 1,
                     "system": false,
-                    "position": 1
+                    "icon": null
                 },
                 "vdc": null,
                 "vm_internal_id": "opensuse_15.2",
                 "enabled": true,
+                "is_windows": false,
                 "hypervisor_type": "vmware",
-                "icon": "",
+                "icon": null,
                 "min_cpu": 1,
                 "min_ram": 2,
                 "min_hdd": 10,
@@ -3008,7 +3105,9 @@
             "items": [
                 {
                     "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                    "name": "SATA VMWARE"
+                    "name": "SATA VMWARE",
+                    "max_disk_size": 32768,
+                    "position": 1
                 }
             ],
             "total": 1,
@@ -3055,18 +3154,19 @@
             "description": "",
             "group": {
                 "id": "2a66312a-66ae-4bab-b29c-eb4e44c72105",
-                "name": "Linux Family",
-                "icon": "",
                 "description": "",
+                "name": "Linux Family",
+                "position": 1,
                 "system": false,
-                "position": 1
+                "icon": null
             },
             "vdc": null,
             "vm_internal_id": "ubuntu_16.04",
             "enabled": true,
+            "is_windows": false,
             "hypervisor_type": "vmware",
             "metadata_script": "",
-            "icon": "",
+            "icon": null,
             "min_cpu": 1,
             "min_ram": 2,
             "min_hdd": 10,
@@ -3119,7 +3219,9 @@
         },
         "response": {
             "id": "563a9b7c-419a-4630-9ac8-8022d740f12a",
-            "name": "SATA KVM"
+            "name": "SATA KVM",
+            "max_disk_size": 32768,
+            "position": 1
         }
     },
     {
@@ -3132,7 +3234,9 @@
         },
         "response": {
             "id": "563a9b7c-419a-4630-9ac8-8022d740f12a",
-            "name": "SATA KVM"
+            "name": "SATA KVM",
+            "max_disk_size": 32768,
+            "position": 1
         }
     },
     {
@@ -3145,7 +3249,9 @@
         },
         "response": {
             "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-            "name": "SATA VMWARE"
+            "name": "SATA VMWARE",
+            "max_disk_size": 32768,
+            "position": 1
         }
     },
     {
@@ -3169,7 +3275,7 @@
             "Allow": "GET, POST, HEAD, OPTIONS"
         },
         "response": {
-            "id": "6a76bc19-368e-402a-bbe0-89a4f321bfce",
+            "id": "d6036585-79a8-4961-a102-d097eaf8d5b7",
             "cidr": "10.22.23.0/24",
             "ip_version": 4,
             "gateway": "10.22.23.1",
@@ -3283,7 +3389,7 @@
                             "dns_servers": []
                         },
                         {
-                            "id": "6a76bc19-368e-402a-bbe0-89a4f321bfce",
+                            "id": "d6036585-79a8-4961-a102-d097eaf8d5b7",
                             "cidr": "10.22.23.0/24",
                             "ip_version": 4,
                             "gateway": "10.22.23.1",
@@ -3366,7 +3472,7 @@
                     "dns_servers": []
                 },
                 {
-                    "id": "6a76bc19-368e-402a-bbe0-89a4f321bfce",
+                    "id": "d6036585-79a8-4961-a102-d097eaf8d5b7",
                     "cidr": "10.22.23.0/24",
                     "ip_version": 4,
                     "gateway": "10.22.23.1",
@@ -3473,7 +3579,7 @@
         },
         "response": {
             "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
-            "ctime": "2021-01-03T13:07:16.108249",
+            "ctime": "2021-03-22T02:49:53.109929",
             "locked": false,
             "job_id": null,
             "name": "Vdc New Name",
@@ -3491,12 +3597,12 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, POST, HEAD, OPTIONS",
-            "X-Esu-Tasks": "96602b7e-527f-48c5-916d-5770e43289d1"
+            "X-Esu-Tasks": "6616d8ec-6b05-418c-9a2d-9840a166a021"
         },
         "response": {
-            "id": "005ecd6e-9a97-41ab-a987-937dc7be1036",
+            "id": "7f73efe5-0109-4109-b11a-07cfacaabdc3",
             "locked": true,
-            "job_id": "96602b7e-527f-48c5-916d-5770e43289d1",
+            "job_id": "6616d8ec-6b05-418c-9a2d-9840a166a021",
             "vdc": {
                 "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "name": "Vdc New Name",
@@ -3511,7 +3617,7 @@
                 "name": "default",
                 "segment_type": "vlan"
             },
-            "vnid": 513,
+            "vnid": 514,
             "subnets": []
         },
         "request": {
@@ -3526,12 +3632,12 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, POST, HEAD, OPTIONS",
-            "X-Esu-Tasks": "faa205c4-18c1-46ea-aa0f-21e644551292"
+            "X-Esu-Tasks": "eb0ab1d5-c3e1-438c-9d3a-7a6b4ac3b319"
         },
         "response": {
-            "id": "ff109699-0542-43d7-beea-a0260360f9e0",
+            "id": "081ff795-9073-4010-9e9f-90f8182067fe",
             "locked": true,
-            "job_id": "faa205c4-18c1-46ea-aa0f-21e644551292",
+            "job_id": "eb0ab1d5-c3e1-438c-9d3a-7a6b4ac3b319",
             "vdc": {
                 "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
                 "name": "kvm",
@@ -3546,12 +3652,41 @@
                 "name": "default",
                 "segment_type": "vlan"
             },
-            "vnid": 514,
+            "vnid": 512,
             "subnets": []
         },
         "request": {
             "vdc": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
             "name": "Brand New Network with subnet"
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/network/081ff795-9073-4010-9e9f-90f8182067fe/subnet",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "da1710fb-0797-42c2-87e0-a91d4e7e734a",
+            "cidr": "10.49.1.0/24",
+            "ip_version": 4,
+            "gateway": "10.49.1.1",
+            "start_ip": "10.49.1.2",
+            "end_ip": "10.49.1.254",
+            "enable_dhcp": true,
+            "subnet_routes": [],
+            "dns_servers": []
+        },
+        "request": {
+            "cidr": "10.49.1.0/24",
+            "gateway": "10.49.1.1",
+            "start_ip": "10.49.1.2",
+            "end_ip": "10.49.1.254",
+            "enable_dhcp": true,
+            "subnet_routes": [],
+            "dns_servers": []
         }
     },
     {
@@ -3670,7 +3805,7 @@
         "status": 204,
         "headers": {
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
-            "X-Esu-Tasks": "f12e170c-f360-4e7e-92f0-7ab0e252d5a7"
+            "X-Esu-Tasks": "1d1c1399-7b9d-4a19-81b0-5a238ef5ec62"
         },
         "response": null,
         "request": {}
@@ -3691,7 +3826,7 @@
                     "is_default": true,
                     "connlimit": 65536,
                     "floating": {
-                        "id": "d5674e2d-d976-4b07-b660-ec1b1687c8fc",
+                        "id": "02148849-ed23-4887-a96a-ae126f7d9a33",
                         "ip_address": "74.53.11.20"
                     },
                     "locked": false,
@@ -3706,8 +3841,8 @@
                     },
                     "ports": [
                         {
-                            "id": "5f4e4d2b-b830-4c82-bc66-ffe412d4d787",
-                            "ctime": "2021-01-03T13:07:16.117419",
+                            "id": "7c979129-a6be-4f9f-9f97-c657cde48ca5",
+                            "ctime": "2021-03-22T02:49:53.115297",
                             "network": {
                                 "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                                 "name": "Default",
@@ -3792,8 +3927,8 @@
             },
             "ports": [
                 {
-                    "id": "f5ddf6b1-68ad-4827-a742-349b1e252895",
-                    "ctime": "2021-01-03T13:07:16.161357",
+                    "id": "2bdb221d-5a6f-4bc8-b513-60431ecac899",
+                    "ctime": "2021-03-22T02:49:53.140790",
                     "network": {
                         "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                         "name": "Default",
@@ -3817,8 +3952,8 @@
                     "enable_security": false
                 },
                 {
-                    "id": "3ca6c2b5-00ab-4e0d-b248-8aa6e5059329",
-                    "ctime": "2021-01-03T13:07:16.162877",
+                    "id": "41a07f24-37bf-4b0c-b889-98818ae0c425",
+                    "ctime": "2021-03-22T02:49:53.141642",
                     "network": {
                         "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
                         "name": "Default",
@@ -3870,8 +4005,8 @@
             },
             "ports": [
                 {
-                    "id": "d578e081-02a5-46b6-adfb-b5269aa0f37f",
-                    "ctime": "2021-01-03T13:07:16.165968",
+                    "id": "ae50f04e-83e2-44bc-9c97-0f68d471ec53",
+                    "ctime": "2021-03-22T02:49:53.143113",
                     "network": {
                         "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                         "name": "Default",
@@ -3904,16 +4039,16 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, POST, HEAD, OPTIONS",
-            "X-Esu-Tasks": "f68524d2-7634-4e93-b7d6-54b57a80c61a"
+            "X-Esu-Tasks": "a2596cc3-2a50-4d15-910d-411d689a4bf9"
         },
         "response": {
-            "id": "7752380b-34ed-43bf-9b47-5eeb432eba66",
+            "id": "f060f547-007a-4d6d-9298-cf63534016de",
             "name": "New router",
             "is_default": false,
             "connlimit": 65536,
             "floating": null,
             "locked": true,
-            "job_id": "f68524d2-7634-4e93-b7d6-54b57a80c61a",
+            "job_id": "a2596cc3-2a50-4d15-910d-411d689a4bf9",
             "port_forwardings": [],
             "firewall_rules": [],
             "routes": [],
@@ -3924,8 +4059,8 @@
             },
             "ports": [
                 {
-                    "id": "a8b4b1af-e03a-402c-96ca-6ca1c88769dc",
-                    "ctime": "2021-01-03T13:07:18.597140",
+                    "id": "1db76da5-a611-4953-8dca-570da3ccb686",
+                    "ctime": "2021-03-22T02:49:54.589436",
                     "network": {
                         "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                         "name": "Default",
@@ -3934,7 +4069,7 @@
                     "ip_address": "10.0.1.2",
                     "fw_templates": [],
                     "connected": {
-                        "id": "7752380b-34ed-43bf-9b47-5eeb432eba66",
+                        "id": "f060f547-007a-4d6d-9298-cf63534016de",
                         "type": "router",
                         "name": "New router",
                         "vdc": {
@@ -3968,19 +4103,19 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, POST, HEAD, OPTIONS",
-            "X-Esu-Tasks": "e549d685-d493-47a0-b1b5-91103c372fd9"
+            "X-Esu-Tasks": "5121dc71-3385-4ff0-9f65-9052241c61c4"
         },
         "response": {
-            "id": "fcb383e0-9978-4cd9-b974-00fe37933592",
+            "id": "eef69416-f74f-4129-9844-978ac4926bef",
             "name": "New router with fip",
             "is_default": false,
             "connlimit": 65536,
             "floating": {
-                "id": "084091e9-2fc1-49d2-9ff2-ba060fba08a1",
-                "ip_address": "74.53.11.3"
+                "id": "8171cd08-9c07-4233-8018-14b9d8967916",
+                "ip_address": "74.53.11.4"
             },
             "locked": true,
-            "job_id": "e549d685-d493-47a0-b1b5-91103c372fd9",
+            "job_id": "5121dc71-3385-4ff0-9f65-9052241c61c4",
             "port_forwardings": [],
             "firewall_rules": [],
             "routes": [],
@@ -3991,8 +4126,8 @@
             },
             "ports": [
                 {
-                    "id": "ef5dfa57-ece5-496c-8a4c-aa4306d49078",
-                    "ctime": "2021-01-03T13:07:18.738745",
+                    "id": "ce4b27e7-b503-44e9-94f0-ca7e3db23279",
+                    "ctime": "2021-03-22T02:49:54.651118",
                     "network": {
                         "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                         "name": "Default",
@@ -4001,7 +4136,7 @@
                     "ip_address": "10.0.1.3",
                     "fw_templates": [],
                     "connected": {
-                        "id": "fcb383e0-9978-4cd9-b974-00fe37933592",
+                        "id": "eef69416-f74f-4129-9844-978ac4926bef",
                         "type": "router",
                         "name": "New router with fip",
                         "vdc": {
@@ -4057,8 +4192,8 @@
             },
             "ports": [
                 {
-                    "id": "f5ddf6b1-68ad-4827-a742-349b1e252895",
-                    "ctime": "2021-01-03T13:07:16.161357",
+                    "id": "2bdb221d-5a6f-4bc8-b513-60431ecac899",
+                    "ctime": "2021-03-22T02:49:53.140790",
                     "network": {
                         "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                         "name": "Default",
@@ -4082,8 +4217,8 @@
                     "enable_security": false
                 },
                 {
-                    "id": "3ca6c2b5-00ab-4e0d-b248-8aa6e5059329",
-                    "ctime": "2021-01-03T13:07:16.162877",
+                    "id": "41a07f24-37bf-4b0c-b889-98818ae0c425",
+                    "ctime": "2021-03-22T02:49:53.141642",
                     "network": {
                         "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
                         "name": "Default",
@@ -4128,7 +4263,7 @@
         "status": 204,
         "headers": {
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
-            "X-Esu-Tasks": "c46d678b-5a61-4336-ac91-282ed367804c"
+            "X-Esu-Tasks": "3515bc15-9ff6-4355-a6e4-f749188090e4"
         },
         "response": null,
         "request": {}
@@ -4155,14 +4290,14 @@
         },
         "response": {
             "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
-            "ctime": "2021-01-03T13:07:16.120181",
+            "ctime": "2021-03-22T02:49:53.116721",
             "locked": false,
             "job_id": null,
             "template": {
                 "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                 "name": "VMWARE Ubuntu 18",
                 "description": "",
-                "icon": ""
+                "icon": null
             },
             "vdc": {
                 "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -4178,25 +4313,29 @@
             "power": true,
             "hotadd_feature": false,
             "snapshots": 0,
+            "kubernetes": null,
             "disks": [
                 {
-                    "id": "2a2c6ee0-b2d9-4e84-a31e-661349dd2ed9",
+                    "id": "a89febb2-a4eb-405d-a36c-c27338f1f119",
                     "name": "Disk 1",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 11,
                     "scsi": "0:0",
                     "is_root": true,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 }
             ],
             "ports": [
                 {
-                    "id": "d1f3a4bb-4648-413c-a70c-eb1394916560",
-                    "ctime": "2021-01-03T13:07:16.121987",
+                    "id": "a0ffcbd8-122c-4848-88d0-1487c770f5aa",
+                    "ctime": "2021-03-22T02:49:53.118664",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -4234,14 +4373,14 @@
         },
         "response": {
             "id": "17580bd1-b548-4214-8614-6cfee656bd6f",
-            "ctime": "2021-01-03T13:07:16.168437",
+            "ctime": "2021-03-22T02:49:53.144441",
             "locked": false,
             "job_id": null,
             "template": {
                 "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                 "name": "VMWARE Ubuntu 18",
                 "description": "",
-                "icon": ""
+                "icon": null
             },
             "vdc": {
                 "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -4257,25 +4396,29 @@
             "power": true,
             "hotadd_feature": false,
             "snapshots": 0,
+            "kubernetes": null,
             "disks": [
                 {
-                    "id": "6e8b1e01-a8f4-4405-949e-1de1850329ec",
+                    "id": "a03cb3d6-82e1-43e0-a52b-e93cb948e7c6",
                     "name": "Disk 1",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 10,
                     "scsi": "0:0",
                     "is_root": true,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 }
             ],
             "ports": [
                 {
-                    "id": "c23f9204-91e0-4f57-9dd7-ec9fc8f09ca3",
-                    "ctime": "2021-01-03T13:07:16.170045",
+                    "id": "6bbb2964-20eb-414c-b5c1-e40effaf9332",
+                    "ctime": "2021-03-22T02:49:53.145221",
                     "network": {
                         "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                         "name": "Default",
@@ -4313,14 +4456,14 @@
         },
         "response": {
             "id": "5506be98-0394-49ad-bb3d-e8ac183865a3",
-            "ctime": "2021-01-03T13:07:16.174171",
+            "ctime": "2021-03-22T02:49:53.147822",
             "locked": false,
             "job_id": null,
             "template": {
                 "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                 "name": "VMWARE Ubuntu 18",
                 "description": "",
-                "icon": ""
+                "icon": null
             },
             "vdc": {
                 "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -4336,25 +4479,29 @@
             "power": true,
             "hotadd_feature": false,
             "snapshots": 0,
+            "kubernetes": null,
             "disks": [
                 {
-                    "id": "370599e6-e1bf-45cc-9b66-a5ace6b9b439",
+                    "id": "cfae1346-a3e1-4891-84be-3f0decc0b077",
                     "name": "Disk 1",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 10,
                     "scsi": "0:0",
                     "is_root": true,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 }
             ],
             "ports": [
                 {
-                    "id": "e6f36ecc-5fee-485b-a5f0-7ed2caf2703d",
-                    "ctime": "2021-01-03T13:07:16.175762",
+                    "id": "2ec67e09-5ed3-46e4-a552-208a826e45de",
+                    "ctime": "2021-03-22T02:49:53.148722",
                     "network": {
                         "id": "9c7d5517-e920-4df0-aced-0146c3f67ff8",
                         "name": "Default",
@@ -4379,7 +4526,7 @@
                 },
                 {
                     "id": "9135f5f1-f640-4ac1-b400-456775ca78a3",
-                    "ctime": "2021-01-03T13:07:16.177310",
+                    "ctime": "2021-03-22T02:49:53.149662",
                     "network": {
                         "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
                         "name": "Default",
@@ -4414,18 +4561,18 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, POST, HEAD, OPTIONS",
-            "X-Esu-Tasks": "8d78ca41-171e-495e-9cd9-f6bffe95f22b"
+            "X-Esu-Tasks": "af365b72-6866-43de-9dd9-df901e7f988f"
         },
         "response": {
-            "id": "dbf57f54-feca-4668-aabf-0e96aa87f94f",
-            "ctime": "2021-01-03T13:07:19.151741",
+            "id": "535941e0-3b8f-4b37-8508-26fab0fee21d",
+            "ctime": "2021-03-22T02:49:54.882250",
             "locked": true,
-            "job_id": "8d78ca41-171e-495e-9cd9-f6bffe95f22b",
+            "job_id": "af365b72-6866-43de-9dd9-df901e7f988f",
             "template": {
                 "id": "70722cb1-6e03-4900-ad78-b680205cd002",
                 "name": "VMWARE Ubuntu 16.04",
                 "description": "",
-                "icon": ""
+                "icon": null
             },
             "vdc": {
                 "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -4451,44 +4598,51 @@
                         "system_alias": "password",
                         "position": 1
                     },
-                    "value": "$6$3ShrBgKlUYfjDNqX$sVzCj3AhXKmqTkQh/L2OXih5LLTGX3CaFclXuaZ2gyZu2MZqFVjOHghQslb3fiXogkKlnhOH7Fh8WFm0yiIbE0"
+                    "value": "$6$mnrighqZHXYSSlwB$QIe7pjH.WFRCLfnBRiSTkmWtmk.2RTruEOSNVq9LBebdbJS7RxMwr807WzDpWvhvXSISSrTGuvXXWfjMslJVl1"
                 }
             ],
             "power": true,
             "hotadd_feature": false,
             "snapshots": 0,
+            "kubernetes": null,
             "disks": [
                 {
-                    "id": "e1fdd94f-7346-49dc-877a-b1846b935a41",
+                    "id": "aac28aa7-ddfd-438c-a980-494a5f352442",
                     "name": "Main disk #1",
                     "storage_profile": {
                         "id": "563a9b7c-419a-4630-9ac8-8022d740f12a",
-                        "name": "SATA KVM"
+                        "name": "SATA KVM",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 10,
                     "scsi": "0:0",
                     "is_root": true,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 },
                 {
-                    "id": "3f49844f-f11c-45f6-b9b4-773d389f0b74",
+                    "id": "1d7da7e2-1861-4c06-95e7-b17fe1567e72",
                     "name": "Second disk #2",
                     "storage_profile": {
                         "id": "563a9b7c-419a-4630-9ac8-8022d740f12a",
-                        "name": "SATA KVM"
+                        "name": "SATA KVM",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 12,
                     "scsi": "0:1",
                     "is_root": false,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 }
             ],
             "ports": [
                 {
-                    "id": "aadfc256-cdf3-43d6-83c5-27c02284abf2",
-                    "ctime": "2021-01-03T13:07:19.273123",
+                    "id": "0852868f-deb5-4996-b628-1b92be733093",
+                    "ctime": "2021-03-22T02:49:54.989381",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -4502,14 +4656,14 @@
                             "name": "По-умолчанию",
                             "description": "Разрешить все исходящие соединения",
                             "rules_count": 1,
-                            "mtime": "2021-01-03T13:06:30.561588",
+                            "mtime": "2021-03-18T16:20:45.875141",
                             "shared": true,
                             "locked": false,
                             "job_id": null
                         }
                     ],
                     "connected": {
-                        "id": "dbf57f54-feca-4668-aabf-0e96aa87f94f",
+                        "id": "535941e0-3b8f-4b37-8508-26fab0fee21d",
                         "type": "vm",
                         "name": "My New Vm",
                         "vdc": {
@@ -4570,18 +4724,18 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, POST, HEAD, OPTIONS",
-            "X-Esu-Tasks": "21f7aa4b-47f5-4529-81a2-6a45fb4664e5"
+            "X-Esu-Tasks": "3b768577-9ce1-4167-8401-9837084a07dd"
         },
         "response": {
-            "id": "382039ee-47f4-46e3-aa24-b2a2f7daabf5",
-            "ctime": "2021-01-03T13:07:19.384179",
+            "id": "eafbf1d1-4f41-48d2-96fb-a4baf25bc98a",
+            "ctime": "2021-03-22T02:49:55.065662",
             "locked": true,
-            "job_id": "21f7aa4b-47f5-4529-81a2-6a45fb4664e5",
+            "job_id": "3b768577-9ce1-4167-8401-9837084a07dd",
             "template": {
                 "id": "70722cb1-6e03-4900-ad78-b680205cd002",
                 "name": "VMWARE Ubuntu 16.04",
                 "description": "",
-                "icon": ""
+                "icon": null
             },
             "vdc": {
                 "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -4607,31 +4761,35 @@
                         "system_alias": "password",
                         "position": 1
                     },
-                    "value": "$6$6YS1k18kS/mi5Jnm$DBKIrgFMgrQ/K.M79413sHT9P57VpRkshXmTRzg4gchvNtVias4kqhqJpw//tSn.fvQsAaQU4vaFpzwHutLn4/"
+                    "value": "$6$MJFIRTRd1p2X7TfN$3p1gq2ObMWFiCxMHgNTLm5Xilp3eeK.9rtgfPasRPDfJn0N526JFTKMVI.fE.cTIhdioA9BjmYvGvkabYxHcC/"
                 }
             ],
             "power": true,
             "hotadd_feature": false,
             "snapshots": 0,
+            "kubernetes": null,
             "disks": [
                 {
-                    "id": "d0bb129e-100e-445b-8f83-6476fe0b9c14",
+                    "id": "fa5bd51d-6aab-4a5d-aa22-fd84d7167a22",
                     "name": "Root disk",
                     "storage_profile": {
                         "id": "563a9b7c-419a-4630-9ac8-8022d740f12a",
-                        "name": "SATA KVM"
+                        "name": "SATA KVM",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 10,
                     "scsi": "0:0",
                     "is_root": true,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 }
             ],
             "ports": [
                 {
-                    "id": "9a7fb287-779e-42b4-aea8-aed977d9f4b4",
-                    "ctime": "2021-01-03T13:07:19.494285",
+                    "id": "ac95a4ea-1a4f-4c58-8fa7-db98a3b6ed7b",
+                    "ctime": "2021-03-22T02:49:55.139242",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -4640,7 +4798,7 @@
                     "ip_address": "10.22.23.3",
                     "fw_templates": [],
                     "connected": {
-                        "id": "382039ee-47f4-46e3-aa24-b2a2f7daabf5",
+                        "id": "eafbf1d1-4f41-48d2-96fb-a4baf25bc98a",
                         "type": "vm",
                         "name": "My New Vm 2",
                         "vdc": {
@@ -4656,8 +4814,8 @@
                 }
             ],
             "floating": {
-                "id": "641187ea-b0c2-4b2e-90aa-4eb4447af3cd",
-                "ip_address": "74.53.11.4"
+                "id": "08242e32-34f8-4170-b540-351dbb771d42",
+                "ip_address": "74.53.11.5"
             },
             "cdrom": null
         },
@@ -4696,7 +4854,7 @@
         "status": 204,
         "headers": {
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
-            "X-Esu-Tasks": "9d56a12b-013f-4278-911d-0a763fea3e79"
+            "X-Esu-Tasks": "13f843fa-ae8a-4de4-bab0-21cc980b894e"
         },
         "response": null,
         "request": {}
@@ -4708,18 +4866,18 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
-            "X-Esu-Tasks": "4b4a89f4-ead1-4cf5-ae4f-7fde141401d7"
+            "X-Esu-Tasks": "26ead8ea-5e24-4281-8329-ffe31b0b23a4"
         },
         "response": {
             "id": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
-            "ctime": "2021-01-03T13:07:16.133850",
+            "ctime": "2021-03-22T02:49:53.125929",
             "locked": true,
-            "job_id": "4b4a89f4-ead1-4cf5-ae4f-7fde141401d7",
+            "job_id": "26ead8ea-5e24-4281-8329-ffe31b0b23a4",
             "template": {
                 "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                 "name": "VMWARE Ubuntu 18",
                 "description": "",
-                "icon": ""
+                "icon": null
             },
             "vdc": {
                 "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -4735,38 +4893,45 @@
             "power": false,
             "hotadd_feature": false,
             "snapshots": 0,
+            "kubernetes": null,
             "disks": [
                 {
-                    "id": "13538c3f-e58d-4a4f-9222-9e48743bd521",
+                    "id": "ff83ea25-f6b4-4b4f-8c98-0ada919dc9c7",
                     "name": "Disk 1",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 14,
                     "scsi": "0:0",
                     "is_root": true,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 },
                 {
                     "id": "5fbd6cf8-b346-434f-8192-884fb36f3c2c",
                     "name": "Disk 2",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 15,
                     "scsi": "0:1",
                     "is_root": false,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 }
             ],
             "ports": [
                 {
-                    "id": "00b1a167-400b-4ee4-8a80-83c934e1a06a",
-                    "ctime": "2021-01-03T13:07:16.135319",
+                    "id": "2dc53054-6942-489d-b2e5-934a42616a4a",
+                    "ctime": "2021-03-22T02:49:53.126718",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -4833,11 +4998,13 @@
         "response": {
             "items": [
                 {
-                    "id": "6618932f-bf90-4cd4-85f7-e7d2115f37be",
+                    "id": "2597f4b2-5ad2-46c7-b26a-2d7b8a5e3fb8",
                     "name": "Disk 1",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "vm": {
                         "id": "b795bc88-5b9c-49b7-bed6-91669794bfda",
@@ -4856,14 +5023,17 @@
                     "locked": false,
                     "job_id": null,
                     "scsi": "0:0",
-                    "device": "/dev/vda"
+                    "device": "/dev/vda",
+                    "has_snapshot": false
                 },
                 {
                     "id": "f8e4251f-6079-40a5-8e0d-fc7058e3842c",
                     "name": "Free disk",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "vm": null,
                     "vdc": {
@@ -4876,14 +5046,17 @@
                     "locked": false,
                     "job_id": null,
                     "scsi": "0:0",
-                    "device": "/dev/vda"
+                    "device": "/dev/vda",
+                    "has_snapshot": false
                 },
                 {
-                    "id": "13538c3f-e58d-4a4f-9222-9e48743bd521",
+                    "id": "ff83ea25-f6b4-4b4f-8c98-0ada919dc9c7",
                     "name": "Disk 1",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "vm": {
                         "id": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
@@ -4902,17 +5075,20 @@
                     "locked": false,
                     "job_id": null,
                     "scsi": "0:0",
-                    "device": "/dev/vda"
+                    "device": "/dev/vda",
+                    "has_snapshot": false
                 },
                 {
-                    "id": "e1fdd94f-7346-49dc-877a-b1846b935a41",
+                    "id": "aac28aa7-ddfd-438c-a980-494a5f352442",
                     "name": "Main disk #1",
                     "storage_profile": {
                         "id": "563a9b7c-419a-4630-9ac8-8022d740f12a",
-                        "name": "SATA KVM"
+                        "name": "SATA KVM",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "vm": {
-                        "id": "dbf57f54-feca-4668-aabf-0e96aa87f94f",
+                        "id": "535941e0-3b8f-4b37-8508-26fab0fee21d",
                         "name": "My New Vm",
                         "cpu": 2,
                         "ram": 4,
@@ -4928,17 +5104,20 @@
                     "locked": false,
                     "job_id": null,
                     "scsi": "0:0",
-                    "device": "/dev/vda"
+                    "device": "/dev/vda",
+                    "has_snapshot": false
                 },
                 {
-                    "id": "d0bb129e-100e-445b-8f83-6476fe0b9c14",
+                    "id": "fa5bd51d-6aab-4a5d-aa22-fd84d7167a22",
                     "name": "Root disk",
                     "storage_profile": {
                         "id": "563a9b7c-419a-4630-9ac8-8022d740f12a",
-                        "name": "SATA KVM"
+                        "name": "SATA KVM",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "vm": {
-                        "id": "382039ee-47f4-46e3-aa24-b2a2f7daabf5",
+                        "id": "eafbf1d1-4f41-48d2-96fb-a4baf25bc98a",
                         "name": "My New Vm 2",
                         "cpu": 1,
                         "ram": 2,
@@ -4954,14 +5133,17 @@
                     "locked": false,
                     "job_id": null,
                     "scsi": "0:0",
-                    "device": "/dev/vda"
+                    "device": "/dev/vda",
+                    "has_snapshot": false
                 },
                 {
                     "id": "5fbd6cf8-b346-434f-8192-884fb36f3c2c",
                     "name": "Disk 2",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "vm": {
                         "id": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
@@ -4980,17 +5162,20 @@
                     "locked": false,
                     "job_id": null,
                     "scsi": "0:1",
-                    "device": "/dev/vdb"
+                    "device": "/dev/vdb",
+                    "has_snapshot": false
                 },
                 {
-                    "id": "3f49844f-f11c-45f6-b9b4-773d389f0b74",
+                    "id": "1d7da7e2-1861-4c06-95e7-b17fe1567e72",
                     "name": "Second disk #2",
                     "storage_profile": {
                         "id": "563a9b7c-419a-4630-9ac8-8022d740f12a",
-                        "name": "SATA KVM"
+                        "name": "SATA KVM",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "vm": {
-                        "id": "dbf57f54-feca-4668-aabf-0e96aa87f94f",
+                        "id": "535941e0-3b8f-4b37-8508-26fab0fee21d",
                         "name": "My New Vm",
                         "cpu": 2,
                         "ram": 4,
@@ -5006,7 +5191,8 @@
                     "locked": false,
                     "job_id": null,
                     "scsi": "0:1",
-                    "device": "/dev/vdb"
+                    "device": "/dev/vdb",
+                    "has_snapshot": false
                 }
             ],
             "total": 7,
@@ -5052,7 +5238,9 @@
             "name": "Disk 2",
             "storage_profile": {
                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                "name": "SATA VMWARE"
+                "name": "SATA VMWARE",
+                "max_disk_size": 32768,
+                "position": 1
             },
             "vm": {
                 "id": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
@@ -5071,7 +5259,8 @@
             "locked": false,
             "job_id": null,
             "scsi": "0:1",
-            "device": "/dev/vdb"
+            "device": "/dev/vdb",
+            "has_snapshot": false
         }
     },
     {
@@ -5087,7 +5276,9 @@
             "name": "Free disk",
             "storage_profile": {
                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                "name": "SATA VMWARE"
+                "name": "SATA VMWARE",
+                "max_disk_size": 32768,
+                "position": 1
             },
             "vm": null,
             "vdc": {
@@ -5100,7 +5291,8 @@
             "locked": false,
             "job_id": null,
             "scsi": "0:0",
-            "device": "/dev/vda"
+            "device": "/dev/vda",
+            "has_snapshot": false
         }
     },
     {
@@ -5116,7 +5308,9 @@
             "name": "Disk 2 renamed",
             "storage_profile": {
                 "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                "name": "SATA VMWARE"
+                "name": "SATA VMWARE",
+                "max_disk_size": 32768,
+                "position": 1
             },
             "vm": {
                 "id": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
@@ -5135,7 +5329,8 @@
             "locked": false,
             "job_id": null,
             "scsi": "0:1",
-            "device": "/dev/vdb"
+            "device": "/dev/vdb",
+            "has_snapshot": false
         },
         "request": {
             "name": "Disk 2 renamed",
@@ -5150,7 +5345,7 @@
         "status": 204,
         "headers": {
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
-            "X-Esu-Tasks": "18a5ed58-dc46-493b-a58b-ff2761d4ad02"
+            "X-Esu-Tasks": "821bf5f9-7f57-406f-914c-6770e9c25b42"
         },
         "response": null,
         "request": {}
@@ -5165,14 +5360,14 @@
         },
         "response": {
             "id": "b795bc88-5b9c-49b7-bed6-91669794bfda",
-            "ctime": "2021-01-03T13:07:16.126300",
+            "ctime": "2021-03-22T02:49:53.121695",
             "locked": false,
             "job_id": null,
             "template": {
                 "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                 "name": "VMWARE Ubuntu 18",
                 "description": "",
-                "icon": ""
+                "icon": null
             },
             "vdc": {
                 "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -5188,25 +5383,29 @@
             "power": true,
             "hotadd_feature": false,
             "snapshots": 0,
+            "kubernetes": null,
             "disks": [
                 {
-                    "id": "6618932f-bf90-4cd4-85f7-e7d2115f37be",
+                    "id": "2597f4b2-5ad2-46c7-b26a-2d7b8a5e3fb8",
                     "name": "Disk 1",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 10,
                     "scsi": "0:0",
                     "is_root": true,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 }
             ],
             "ports": [
                 {
-                    "id": "77d22b30-ad52-437d-996e-7de32e83e757",
-                    "ctime": "2021-01-03T13:07:16.128048",
+                    "id": "ff9af73c-eb21-4119-8184-a3a8445f0a90",
+                    "ctime": "2021-03-22T02:49:53.122633",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -5241,14 +5440,16 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, POST, HEAD, OPTIONS",
-            "X-Esu-Tasks": "96d4658e-088d-4211-afd9-650cc434f894"
+            "X-Esu-Tasks": "2242d097-0003-428f-9180-625b434daa9b"
         },
         "response": {
-            "id": "6d37fdfe-f9a4-4649-be0e-bcf270203c74",
+            "id": "14ec353e-b9d7-4083-a111-67fc2c1a9acb",
             "name": "Second disk",
             "storage_profile": {
                 "id": "563a9b7c-419a-4630-9ac8-8022d740f12a",
-                "name": "SATA KVM"
+                "name": "SATA KVM",
+                "max_disk_size": 32768,
+                "position": 1
             },
             "vm": {
                 "id": "b795bc88-5b9c-49b7-bed6-91669794bfda",
@@ -5265,9 +5466,10 @@
             "is_root": false,
             "size": 12,
             "locked": true,
-            "job_id": "96d4658e-088d-4211-afd9-650cc434f894",
+            "job_id": "2242d097-0003-428f-9180-625b434daa9b",
             "scsi": "0:1",
-            "device": "/dev/vdb"
+            "device": "/dev/vdb",
+            "has_snapshot": false
         },
         "request": {
             "name": "Second disk",
@@ -5286,14 +5488,14 @@
         },
         "response": {
             "id": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
-            "ctime": "2021-01-03T13:07:16.133850",
+            "ctime": "2021-03-22T02:49:53.125929",
             "locked": false,
             "job_id": null,
             "template": {
                 "id": "70722cb1-6e03-4900-ad78-b680205cd003",
                 "name": "VMWARE Ubuntu 18",
                 "description": "",
-                "icon": ""
+                "icon": null
             },
             "vdc": {
                 "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
@@ -5309,38 +5511,45 @@
             "power": false,
             "hotadd_feature": false,
             "snapshots": 0,
+            "kubernetes": null,
             "disks": [
                 {
-                    "id": "13538c3f-e58d-4a4f-9222-9e48743bd521",
+                    "id": "ff83ea25-f6b4-4b4f-8c98-0ada919dc9c7",
                     "name": "Disk 1",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 14,
                     "scsi": "0:0",
                     "is_root": true,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 },
                 {
                     "id": "5fbd6cf8-b346-434f-8192-884fb36f3c2c",
                     "name": "Disk 2 renamed",
                     "storage_profile": {
                         "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
-                        "name": "SATA VMWARE"
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1
                     },
                     "size": 15,
                     "scsi": "0:1",
                     "is_root": false,
                     "locked": false,
-                    "job_id": null
+                    "job_id": null,
+                    "has_snapshot": false
                 }
             ],
             "ports": [
                 {
-                    "id": "00b1a167-400b-4ee4-8a80-83c934e1a06a",
-                    "ctime": "2021-01-03T13:07:16.135319",
+                    "id": "2dc53054-6942-489d-b2e5-934a42616a4a",
+                    "ctime": "2021-03-22T02:49:53.126718",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -5374,7 +5583,7 @@
         "status": 204,
         "headers": {
             "Allow": "POST, OPTIONS",
-            "X-Esu-Tasks": "c190d512-bf56-4dc2-8e1d-1b243cbebdba"
+            "X-Esu-Tasks": "f84917b0-848b-41c2-9d23-969c608a5e9c"
         },
         "response": null,
         "request": {}
@@ -5385,7 +5594,7 @@
         "status": 204,
         "headers": {
             "Allow": "POST, OPTIONS",
-            "X-Esu-Tasks": "8d3b9aa9-3f31-4fda-b4b8-be37b612a051"
+            "X-Esu-Tasks": "663ddb31-20dd-4ea0-b8b4-72318d902d1a"
         },
         "response": null,
         "request": {
@@ -5403,8 +5612,8 @@
         "response": {
             "items": [
                 {
-                    "id": "5f4e4d2b-b830-4c82-bc66-ffe412d4d787",
-                    "ctime": "2021-01-03T13:07:16.117419",
+                    "id": "7c979129-a6be-4f9f-9f97-c657cde48ca5",
+                    "ctime": "2021-03-22T02:49:53.115297",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -5428,8 +5637,8 @@
                     "enable_security": false
                 },
                 {
-                    "id": "77d22b30-ad52-437d-996e-7de32e83e757",
-                    "ctime": "2021-01-03T13:07:16.128048",
+                    "id": "ff9af73c-eb21-4119-8184-a3a8445f0a90",
+                    "ctime": "2021-03-22T02:49:53.122633",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -5453,8 +5662,8 @@
                     "enable_security": false
                 },
                 {
-                    "id": "00b1a167-400b-4ee4-8a80-83c934e1a06a",
-                    "ctime": "2021-01-03T13:07:16.135319",
+                    "id": "2dc53054-6942-489d-b2e5-934a42616a4a",
+                    "ctime": "2021-03-22T02:49:53.126718",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -5478,8 +5687,8 @@
                     "enable_security": false
                 },
                 {
-                    "id": "aadfc256-cdf3-43d6-83c5-27c02284abf2",
-                    "ctime": "2021-01-03T13:07:19.273123",
+                    "id": "0852868f-deb5-4996-b628-1b92be733093",
+                    "ctime": "2021-03-22T02:49:54.989381",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -5493,14 +5702,14 @@
                             "name": "По-умолчанию",
                             "description": "Разрешить все исходящие соединения",
                             "rules_count": 1,
-                            "mtime": "2021-01-03T13:06:30.561588",
+                            "mtime": "2021-03-18T16:20:45.875141",
                             "shared": true,
                             "locked": false,
                             "job_id": null
                         }
                     ],
                     "connected": {
-                        "id": "dbf57f54-feca-4668-aabf-0e96aa87f94f",
+                        "id": "535941e0-3b8f-4b37-8508-26fab0fee21d",
                         "type": "vm",
                         "name": "My New Vm",
                         "vdc": {
@@ -5515,8 +5724,8 @@
                     "enable_security": false
                 },
                 {
-                    "id": "9a7fb287-779e-42b4-aea8-aed977d9f4b4",
-                    "ctime": "2021-01-03T13:07:19.494285",
+                    "id": "ac95a4ea-1a4f-4c58-8fa7-db98a3b6ed7b",
+                    "ctime": "2021-03-22T02:49:55.139242",
                     "network": {
                         "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
                         "name": "Default",
@@ -5525,7 +5734,7 @@
                     "ip_address": "10.22.23.3",
                     "fw_templates": [],
                     "connected": {
-                        "id": "382039ee-47f4-46e3-aa24-b2a2f7daabf5",
+                        "id": "eafbf1d1-4f41-48d2-96fb-a4baf25bc98a",
                         "type": "vm",
                         "name": "My New Vm 2",
                         "vdc": {
@@ -5540,8 +5749,8 @@
                     "enable_security": false
                 },
                 {
-                    "id": "d5674e2d-d976-4b07-b660-ec1b1687c8fc",
-                    "ctime": "2021-01-03T13:07:16.115368",
+                    "id": "02148849-ed23-4887-a96a-ae126f7d9a33",
+                    "ctime": "2021-03-22T02:49:53.113729",
                     "network": {
                         "id": "fb6f27ec-18fe-4f38-876a-ef2ed8797053",
                         "name": "ext-net",
@@ -5565,17 +5774,17 @@
                     "enable_security": false
                 },
                 {
-                    "id": "641187ea-b0c2-4b2e-90aa-4eb4447af3cd",
-                    "ctime": "2021-01-03T13:07:19.504139",
+                    "id": "08242e32-34f8-4170-b540-351dbb771d42",
+                    "ctime": "2021-03-22T02:49:55.144834",
                     "network": {
                         "id": "fb6f27ec-18fe-4f38-876a-ef2ed8797053",
                         "name": "ext-net",
                         "external": true
                     },
-                    "ip_address": "74.53.11.4",
+                    "ip_address": "74.53.11.5",
                     "fw_templates": [],
                     "connected": {
-                        "id": "382039ee-47f4-46e3-aa24-b2a2f7daabf5",
+                        "id": "eafbf1d1-4f41-48d2-96fb-a4baf25bc98a",
                         "type": "vm",
                         "name": "My New Vm 2",
                         "vdc": {
@@ -5615,11 +5824,11 @@
         "headers": {
             "Content-Type": "application/json",
             "Allow": "GET, POST, HEAD, OPTIONS",
-            "X-Esu-Tasks": "bf100834-f3d2-424c-b375-e115f819100c"
+            "X-Esu-Tasks": "32df7dca-9c75-48ff-9e14-bd132bf10e3c"
         },
         "response": {
-            "id": "1e23c2ff-77f9-47b5-8a9c-affe39010850",
-            "ctime": "2021-01-03T13:07:20.379912",
+            "id": "3f5309ec-8a15-4b2e-86f4-6088d4c303cc",
+            "ctime": "2021-03-22T02:49:55.674928",
             "network": {
                 "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
                 "name": "Default",
@@ -5638,7 +5847,7 @@
                 }
             },
             "locked": true,
-            "job_id": "bf100834-f3d2-424c-b375-e115f819100c",
+            "job_id": "32df7dca-9c75-48ff-9e14-bd132bf10e3c",
             "type": "vm_int",
             "enable_security": false
         },
@@ -5653,7 +5862,7 @@
         "status": 204,
         "headers": {
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
-            "X-Esu-Tasks": "74c9d070-8859-4578-8880-90dc0e3d0e6c"
+            "X-Esu-Tasks": "e3330074-2ff4-4860-bfb8-90324b439f0d"
         },
         "response": null,
         "request": {}
@@ -5672,7 +5881,7 @@
             "name": "По-умолчанию",
             "description": "Разрешить все исходящие соединения",
             "rules_count": 1,
-            "mtime": "2021-01-03T13:06:30.561588",
+            "mtime": "2021-03-18T16:20:45.875141",
             "shared": true,
             "locked": false,
             "job_id": null
@@ -5689,67 +5898,67 @@
         "response": {
             "items": [
                 {
-                    "id": "7d38e0cc-7c20-4e33-b062-cf35dccc0acc",
+                    "id": "ff573617-8b51-4843-9b43-a5bf8270c96b",
                     "vdc": null,
                     "name": "Разрешить WEB",
                     "description": "Разрешить WEB порты, доступные из Интернета",
                     "rules_count": 3,
-                    "mtime": "2021-01-03T13:06:30.569213",
+                    "mtime": "2021-03-18T16:20:45.878840",
                     "shared": true,
                     "locked": false,
                     "job_id": null
                 },
                 {
-                    "id": "39f32f9e-5016-4ab6-beb1-0de47211b73b",
+                    "id": "61a2acde-29da-405c-b5fe-b7abcdc86849",
                     "vdc": null,
                     "name": "Разрешить SSH",
                     "description": "Разрешить SSH для управление хостом",
                     "rules_count": 1,
-                    "mtime": "2021-01-03T13:06:30.568149",
+                    "mtime": "2021-03-18T16:20:45.878322",
                     "shared": true,
                     "locked": false,
                     "job_id": null
                 },
                 {
-                    "id": "592e76de-bd3f-47ef-ae03-36bc9eaabff7",
+                    "id": "c09fd870-373a-408d-af63-1ce2b9ab04ed",
                     "vdc": null,
                     "name": "Разрешить ICMP",
                     "description": "Разрешить ICMP",
                     "rules_count": 2,
-                    "mtime": "2021-01-03T13:06:30.566288",
+                    "mtime": "2021-03-18T16:20:45.877513",
                     "shared": true,
                     "locked": false,
                     "job_id": null
                 },
                 {
-                    "id": "c8e72e83-1981-4d8b-9485-00b5c7660203",
+                    "id": "0588e41b-c702-4fce-ba89-8b6c04551a9c",
                     "vdc": null,
                     "name": "Разрешить DNS",
                     "description": "Разрешить DNS порты, доступные из Интернета",
                     "rules_count": 1,
-                    "mtime": "2021-01-03T13:06:30.565221",
+                    "mtime": "2021-03-18T16:20:45.876969",
                     "shared": true,
                     "locked": false,
                     "job_id": null
                 },
                 {
-                    "id": "ae4c0183-cbff-4c64-9c05-397e969f10f0",
+                    "id": "6a92c8e2-d393-47bc-a517-18ecf41edf5a",
                     "vdc": null,
                     "name": "Разрешить RDP",
                     "description": "Разрешить RDP для управления хостом",
                     "rules_count": 1,
-                    "mtime": "2021-01-03T13:06:30.564133",
+                    "mtime": "2021-03-18T16:20:45.876424",
                     "shared": true,
                     "locked": false,
                     "job_id": null
                 },
                 {
-                    "id": "43ee15c6-103c-4973-93ab-02719b5b84bd",
+                    "id": "4af979e4-5de6-4067-8125-0a2ec1860483",
                     "vdc": null,
                     "name": "Разрешить входящий трафик",
                     "description": "Разрешить все входящие соединения",
                     "rules_count": 1,
-                    "mtime": "2021-01-03T13:06:30.563024",
+                    "mtime": "2021-03-18T16:20:45.875874",
                     "shared": true,
                     "locked": false,
                     "job_id": null
@@ -5760,7 +5969,7 @@
                     "name": "По-умолчанию",
                     "description": "Разрешить все исходящие соединения",
                     "rules_count": 1,
-                    "mtime": "2021-01-03T13:06:30.561588",
+                    "mtime": "2021-03-18T16:20:45.875141",
                     "shared": true,
                     "locked": false,
                     "job_id": null

@@ -15,8 +15,7 @@ copyright = '2021, SBCloud LLC'
 author = 'Development Team'
 
 # The full version, including alpha/beta/rc tags
-version = '0.1.4'
-# release = '0.1.4'
+version = '0.1.5'
 language = 'ru'
 
 extensions = [

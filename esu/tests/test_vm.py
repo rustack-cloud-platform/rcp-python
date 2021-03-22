@@ -109,7 +109,7 @@ def test_create_with_fip(rsps):
             }], floating=Port())
     vm.create()
 
-    assert vm.floating.ip_address == '74.53.11.4'
+    assert vm.floating.ip_address == '74.53.11.5'
 
 
 @load_fixtures

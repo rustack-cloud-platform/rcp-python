@@ -27,7 +27,7 @@ Subnet
                   start_ip='10.22.23.2', end_ip='10.22.23.254',
                   enable_dhcp=True)
 
-  network = Network(name='Network 1', subnets=[subnet])
+  network = Network(vdc=vdc, name='Network 1', subnets=[subnet])
   network.create()
 
 Добавление Subnet к уже существующей сети:

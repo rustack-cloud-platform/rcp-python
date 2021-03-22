@@ -57,7 +57,7 @@ def test_create_with_fip(rsps):
     router.create()
 
     assert router.name == 'New router with fip'
-    assert router.floating.ip_address == '74.53.11.3'
+    assert router.floating.ip_address == '74.53.11.4'
 
 
 @load_fixtures

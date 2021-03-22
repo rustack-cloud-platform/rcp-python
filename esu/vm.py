@@ -140,8 +140,6 @@ class Vm(BaseAPI):
         """
         Включить виртуальный сервер
         """
-        if self.power:
-            raise ValueError('VM is already on')
         self._call('POST', 'v1/vm/{}/state'.format(self.id), state='power_on')
         self.power = True
 
@@ -149,9 +147,6 @@ class Vm(BaseAPI):
         """
         Выключить виртуальный сервер
         """
-        if not self.power:
-            raise ValueError('VM is already off')
-
         self._call('POST', 'v1/vm/{}/state'.format(self.id), state='power_off')
         self.power = False
 
@@ -159,9 +154,6 @@ class Vm(BaseAPI):
         """
         Перезагрузить виртуальный сервер
         """
-        if not self.power:
-            raise ValueError('VM must be on')
-
         self._call('POST', 'v1/vm/{}/state'.format(self.id), state='reboot')
 
     def add_disk(self, disk):
