@@ -26,7 +26,7 @@ class Vdc(BaseAPI):
     class Meta:
         id = Field()
         name = Field()
-        hypervisor_type = Field()
+        hypervisor = Field()
         project = Field('esu.Project')
 
     @classmethod
