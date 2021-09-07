@@ -23,6 +23,7 @@ def test_get_by_id(rsps):
     assert client.name == 'default'
     assert client.balance == 2550.63
     assert client.payment_model == 'postpay'
+    assert len(client.allowed_hypervisors) == 2
 
 
 @load_fixtures

@@ -12,13 +12,13 @@ class Vdc(BaseAPI):
     Args:
         id (str): Идентификатор ВЦОД
         name (str): Имя ВЦОД
-        hypervisor_type (str): Тип гипервизора. **vmware** или **kvm**
+        hypervisor (object): Объект класса :class:`esu.Hypervisor`
         project (object): Объект класса :class:`esu.Project`. Проект, к
                           которому относится данный ВЦОД
         token (str): Токен для доступа к API. Если не передан, будет
                      использована переменная окружения **ESU_API_TOKEN**
 
-    .. note:: Поля ``name``, ``hypervisor_type`` и ``project`` необходимы для
+    .. note:: Поля ``name``, ``hypervisor`` и ``project`` необходимы для
               создания.
 
               Поле ``name`` может быть изменено для существующего объекта.
@@ -26,7 +26,7 @@ class Vdc(BaseAPI):
     class Meta:
         id = Field()
         name = Field()
-        hypervisor_type = Field()
+        hypervisor = Field('esu.Hypervisor')
         project = Field('esu.Project')
 
     @classmethod
@@ -74,7 +74,7 @@ class Vdc(BaseAPI):
 
     def _commit(self):
         self._commit_object('v1/vdc', project=self.project.id, name=self.name,
-                            hypervisor_type=self.hypervisor_type)
+                            hypervisor=self.hypervisor.id)
 
     def destroy(self):
         """

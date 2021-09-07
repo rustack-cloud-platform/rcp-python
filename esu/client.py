@@ -1,4 +1,4 @@
-from esu.base import BaseAPI, Field
+from esu.base import BaseAPI, Field, FieldList
 
 
 class Client(BaseAPI):
@@ -17,6 +17,7 @@ class Client(BaseAPI):
     class Meta:
         id = Field()
         name = Field()
+        allowed_hypervisors = FieldList('esu.Hypervisor')
         payment_model = Field()
 
     @property

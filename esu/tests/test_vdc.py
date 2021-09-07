@@ -46,7 +46,10 @@ def test_create(rsps):
     project_id = 'a737cd39-e7a7-46b8-a756-fb8ccceeed8f'
     project = Project.get_object(project_id)
 
-    vdc = Vdc(name='Brand New Vdc', project=project, hypervisor_type='kvm')
+    hypervisor = next(h for h in project.get_available_hypervisors() \
+        if h.type == 'kvm')
+
+    vdc = Vdc(name='Brand New Vdc', project=project, hypervisor=hypervisor)
     vdc.create()
 
     assert b'Brand New Vdc' in rsps.calls[1].request.body

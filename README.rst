@@ -34,7 +34,12 @@ rustack-esu
     client = manager.get_all_clients()[0]
     project = Project(name='Новый проект', client=client, token=token)
     project.create()
-    vdc = Vdc(name='Новый ВЦОД', hypervisor_type='kvm', project=project, token=token)
+
+    hypervisor = next(h for h in project.get_available_hypervisors() \
+        if h.type == 'kvm')
+
+    vdc = Vdc(name='Новый ВЦОД', hypervisor=hypervisor, project=project,
+              token=token)
     vdc.create()
 
     print(f'ID нового ВЦОД: {vdc.id}')
@@ -74,7 +79,7 @@ rustack-esu
 `документации <https://rustack-esu.readthedocs.io/>`_.
 
 
-.. |PyPI Version| image:: https://img.shields.io/pypi/v/rustack-esu.png
-   :target: https://pypi.python.org/pypi/rustack-esu
-.. |Build Status| image:: https://travis-ci.com/pilat/rustack-esu.png
-   :target: https://travis-ci.com/pilat/rustack-esu
+.. |PyPI Version| image:: https://badge.fury.io/py/rustack-esu.svg
+   :target: https://badge.fury.io/py/rustack-esu
+.. |Build Status| image:: https://app.travis-ci.com/pilat/rustack-esu.svg?branch=master
+   :target: https://app.travis-ci.com/pilat/rustack-esu

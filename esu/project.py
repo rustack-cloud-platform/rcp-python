@@ -95,3 +95,14 @@ class Project(BaseAPI):
             raise ObjectHasNoId
 
         return self._get_list('v1/vdc', Vdc, project=self.id)
+
+    def get_available_hypervisors(self):
+        """
+        Получить список доступных гипервизоров в этом проекте. Вернет список
+        объектов :class:`esu.Hypervisor`.
+
+        Returns:
+            list: Список объектов :class:`esu.Hypervisor`
+        """
+
+        return self.client.allowed_hypervisors

@@ -34,6 +34,7 @@
    api/manager
    api/client
    api/project
+   api/hypervisor
    api/vdc
 
 
@@ -64,3 +65,9 @@
    api/router
    api/port
    api/firewall_template
+
+.. toctree::
+   :caption: CHANGELOG
+   :maxdepth: 2
+
+   changelog/0.1.6.rst

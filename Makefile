@@ -14,7 +14,12 @@ style:
 clean:
 	@rm -f .coverage
 	@rm -rf build rustack_esu.egg-info dist
+	@rm -rf docs/static
 	@find . | grep -E "\(__pycache__|\.pyc|\.pyo$\)" | xargs rm -rf
+
+sphinx:
+	@sphinx-build -b html -E docs docs/static/docs
+	@open docs/static/docs/index.html
 
 upload:
 	@pip install setuptools wheel twine

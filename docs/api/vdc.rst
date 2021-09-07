@@ -20,6 +20,8 @@ Vdc
 Примеры использования
 ---------------------
 
+.. _example-3:
+
 Создание нового ВЦОД VMware в первом доступном пользователю проекте:
 
 .. code-block:: python
@@ -27,7 +29,10 @@ Vdc
   from esu import Manager, Vdc
 
   project = Manager().get_all_projects()[0]
-  vdc = Vdc(name='Новый ВЦОД', hypervisor_type='vmware', project=project)
+  hypervisor = next(h for h in project.get_available_hypervisors() \
+        if h.type == 'vmware')
+
+  vdc = Vdc(name='Новый ВЦОД', hypervisor=hypervisor, project=project)
   vdc.create()
 
 .. _example-1:
