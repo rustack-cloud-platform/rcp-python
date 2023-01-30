@@ -1,5 +1,6 @@
 from esu.base import BaseAPI, Field, ObjectAlreadyHasId, ObjectHasNoId
 from esu.disk import Disk
+from esu.firewall_template import FirewallTemplate
 from esu.port import Port
 from esu.storage_profile import StorageProfile
 from esu.template import Template
@@ -140,8 +141,7 @@ class Vdc(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        return self._get_list('v1/firewall', 'esu.FirewallTemplate',
-                              vdc=self.id)
+        return self._get_list('v1/firewall', FirewallTemplate, vdc=self.id)
 
     def get_networks(self):
         """

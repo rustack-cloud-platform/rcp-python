@@ -9,6 +9,7 @@ build/
 dist/
 .coverage
 .venv
+venv
 docs/_build
 .python-version
 demo.py
