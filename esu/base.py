@@ -55,7 +55,7 @@ def resolve(cls):
 
 class BaseAPI:
     token = None
-    endpoint_url = 'https://cp.sbcloud.ru'
+    endpoint_url = ''
 
     def __new__(cls, *args, token: str = None, **kwargs):
         rules = {}

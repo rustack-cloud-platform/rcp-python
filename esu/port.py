@@ -1,4 +1,5 @@
-from esu.base import BaseAPI, Field, FieldList, ObjectHasNoId
+from esu.base import BaseAPI, Field, FieldList, ObjectAlreadyHasId, \
+    ObjectHasNoId
 
 
 class Port(BaseAPI):
@@ -7,6 +8,8 @@ class Port(BaseAPI):
         id (str): Идентификатор порта
         ip_address (str): IP адрес
         type (str): Тип
+        vdc (object): Объект класса :class:`esu.Vdc`. ВЦОД, к которому
+                      относится данный виртуальный сервер
         fw_templates (list): Включенные шаблоны брандмауэра
                              :class:`esu.FirewallTemplate`
         network (object): Сеть :class:`esu.Network`
@@ -26,6 +29,7 @@ class Port(BaseAPI):
         id = Field()
         ip_address = Field()
         type = Field()
+        vdc = Field("esu.Vdc")
         fw_templates = FieldList('esu.FirewallTemplate')
         network = Field('esu.Network')
 
@@ -42,9 +46,22 @@ class Port(BaseAPI):
         Returns:
             object: Возвращает объект порта :class:`esu.Port`
         """
-        storage_profile = cls(token=token, id=id)
-        storage_profile._get_object('v1/storage_profile', storage_profile.id)
-        return storage_profile
+        port = cls(token=token, id=id)
+        port._get_object('v1/port', port.id)
+        return port
+
+    def create(self):
+        """
+        Создать объект
+
+        Raises:
+            ObjectAlreadyHasId: Если производится попытка создать объект,
+                                который уже существует
+        """
+        if self.id is not None:
+            raise ObjectAlreadyHasId
+
+        self._commit()
 
     def save(self):
         """
@@ -58,3 +75,23 @@ class Port(BaseAPI):
             raise ObjectHasNoId
 
         self._commit()
+
+    def _commit(self):
+        fw_templates = [o.id for o in self.fw_templates]
+        self._commit_object('v1/port', ip_address=self.ip_address,
+                            type=self.type, vdc=self.vdc,
+                            fw_templates=fw_templates, network=self.network)
+
+    def destroy(self):
+        """
+        Удалить объект
+
+        Raises:
+            ObjectHasNoId: Когда производится попытка удалить несуществующий
+                           объект
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        self._destroy_object('v1/port', self.id)
+        self.id = None
