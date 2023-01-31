@@ -3769,7 +3769,7 @@
                     "system": true,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "ToochkaNew_cloud_ubuntu_18",
                 "enabled": true,
                 "is_windows": false,
@@ -3793,7 +3793,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "alipine_3.12",
                 "enabled": true,
                 "is_windows": false,
@@ -3817,7 +3817,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "alpine_3.11",
                 "enabled": true,
                 "is_windows": false,
@@ -3841,7 +3841,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "centos_7",
                 "enabled": true,
                 "is_windows": false,
@@ -3865,7 +3865,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "centos_8",
                 "enabled": true,
                 "is_windows": false,
@@ -3889,7 +3889,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "debian_10",
                 "enabled": true,
                 "is_windows": false,
@@ -3913,7 +3913,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "debian_9",
                 "enabled": true,
                 "is_windows": false,
@@ -3937,7 +3937,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "fedora_32",
                 "enabled": true,
                 "is_windows": false,
@@ -3961,7 +3961,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "fedora_33",
                 "enabled": true,
                 "is_windows": false,
@@ -3985,7 +3985,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "gentoo",
                 "enabled": true,
                 "is_windows": false,
@@ -4009,7 +4009,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "ubuntu_16.04",
                 "enabled": true,
                 "is_windows": false,
@@ -4033,7 +4033,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "ubuntu_18",
                 "enabled": true,
                 "is_windows": false,
@@ -4057,7 +4057,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "windows_2010",
                 "enabled": true,
                 "is_windows": false,
@@ -4081,7 +4081,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "windows_2012",
                 "enabled": true,
                 "is_windows": false,
@@ -4105,7 +4105,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "windows_2016",
                 "enabled": true,
                 "is_windows": false,
@@ -4129,7 +4129,7 @@
                     "system": false,
                     "icon": null
                 },
-                "vdc": null,
+                "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "vm_internal_id": "opensuse_15.2",
                 "enabled": true,
                 "is_windows": false,
@@ -4216,7 +4216,7 @@
                 "system": false,
                 "icon": null
             },
-            "vdc": null,
+            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
             "vm_internal_id": "ubuntu_16.04",
             "enabled": true,
             "is_windows": false,
@@ -6000,7 +6000,7 @@
                     "fw_templates": [
                         {
                             "id": "00000000-0000-0000-0000-000000000000",
-                            "vdc": null,
+                            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                             "name": "По-умолчанию",
                             "description": "Разрешить все исходящие соединения",
                             "rules_count": 1,
@@ -7341,7 +7341,7 @@
                     "fw_templates": [
                         {
                             "id": "00000000-0000-0000-0000-000000000000",
-                            "vdc": null,
+                            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                             "name": "По-умолчанию",
                             "description": "Разрешить все исходящие соединения",
                             "rules_count": 1,
@@ -7570,7 +7570,7 @@
         },
         "response": {
             "id": "00000000-0000-0000-0000-000000000000",
-            "vdc": null,
+            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
             "name": "По-умолчанию",
             "description": "Разрешить все исходящие соединения",
             "rules_count": 1,
@@ -7591,8 +7591,8 @@
         "response": {
             "items": [
                 {
-                    "id": "66fca226-c515-4155-9a09-7d4ea8b67f3a",
-                    "vdc": null,
+                    "id": "ff573617-8b51-4843-9b43-a5bf8270c96b",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                     "name": "Разрешить WEB",
                     "description": "Разрешить WEB порты, доступные из Интернета",
                     "rules_count": 3,
@@ -7602,8 +7602,8 @@
                     "job_id": null
                 },
                 {
-                    "id": "df06029b-3664-4494-bf15-ba09993332af",
-                    "vdc": null,
+                    "id": "61a2acde-29da-405c-b5fe-b7abcdc86849",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                     "name": "Разрешить SSH",
                     "description": "Разрешить SSH для управление хостом",
                     "rules_count": 1,
@@ -7613,8 +7613,8 @@
                     "job_id": null
                 },
                 {
-                    "id": "8bb68519-fd8b-4521-8af0-66ff86044209",
-                    "vdc": null,
+                    "id": "c09fd870-373a-408d-af63-1ce2b9ab04ed",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                     "name": "Разрешить ICMP",
                     "description": "Разрешить ICMP",
                     "rules_count": 2,
@@ -7624,8 +7624,8 @@
                     "job_id": null
                 },
                 {
-                    "id": "98b50e2e-3a50-4f3b-aa3f-ac88dfe08a8a",
-                    "vdc": null,
+                    "id": "0588e41b-c702-4fce-ba89-8b6c04551a9c",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                     "name": "Разрешить DNS",
                     "description": "Разрешить DNS порты, доступные из Интернета",
                     "rules_count": 1,
@@ -7635,8 +7635,8 @@
                     "job_id": null
                 },
                 {
-                    "id": "0450a9e6-3cf3-478e-8a69-840b5fe406ee",
-                    "vdc": null,
+                    "id": "6a92c8e2-d393-47bc-a517-18ecf41edf5a",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                     "name": "Разрешить RDP",
                     "description": "Разрешить RDP для управления хостом",
                     "rules_count": 1,
@@ -7646,8 +7646,8 @@
                     "job_id": null
                 },
                 {
-                    "id": "482d9eff-fd22-4b55-9207-856ebeebd774",
-                    "vdc": null,
+                    "id": "4af979e4-5de6-4067-8125-0a2ec1860483",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                     "name": "Разрешить входящий трафик",
                     "description": "Разрешить все входящие соединения",
                     "rules_count": 1,
@@ -7658,7 +7658,7 @@
                 },
                 {
                     "id": "00000000-0000-0000-0000-000000000000",
-                    "vdc": null,
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                     "name": "По-умолчанию",
                     "description": "Разрешить все исходящие соединения",
                     "rules_count": 1,

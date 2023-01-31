@@ -36,7 +36,7 @@ disable=\
     R0914, # Too many local variables
     R0401, # Cyclic import suspicious
     C0411, # We will use iSort instead
-
+    C0209, # Formatting a regular string which could be a f-string
     C0111, # Missing docstring
     R0912, # Too many branches
 
