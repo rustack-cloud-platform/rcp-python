@@ -37,6 +37,8 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3 :: Only',
         ],
     packages=['esu'],
@@ -45,21 +47,14 @@ setup(
     ],
     extras_require={
         'dev': [
-            # "black>=19.10b0 ; python_version>='3.6'",
             "responses",
             "yapf==0.30.0",
-            "codecov>=2.0.15",
-            # "colorama>=0.3.4",
             "pylint",
             "isort>=5.1.1 ; python_version>='3.6'",
             "tox>=3.9.0",
-            "tox-pyenv",  # osx
-            # "tox-travis>=0.12",
+            "tox-pyenv; platform_system=='darwin'",
             "pytest>=4.6.2",
             "pytest-cov>=2.7.1",
-            # "Sphinx>=2.2.1",
-            # "sphinx-autobuild>=0.7.1 ; python_version>='3.6'",
-            # "sphinx-rtd-theme>=0.4.3",
         ]
     },
     python_requires=">=3.4",

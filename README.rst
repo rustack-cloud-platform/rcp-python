@@ -1,4 +1,4 @@
-|PyPI Version| |Build Status|
+|PyPI Version| |Build Status| |Codecov Badge|
 
 ===========
 rustack-esu
@@ -81,5 +81,7 @@ rustack-esu
 
 .. |PyPI Version| image:: https://badge.fury.io/py/rustack-esu.svg
    :target: https://badge.fury.io/py/rustack-esu
-.. |Build Status| image:: https://app.travis-ci.com/pilat/rustack-esu.svg?branch=master
-   :target: https://app.travis-ci.com/pilat/rustack-esu
+.. |Build Status| image:: https://github.com/pilat/rustack-esu/actions/workflows/publish.yaml/badge.svg?branch=master
+   :target: https://github.com/pilat/rustack-esu/actions/workflows/publish.yaml
+.. |Codecov Badge| image:: https://codecov.io/gh/pilat/rustack-esu/branch/master/graph/badge.svg?token=KZ4T5XZ8T3 
+   :target: https://codecov.io/gh/pilat/rustack-esu

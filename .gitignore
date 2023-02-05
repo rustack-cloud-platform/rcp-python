@@ -13,4 +13,5 @@ venv
 docs/_build
 .python-version
 demo.py
+coverage.xml
 TODO
