@@ -1,4 +1,4 @@
-from esu.base import BaseAPI, Field, ObjectHasNoId
+from esu.base import BaseAPI, Field, ObjectAlreadyHasId, ObjectHasNoId
 
 
 class Disk(BaseAPI):
@@ -22,6 +22,7 @@ class Disk(BaseAPI):
         name = Field()
         size = Field()
         scsi = Field()
+        vdc = Field('esu.Vdc')
         vm = Field('esu.Vm', allow_none=True)
         storage_profile = Field('esu.StorageProfile')
 
@@ -42,6 +43,19 @@ class Disk(BaseAPI):
         disk._get_object('v1/disk', disk.id)
         return disk
 
+    def create(self):
+        """
+        Создать объект
+
+        Raises:
+            ObjectAlreadyHasId: Если производится попытка создать объект,
+                                который уже существует
+        """
+        if self.id is not None:
+            raise ObjectAlreadyHasId
+
+        self._commit()
+
     def save(self):
         """
         Сохранить изменения
@@ -58,7 +72,29 @@ class Disk(BaseAPI):
     def _commit(self):
         self._commit_object('v1/disk', name=self.name, size=self.size,
                             storage_profile=self.storage_profile.id,
-                            vm=self.vm.id)
+                            vdc=self.vdc.id)
+
+    def attach_disk(self, vm):
+        """
+        Присоединить существующий во ВЦОДе диск к виртуальному серверу
+        """
+        if not self.id:
+            raise ValueError('Disk is not exists')
+
+        if self.vm is not None:
+            raise ValueError('Disk must be unattached')
+
+        self._call('POST', 'v1/disk/{}/attach'.format(self.id), vm=vm.id)
+        self.vm = vm
+        self._fill()
+
+    def detach_disk(self):
+        """
+        Отсоединить диск от виртуального сервера
+        """
+        self._call('POST', 'v1/disk/{}/detach'.format(self.id))
+        self.vm = None
+        self._fill()
 
     def destroy(self):
         """

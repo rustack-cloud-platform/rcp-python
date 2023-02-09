@@ -178,7 +178,10 @@ class BaseAPI:
                 elif isinstance(v, str):  # ID case
                     v_new = fld.cls.get_object(v, token=self.token)
                 else:  # dict
-                    v_new = fld.cls(**v)
+                    try:
+                        v_new = fld.cls(**v)
+                    except TypeError:
+                        v_new = fld.cls(None)
 
             setattr(self, k, v_new)
 
@@ -197,3 +200,7 @@ class BaseAPI:
     def _destroy_object(self, resource, id):
         self._call('DELETE', '{}/{}'.format(resource, id))
         self.id = None
+
+    def _patch_object(self, resource, id):
+        self._call('PATCH', '{}/{}'.format(resource, id))
+        self._fill()
