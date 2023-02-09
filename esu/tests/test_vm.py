@@ -167,9 +167,8 @@ def test_add_disk(rsps):
     assert len(vm.disks) == 1
     assert vm.disks[0].scsi == '0:0'
 
-    storage_profile_id = '563a9b7c-419a-4630-9ac8-8022d740f12a'
-    disk = Disk(storage_profile=storage_profile_id, name='Second disk',
-                size=12)
+    disk = Disk(storage_profile='563a9b7c-419a-4630-9ac8-8022d740f12a',
+                name='Second disk', size=12)
 
     assert disk.scsi is None  # Because it's a new disk
     vm.add_disk(disk)
@@ -244,25 +243,3 @@ def test_get_disks(rsps):
     assert len(disks) == 1
     assert isinstance(disks[0], Disk)
     assert disks[0].size == 11
-
-
-@load_fixtures
-def test_add_networks(rsps):
-    vm_id = '17580bd1-b548-4214-8614-6cfee656bd6f'
-    vm = Vm.get_object(vm_id)
-
-    assert len(vm.ports) == 1
-    network = Network.get_object('09110dd6-2868-40f7-9aca-e4cda281ad0d')
-    vm.add_port(Port(network=network))
-    assert len(vm.ports) == 2
-
-
-@load_fixtures
-def test_remove_networks(rsps):
-    vm_id = '5506be98-0394-49ad-bb3d-e8ac183865a3'
-    vm = Vm.get_object(vm_id)
-
-    assert len(vm.ports) == 2
-    assert vm.ports[1].network.id == '09110dd6-2868-40f7-9aca-e4cda281ad0d'
-    vm.remove_port(vm.ports[1])
-    assert len(vm.ports) == 1

@@ -32,6 +32,7 @@ class Port(BaseAPI):
         vdc = Field("esu.Vdc")
         fw_templates = FieldList('esu.FirewallTemplate')
         network = Field('esu.Network')
+        device = Field()
 
     @classmethod
     def get_object(cls, id, token=None):
@@ -49,6 +50,21 @@ class Port(BaseAPI):
         port = cls(token=token, id=id)
         port._get_object('v1/port', port.id)
         return port
+
+    def create_fip(self):
+        """
+        Получить объект порта по его ID
+
+        Args:
+            id (str): Идентификатор порта
+            token (str): Токен для доступа к API. Если не передан, будет
+                         использована переменная окружения **ESU_API_TOKEN**
+
+        Returns:
+            object: Возвращает объект порта :class:`esu.Port`
+        """
+        port = {'vdc': self.vdc.id}
+        self._commit_object('v1/port', **port)
 
     def create(self):
         """
@@ -76,11 +92,36 @@ class Port(BaseAPI):
 
         self._commit()
 
+    #pylint: disable=import-outside-toplevel
     def _commit(self):
-        fw_templates = [o.id for o in self.fw_templates]
-        self._commit_object('v1/port', ip_address=self.ip_address,
-                            type=self.type, vdc=self.vdc,
-                            fw_templates=fw_templates, network=self.network)
+        from esu import Router, Vm
+
+        port = {
+            'ip_address': self.ip_address or '0.0.0.0',
+            'network': self.network.id,
+        }
+        if isinstance(self.device, Vm):
+            port['vm'] = self.device.id
+            port['fw_templates'] = [o.id for o in self.fw_templates or []]
+        elif isinstance(self.device, Router):
+            port['router'] = self.device.id
+
+        self._commit_object('v1/port', **port)
+
+    def disconnect(self):
+        """
+        Отключить порт
+
+        Raises:
+            ObjectHasNoId: Если производится попытка сохранить несуществующий
+                           объект
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        self._call('PATCH', 'v1/port/{}/disconnect'.format(self.id))
+        self.device = None
+        self._fill()
 
     def destroy(self):
         """
@@ -94,4 +135,18 @@ class Port(BaseAPI):
             raise ObjectHasNoId
 
         self._destroy_object('v1/port', self.id)
+        self.id = None
+
+    def force_destroy(self):
+        """
+        Удалить объект, даже если он подключен к сущности
+
+        Raises:
+            ObjectHasNoId: Если производится попытка сохранить несуществующий
+                           объект
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        self._call('DELETE', 'v1/port/{}/force'.format(self.id))
         self.id = None

@@ -35,4 +35,4 @@ Router
 
   router = Router.get_object('58385696-32c6-4a5c-bafe-895815eedf04')
   network = Network.get_object('b9e6df93-0d04-4dac-a3c1-1a8539b8e445')
-  router.add_port(Port(network=network))
+  Port(network=network, device=router).create()

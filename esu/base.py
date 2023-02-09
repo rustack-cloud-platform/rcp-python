@@ -197,3 +197,7 @@ class BaseAPI:
     def _destroy_object(self, resource, id):
         self._call('DELETE', '{}/{}'.format(resource, id))
         self.id = None
+
+    def _patch_object(self, resource, id):
+        self._call('PATCH', '{}/{}'.format(resource, id))
+        self._fill()

@@ -97,30 +97,42 @@ class Vm(BaseAPI):
         return self
 
     def _commit(self):
-        ports = [{
+        vm = {
+            'vdc': self.vdc.id,
+            'template': self.template.id,
+            'name': self.name,
+            'cpu': self.cpu,
+            'ram': self.ram,
+            'description': self.description or ''
+        }
+
+        vm['ports'] = [{
+            'id': o.id,
+        }if o.id else \
+        {
             'network': o.network.id,
             'fw_templates': [o2.id for o2 in o.fw_templates or []]
         } for o in self.ports]
-        disks = [{
+
+        vm['disks'] = [{
             'name': o.name,
             'size': o.size,
             'storage_profile': o.storage_profile.id
         } for o in self.disks]
-        metadata = [{
-            'field': o.field.id,
-            'value': o.value
-        } for o in self.metadata]
+
+        if self.id is None:
+            vm['metadata'] = [{
+                'field': o.field.id,
+                'value': o.value
+            } for o in self.metadata]
 
         floating = None
         if self.floating:
             # keep/change or get a new IP
             floating = self.floating.id or '0.0.0.0'
+        vm['floating'] = floating
 
-        self._commit_object('v1/vm', vdc=self.vdc.id,
-                            template=self.template.id, name=self.name,
-                            cpu=self.cpu, ram=self.ram, ports=ports,
-                            description=self.description or '',
-                            floating=floating, disks=disks, metadata=metadata)
+        self._commit_object('v1/vm', **vm)
 
     def destroy(self):
         """
@@ -135,26 +147,6 @@ class Vm(BaseAPI):
 
         self._destroy_object('v1/vm', self.id)
         self.id = None
-
-    def power_on(self):
-        """
-        Включить виртуальный сервер
-        """
-        self._call('POST', 'v1/vm/{}/state'.format(self.id), state='power_on')
-        self.power = True
-
-    def power_off(self):
-        """
-        Выключить виртуальный сервер
-        """
-        self._call('POST', 'v1/vm/{}/state'.format(self.id), state='power_off')
-        self.power = False
-
-    def reboot(self):
-        """
-        Перезагрузить виртуальный сервер
-        """
-        self._call('POST', 'v1/vm/{}/state'.format(self.id), state='reboot')
 
     def add_disk(self, disk):
         """
@@ -207,6 +199,7 @@ class Vm(BaseAPI):
         port = self._call('POST', 'v1/port', vm=self.id,
                           network=port.network.id)
         self.ports.append(port)
+        self._fill()
 
     def remove_port(self, port):
         """
@@ -217,6 +210,26 @@ class Vm(BaseAPI):
         """
         self._call('DELETE', 'v1/port/{}'.format(port.id))
         self.ports = [o for o in self.ports if o.id != port.id]
+
+    def power_on(self):
+        """
+        Включить виртуальный сервер
+        """
+        self._call('POST', 'v1/vm/{}/state'.format(self.id), state='power_on')
+        self.power = True
+
+    def power_off(self):
+        """
+        Выключить виртуальный сервер
+        """
+        self._call('POST', 'v1/vm/{}/state'.format(self.id), state='power_off')
+        self.power = False
+
+    def reboot(self):
+        """
+        Перезагрузить виртуальный сервер
+        """
+        self._call('POST', 'v1/vm/{}/state'.format(self.id), state='reboot')
 
     def get_vnc_url(self):
         """
