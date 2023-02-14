@@ -71,7 +71,11 @@ class Router(BaseAPI):
         self._commit()
 
     def _commit(self):
-        ports = [{'network': o.network.id} for o in self.ports]
+        ports = [{
+            'id': o.id
+        } if o.id else {
+            'network': o.network.id
+        } for o in self.ports]
         floating = None
         if self.floating:
             # keep/change or get a new IP

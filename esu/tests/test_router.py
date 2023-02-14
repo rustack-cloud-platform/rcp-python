@@ -2,6 +2,7 @@ import pytest
 
 from esu import Port
 from esu.base import NotFoundEx
+from esu.network import Network
 from esu.router import Router
 from esu.tests import load_fixtures
 from esu.vdc import Vdc
@@ -36,8 +37,8 @@ def test_create(rsps):
     vdc = Vdc.get_object(vdc_id)
 
     network_id = '9c7d5517-e920-4df0-aced-0146c3f67ff8'
-    router = Router(name='New router', vdc=vdc,
-                    ports=[Port(network=network_id)])
+    network = Network().get_object(id=network_id)
+    router = Router(name='New router', vdc=vdc, ports=[Port(network=network)])
     router.create()
 
     assert router.id
@@ -52,8 +53,9 @@ def test_create_with_fip(rsps):
     vdc = Vdc.get_object(vdc_id)
 
     network_id = '9c7d5517-e920-4df0-aced-0146c3f67ff8'
+    network = Network().get_object(id=network_id)
     router = Router(name='New router with fip', vdc=vdc,
-                    ports=[Port(network=network_id)], floating=Port())
+                    ports=[Port(network=network)], floating=Port())
     router.create()
 
     assert router.name == 'New router with fip'

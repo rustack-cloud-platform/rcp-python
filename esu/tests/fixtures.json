@@ -5466,10 +5466,10 @@
             "vdc": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
             "ports": [
                 {
-                    "network": "9c7d5517-e920-4df0-aced-0146c3f67ff8"
+                    "id": "e37e2737-2b39-4e53-a916-96dbbc99a137"
                 },
                 {
-                    "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d"
+                    "id": "92e06868-52d4-4bb9-9523-7ee757c0e373"
                 }
             ],
             "floating": "486eb7cd-5a31-4dda-a729-9cb721796bd2"
@@ -6393,8 +6393,7 @@
             "template": "70722cb1-6e03-4900-ad78-b680205cd003",
             "ports": [
                 {
-                    "network": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
-                    "fw_templates": []
+                    "id": "527a4f36-9017-48b5-90f1-634c3492f445"
                 }
             ],
             "disks": [
@@ -6409,7 +6408,6 @@
                     "size": 15
                 }
             ],
-            "metadata": [],
             "floating": null
         }
     },
@@ -6841,14 +6839,6 @@
                     "measure": "ГБ"
                 }
             },
-            "vm": {
-                "id": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
-                "name": "New VM Name 123",
-                "cpu": 1,
-                "ram": 2,
-                "power": false,
-                "platform": "f0cec20a-fa80-4fa0-86a9-83c91a484cd4"
-            },
             "vdc": {
                 "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
                 "name": "Vdc New Name",
@@ -6868,9 +6858,10 @@
         },
         "request": {
             "name": "Disk 2 renamed",
+            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+            "vm": "33d9d1af-cf31-4b55-aa44-590d020ab13a",
             "size": 15,
-            "storage_profile": "286bb153-87b0-4f9e-9225-947554df6ddb",
-            "vm": "33d9d1af-cf31-4b55-aa44-590d020ab13a"
+            "storage_profile": "286bb153-87b0-4f9e-9225-947554df6ddb"
         }
     },
     {
@@ -7501,8 +7492,40 @@
         }
     },
     {
-        "method": "POST",
-        "url": "https://api.example.com/v1/port",
+        "method": "PATCH",
+        "url": "https://api.example.com/v1/port/954fd467-fd9a-4ce7-b4df-1e81e557bce9/disconnect",
+        "status": 204,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+            "ctime": "2021-09-07T00:02:50.556842",
+            "network": {
+                "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+                "name": "Default",
+                "external": false
+            },
+            "ip_address": "192.168.45.2",
+            "fw_templates": [],
+            "connected": {},
+            "locked": true,
+            "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
+            "type": "orphan_int",
+            "router": {
+                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+                "name": "Renamed default router",
+                "is_default": true,
+                "locked": false
+            },
+            "enable_security": false
+        },
+        "request": {}
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/port/954fd467-fd9a-4ce7-b4df-1e81e557bce9",
         "status": 201,
         "headers": {
             "Content-Type": "application/json",
@@ -7510,7 +7533,7 @@
             "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
         },
         "response": {
-            "id": "8e0cdf40-1c68-46fc-9fa8-2d3ea88bb4a4",
+            "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
             "ctime": "2021-09-07T00:02:50.556842",
             "network": {
                 "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
@@ -7546,12 +7569,146 @@
         },
         "request": {
             "vm": "17580bd1-b548-4214-8614-6cfee656bd6f",
-            "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d"
+            "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+            "ip_address": "0.0.0.0",
+            "fw_templates": []
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/port",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+            "ctime": "2021-09-07T00:02:50.556842",
+            "network": {
+                "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+                "name": "Default",
+                "external": false
+            },
+            "ip_address": "192.168.45.2",
+            "fw_templates": [],
+            "connected": {
+                "id": "17580bd1-b548-4214-8614-6cfee656bd6f",
+                "type": "vm",
+                "name": "vm1",
+                "vdc": {
+                    "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
+                    "name": "kvm",
+                    "hypervisor": {
+                        "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
+                        "name": "kvm",
+                        "type": "kvm"
+                    }
+                }
+            },
+            "locked": true,
+            "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
+            "type": "vm_int",
+            "router": {
+                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+                "name": "Renamed default router",
+                "is_default": true,
+                "locked": false
+            },
+            "enable_security": false
+        },
+        "request": {
+            "vm": "17580bd1-b548-4214-8614-6cfee656bd6f",
+            "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+            "ip_address": "0.0.0.0",
+            "fw_templates": []
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/port",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+            "ctime": "2021-09-07T00:02:50.556842",
+            "network": {
+                "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+                "name": "Default",
+                "external": false
+            },
+            "ip_address": "192.168.45.2",
+            "fw_templates": [],
+            "connected": {},
+            "locked": true,
+            "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
+            "type": "orphan_int",
+            "router": {
+                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+                "name": "Renamed default router",
+                "is_default": true,
+                "locked": false
+            },
+            "enable_security": false
+        },
+        "request": {
+            "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+            "ip_address": "0.0.0.0"
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/port/954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+            "ctime": "2021-09-07T00:02:50.556842",
+            "network": {
+                "id": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
+                "name": "Default",
+                "external": false
+            },
+            "ip_address": "192.168.45.2",
+            "fw_templates": [],
+            "connected": {
+                "id": "17580bd1-b548-4214-8614-6cfee656bd6f",
+                "type": "vm",
+                "name": "vm1",
+                "vdc": {
+                    "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
+                    "name": "kvm",
+                    "hypervisor": {
+                        "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
+                        "name": "kvm",
+                        "type": "kvm"
+                    }
+                }
+            },
+            "locked": true,
+            "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
+            "type": "vm_int",
+            "router": {
+                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+                "name": "Renamed default router",
+                "is_default": true,
+                "locked": false
+            },
+            "enable_security": false
         }
     },
     {
         "method": "DELETE",
-        "url": "https://api.example.com/v1/port/9135f5f1-f640-4ac1-b400-456775ca78a3",
+        "url": "https://api.example.com/v1/port/954fd467-fd9a-4ce7-b4df-1e81e557bce9",
         "status": 204,
         "headers": {
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS",
@@ -7559,6 +7716,46 @@
         },
         "response": null,
         "request": {}
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/port",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "id": "6f2c20c2-e804-48f4-9862-923cc0ac9d22",
+            "ctime": "2023-02-10T13:04:22.325458",
+            "network": {
+                "id": "82aea89a-9dd2-44f9-8876-ab31a78abde6",
+                "name": "External",
+                "external": true
+            },
+            "ip_address": "10.11.133.34",
+            "fw_templates": [],
+            "connected": null,
+            "locked": false,
+            "job_id": null,
+            "type": "orphan_ext",
+            "router": null,
+            "enable_security": false,
+            "vdc": {
+                "id": "d179b89a-a369-4552-ad31-fa3766df0049",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 2
+                }
+            }
+        },
+        "request": {
+            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9"
+        }
     },
     {
         "method": "GET",
@@ -7685,5 +7882,58 @@
                 "That page contains no results - 2"
             ]
         }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/vm/954fd467-fd9a-4ce7-b4df-1e81e557bce9/snapshot",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "ctime": "2023-02-10T13:42:03.449Z",
+            "description": "test",
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "is_current": "test",
+            "job_id": "test",
+            "locked": "false",
+            "name": "test"
+        },
+        "request": {
+            "description":"test",
+            "name": "test"
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/vm/954fd467-fd9a-4ce7-b4df-1e81e557bce9/snapshot/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "ctime": "2023-02-10T13:42:03.449Z",
+            "description": "test",
+            "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "is_current": "test",
+            "job_id": "test",
+            "locked": "false",
+            "name": "test"
+        },
+        "request": {}
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/vm/954fd467-fd9a-4ce7-b4df-1e81e557bce9/snapshot/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "status": 204,
+        "headers": {
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": null,
+        "request": {}
     }
 ]
