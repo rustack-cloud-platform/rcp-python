@@ -4,15 +4,15 @@ from esu.base import BaseAPI, Field, ObjectAlreadyHasId, ObjectHasNoId
 class FirewallTemplateRule(BaseAPI):
     """
     Args:
-        id (str): Идентификатор шаблона брандмауэра
-        name (str): Имя шаблона брандмауэра
-        firewall_id (str): Объект класса :class:`esu.FirewallTemplate`.
+        id (str): Идентификатор правила брандмауэра
+        name (str): Имя правила брандмауэра
+        firewall (str): Объект класса :class:`esu.FirewallTemplate`.
                 Проект, к которому относится данное правило брандмауэра
-        direction (str): direction шаблона брандмауэра
-        destination_ip (str): destination_ip шаблона брандмауэра
-        dst_port_range_max (str): dst_port_range_max шаблона брандмауэра
-        dst_port_range_min (str): dst_port_range_min шаблона брандмауэра
-        protocol (str): protocol шаблона брандмауэра
+        direction (str): направление правила брандмауэра
+        destination_ip (str): destination_ip правила брандмауэра
+        dst_port_range_max (str): dst_port_range_max правила брандмауэра
+        dst_port_range_min (str): dst_port_range_min правила брандмауэра
+        protocol (str): protocol правила брандмауэра
         token (str): Токен для доступа к API. Если не передан, будет
                          использована переменная окружения **ESU_API_TOKEN**
 
@@ -23,7 +23,7 @@ class FirewallTemplateRule(BaseAPI):
     class Meta:
         id = Field()
         name = Field()
-        firewall_id = Field('esu.FirewallTemplate')
+        firewall = Field('esu.FirewallTemplate')
         direction = Field()
         destination_ip = Field()
         dst_port_range_max = Field()
@@ -31,7 +31,7 @@ class FirewallTemplateRule(BaseAPI):
         protocol = Field()
 
     @classmethod
-    def get_object(cls, firewall_id, rule_id, token=None):
+    def get_object(cls, firewall, rule_id, token=None):
         """
         Получить объект правил брандмауэра по его ID
 
@@ -44,9 +44,9 @@ class FirewallTemplateRule(BaseAPI):
             object: Возвращает объект шаблона брандмауэра
             :class:`esu.FirewallTemplateRule`
         """
-        firewall_rule = cls(token=token, id=rule_id, firewall_id=firewall_id)
+        firewall_rule = cls(token=token, id=rule_id, firewall=firewall)
         firewall_rule._get_object(
-            'v1/firewall/{}/rule'.format(firewall_rule.firewall_id),
+            'v1/firewall/{}/rule'.format(firewall_rule.firewall.id),
             firewall_rule.id)
         return firewall_rule
 
@@ -78,7 +78,7 @@ class FirewallTemplateRule(BaseAPI):
 
     def _commit(self):
         self._commit_object(
-            'v1/firewall/{}/rule'.format(self.firewall_id),
+            'v1/firewall/{}/rule'.format(self.firewall.id),
             name=self.name,
             destination_ip=self.destination_ip,
             direction=self.direction,
@@ -98,6 +98,6 @@ class FirewallTemplateRule(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        self._destroy_object('v1/firewall/{}/rule'.format(self.firewall_id),
+        self._destroy_object('v1/firewall/{}/rule'.format(self.firewall.id),
                              self.id)
         self.id = None

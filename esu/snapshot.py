@@ -6,7 +6,7 @@ class Snapshot(BaseAPI):
     Args:
         id (str): Идентификатор снапшота
         name (str): Имя снапшота
-        description (str): описание для шаблона брандмауэра
+        description (str): описание для снапшота
         vm (object): Объект класса :class:`esu.Vm`. Сервер, к которому
                       относится данный снапшот
 
@@ -25,22 +25,20 @@ class Snapshot(BaseAPI):
         description = Field()
 
     @classmethod
-    def get_object(cls, id, vm, token=None):
+    def get_object(cls, id, token=None):
         """
         Получить объект порта по его ID
 
         Args:
             id (str): Идентификатор снапшота
-            vm (str): Идентификатор vm
             token (str): Токен для доступа к API. Если не передан, будет
                          использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект порта :class:`esu.Port`
         """
-        snapshot = cls(token=token, id=id, vm=vm)
-        snapshot._get_object('v1/vm/{}/snapshot'.format(snapshot.vm.id),
-                             snapshot.id)
+        snapshot = cls(token=token, id=id)
+        snapshot._get_object('v2/snapshot', snapshot.id)
         return snapshot
 
     def create(self):
@@ -72,8 +70,8 @@ class Snapshot(BaseAPI):
     #pylint: disable=import-outside-toplevel
     def _commit(self):
         description = self.description or ''
-        self._commit_object('v1/vm/{}/snapshot'.format(self.vm.id),
-                            name=self.name, description=description)
+        self._commit_object('v2/snapshot', name=self.name,
+                            description=description, vm=self.vm.id)
 
     def destroy(self):
         """
@@ -86,5 +84,5 @@ class Snapshot(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        self._destroy_object('v1/vm/{}/snapshot'.format(self.vm.id), self.id)
+        self._destroy_object('v2/snapshot', self.id)
         self.id = None

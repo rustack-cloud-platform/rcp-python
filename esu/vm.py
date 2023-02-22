@@ -52,6 +52,7 @@ class Vm(BaseAPI):
         ports = FieldList('esu.Port')
         disks = FieldList('esu.Disk')
         floating = Field('esu.Port', allow_none=True)
+        hotadd_feature = Field()
 
     @classmethod
     def get_object(cls, id, token=None):
@@ -103,22 +104,19 @@ class Vm(BaseAPI):
             'name': self.name,
             'cpu': self.cpu,
             'ram': self.ram,
-            'description': self.description or ''
+            'description': self.description or '',
+            'ports': [{
+                'id': o.id,
+            } if o.id else {
+                'network': o.network.id,
+                'fw_templates': [o2.id for o2 in o.fw_templates or []]
+            } for o in self.ports],
+            'disks': [{
+                'name': o.name,
+                'size': o.size,
+                'storage_profile': o.storage_profile.id
+            } for o in self.disks]
         }
-
-        vm['ports'] = [{
-            'id': o.id,
-        }if o.id else \
-        {
-            'network': o.network.id,
-            'fw_templates': [o2.id for o2 in o.fw_templates or []]
-        } for o in self.ports]
-
-        vm['disks'] = [{
-            'name': o.name,
-            'size': o.size,
-            'storage_profile': o.storage_profile.id
-        } for o in self.disks]
 
         if self.id is None:
             vm['metadata'] = [{
@@ -131,6 +129,9 @@ class Vm(BaseAPI):
             # keep/change or get a new IP
             floating = self.floating.id or '0.0.0.0'
         vm['floating'] = floating
+
+        if self.hotadd_feature:
+            vm['hotadd_feature'] = True
 
         self._commit_object('v1/vm', **vm)
 
@@ -241,3 +242,7 @@ class Vm(BaseAPI):
         vnc = self._call('POST', 'v1/vm/{}/vnc'.format(self.id))
         uri = vnc['url']
         return '{}{}'.format(self.endpoint_url, uri)
+
+    def revert(self, snapshot):
+        vm = self._call('POST', 'v2/snapshot/{}/revert'.format(snapshot.id))
+        return vm

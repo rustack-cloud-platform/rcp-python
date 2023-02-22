@@ -26,6 +26,10 @@ class ObjectHasNoId(BaseEx):
     pass
 
 
+class PortAlreadyConnected(BaseEx):
+    pass
+
+
 class Field:
     def __init__(self, class_name=None, *, allow_none=False):
         self._class_name = class_name
@@ -80,7 +84,7 @@ class BaseAPI:
     def __repr__(self):
         return '{} ({})'.format(self.__class__, self.id)
 
-    def _call(self, method, resource, **kwargs):
+    def _call(self, http_method, resource, **kwargs):
         headers = {
             'Authorization': 'Bearer {}'.format(self.token),
             'Content-Type': 'application/json',
@@ -89,10 +93,10 @@ class BaseAPI:
 
         url = '{}/{}'.format(self.endpoint_url, resource)
         request_params = dict(url=url, headers=headers, timeout=30)
-        method = method.lower()
+        http_method = http_method.lower()
 
-        request_params['params' if method == 'get' else 'json'] = kwargs
-        method_ = getattr(requests, method)
+        request_params['params' if http_method == 'get' else 'json'] = kwargs
+        method_ = getattr(requests, http_method)
         resp = method_(**request_params)
 
         answer = None
