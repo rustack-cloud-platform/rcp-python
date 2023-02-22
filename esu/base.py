@@ -26,6 +26,10 @@ class ObjectHasNoId(BaseEx):
     pass
 
 
+class PortAlreadyConnected(BaseEx):
+    pass
+
+
 class Field:
     def __init__(self, class_name=None, *, allow_none=False):
         self._class_name = class_name
@@ -88,7 +92,8 @@ class BaseAPI:
         }
 
         url = '{}/{}'.format(self.endpoint_url, resource)
-        request_params = dict(url=url, headers=headers, timeout=30)
+        request_params = dict(url=url, headers=headers, timeout=30,
+                              verify=False)
         method = method.lower()
 
         request_params['params' if method == 'get' else 'json'] = kwargs

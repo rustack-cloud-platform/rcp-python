@@ -17,8 +17,9 @@ from .storage_profile import StorageProfile
 from .subnet import Subnet
 from .template import Template
 from .template_field import TemplateField
+from .utils import ConnectedObject, LbaasPoolMember
 from .vdc import Vdc
 from .vm import Vm
 from .vm_metadata import VmMetadata
 
-__version__ = '0.1.8'
+__version__ = '0.1.9pre1'

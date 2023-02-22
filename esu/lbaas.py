@@ -83,7 +83,7 @@ class Lbaas(BaseAPI):
             # keep/change or get a new IP
             floating = self.floating.id or '0.0.0.0'
         self._commit_object('v1/lbaas', name=self.name, vdc=self.vdc.id,
-                            port=port, floating=floating)
+                            port=port.id, floating=floating)
 
     def destroy(self):
         """
@@ -104,7 +104,7 @@ class Lbaas(BaseAPI):
         Получить список пулов балансировщика, доступных в рамках данного Lbaas.
 
         Returns:
-            list: Список объектов :class:`esu.Vm`
+            list: Список объектов :class:`esu.LbassPool`
         """
         if self.id is None:
             raise ObjectHasNoId
