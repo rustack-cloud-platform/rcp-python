@@ -1,5 +1,20 @@
 from esu.base import BaseAPI, Field, FieldList, ObjectAlreadyHasId, \
-    ObjectHasNoId
+    ObjectHasNoId, PortAlreadyConnected
+
+
+class ConnectedObject(BaseAPI):
+    """
+    Args:
+        id (str): Идентификатор подключённого объекта
+        type (object): Тип объекта
+        name (object): Имя подключённого объекта
+        vdc (str): Объект :class:`esu.Vdc`
+    """
+    class Meta:
+        id = Field(allow_none=True)
+        type = Field()
+        name = Field()
+        vdc = Field('esu.Vdc', allow_none=True)
 
 
 class Port(BaseAPI):
@@ -30,9 +45,11 @@ class Port(BaseAPI):
         ip_address = Field()
         type = Field()
         vdc = Field("esu.Vdc")
-        fw_templates = FieldList('esu.FirewallTemplate')
+        fw_templates = FieldList('esu.FirewallTemplate', allow_none=True)
         network = Field('esu.Network')
-        device = Field()
+        connected = Field(ConnectedObject, allow_none=True)
+        vm = Field('esu.Vm')
+        router = Field('esu.Router', allow_none=True)
 
     @classmethod
     def get_object(cls, id, token=None):
@@ -92,19 +109,42 @@ class Port(BaseAPI):
 
         self._commit()
 
-    #pylint: disable=import-outside-toplevel
     def _commit(self):
-        from esu import Router, Vm
-
         port = {
             'ip_address': self.ip_address or '0.0.0.0',
-            'network': self.network.id,
+            'fw_templates': [o.id for o in self.fw_templates or []]
         }
-        if isinstance(self.device, Vm):
-            port['vm'] = self.device.id
-            port['fw_templates'] = [o.id for o in self.fw_templates or []]
-        elif isinstance(self.device, Router):
-            port['router'] = self.device.id
+
+        if self.id is None:
+            port['network'] = self.network.id
+            if self.vm is not None:
+                port['vm'] = self.vm.id
+            elif self.router is not None:
+                port['router'] = self.router.id
+
+        self._commit_object('v1/port', **port)
+
+    def connect(self):
+        """
+        Подключить
+
+        Raises:
+            ObjectHasNoId: Если производится попытка присоединить
+                           несуществующий объект
+
+            PortAlreadyConnected: Если производится попытка
+                                  присоединить уже присоединенный порт
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        if self.connected is not None:
+            raise PortAlreadyConnected
+
+        if self.vm is not None:
+            port = {'vm': self.vm.id}
+        elif self.router is not None:
+            port = {'router': self.router.id}
 
         self._commit_object('v1/port', **port)
 
@@ -120,8 +160,10 @@ class Port(BaseAPI):
             raise ObjectHasNoId
 
         self._call('PATCH', 'v1/port/{}/disconnect'.format(self.id))
-        self.device = None
         self._fill()
+        self.connected = None
+        self.vm = None
+        self.router = None
 
     def destroy(self):
         """

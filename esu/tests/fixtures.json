@@ -7568,10 +7568,7 @@
             "enable_security": false
         },
         "request": {
-            "vm": "17580bd1-b548-4214-8614-6cfee656bd6f",
-            "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
-            "ip_address": "0.0.0.0",
-            "fw_templates": []
+            "vm": "17580bd1-b548-4214-8614-6cfee656bd6f"
         }
     },
     {
@@ -7644,7 +7641,7 @@
             },
             "ip_address": "192.168.45.2",
             "fw_templates": [],
-            "connected": {},
+            "connected": null,
             "locked": true,
             "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
             "type": "orphan_int",
@@ -7658,7 +7655,8 @@
         },
         "request": {
             "network": "09110dd6-2868-40f7-9aca-e4cda281ad0d",
-            "ip_address": "0.0.0.0"
+            "ip_address": "0.0.0.0",
+            "fw_templates": []
         }
     },
     {
@@ -7680,29 +7678,11 @@
             },
             "ip_address": "192.168.45.2",
             "fw_templates": [],
-            "connected": {
-                "id": "17580bd1-b548-4214-8614-6cfee656bd6f",
-                "type": "vm",
-                "name": "vm1",
-                "vdc": {
-                    "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
-                    "name": "kvm",
-                    "hypervisor": {
-                        "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
-                        "name": "kvm",
-                        "type": "kvm"
-                    }
-                }
-            },
+            "connected": {},
             "locked": true,
             "job_id": "b0cb8707-ca5d-4001-a394-517cd767dfff",
-            "type": "vm_int",
-            "router": {
-                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
-                "name": "Renamed default router",
-                "is_default": true,
-                "locked": false
-            },
+            "type": "orphan_int",
+            "router": {},
             "enable_security": false
         }
     },
@@ -7885,7 +7865,7 @@
     },
     {
         "method": "POST",
-        "url": "https://api.example.com/v1/vm/954fd467-fd9a-4ce7-b4df-1e81e557bce9/snapshot",
+        "url": "https://api.example.com/v2/snapshot",
         "status": 201,
         "headers": {
             "Content-Type": "application/json",
@@ -7899,16 +7879,62 @@
             "is_current": "test",
             "job_id": "test",
             "locked": "false",
-            "name": "test"
+            "name": "test",
+            "vm": {
+                "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+                "ctime": "2021-09-07T00:02:47.832374",
+                "locked": false,
+                "job_id": null,
+                "template": {
+                    "id": "70722cb1-6e03-4900-ad78-b680205cd101",
+                    "name": "KVM Debian 10",
+                    "before_deploy_text": "",
+                    "after_deploy_text": "",
+                    "icon": null
+                },
+                "vdc": {
+                    "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
+                    "name": "kvm",
+                    "hypervisor": {
+                        "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
+                        "name": "kvm",
+                        "type": "kvm"
+                    }
+                },
+                "name": "vm_014",
+                "hostname": "vm-3f69273f",
+                "cpu": 1,
+                "ram": 2,
+                "description": "",
+                "power": true,
+                "hotadd_feature": false,
+                "snapshots": 0,
+                "kubernetes": null,
+                "has_metrics": false,
+                "platform": {
+                    "id": "d3e2b9d6-431c-4bc5-85cd-f9f27529e212",
+                    "name": "base",
+                    "hypervisor": {
+                        "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
+                        "name": "kvm",
+                        "type": "kvm"
+                    }
+                },
+                "disks": [],
+                "ports": [],
+                "floating": null,
+                "cdrom": null
+            }
         },
         "request": {
-            "description":"test",
-            "name": "test"
+            "description": "test",
+            "name": "test",
+            "vm": "954fd467-fd9a-4ce7-b4df-1e81e557bce9"
         }
     },
     {
         "method": "GET",
-        "url": "https://api.example.com/v1/vm/954fd467-fd9a-4ce7-b4df-1e81e557bce9/snapshot/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "url": "https://api.example.com/v2/snapshot/3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "status": 201,
         "headers": {
             "Content-Type": "application/json",
@@ -7922,13 +7948,58 @@
             "is_current": "test",
             "job_id": "test",
             "locked": "false",
-            "name": "test"
+            "name": "test",
+            "vm": {
+                "id": "3f69273f-1d77-4ef7-af31-c93221335014",
+                "ctime": "2021-09-07T00:02:47.832374",
+                "locked": false,
+                "job_id": null,
+                "template": {
+                    "id": "70722cb1-6e03-4900-ad78-b680205cd101",
+                    "name": "KVM Debian 10",
+                    "before_deploy_text": "",
+                    "after_deploy_text": "",
+                    "icon": null
+                },
+                "vdc": {
+                    "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
+                    "name": "kvm",
+                    "hypervisor": {
+                        "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
+                        "name": "kvm",
+                        "type": "kvm"
+                    }
+                },
+                "name": "vm_014",
+                "hostname": "vm-3f69273f",
+                "cpu": 1,
+                "ram": 2,
+                "description": "",
+                "power": true,
+                "hotadd_feature": false,
+                "snapshots": 0,
+                "kubernetes": null,
+                "has_metrics": false,
+                "platform": {
+                    "id": "d3e2b9d6-431c-4bc5-85cd-f9f27529e212",
+                    "name": "base",
+                    "hypervisor": {
+                        "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
+                        "name": "kvm",
+                        "type": "kvm"
+                    }
+                },
+                "disks": [],
+                "ports": [],
+                "floating": null,
+                "cdrom": null
+            }
         },
         "request": {}
     },
     {
         "method": "DELETE",
-        "url": "https://api.example.com/v1/vm/954fd467-fd9a-4ce7-b4df-1e81e557bce9/snapshot/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+        "url": "https://api.example.com/v2/snapshot/3fa85f64-5717-4562-b3fc-2c963f66afa6",
         "status": 204,
         "headers": {
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"

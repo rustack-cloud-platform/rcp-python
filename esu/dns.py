@@ -87,7 +87,7 @@ class Dns(BaseAPI):
         Получить список днс записей, доступных в рамках данного Dns.
 
         Returns:
-            list: Список объектов :class:`esu.Vm`
+            list: Список объектов :class:`esu.DnsRecord`
         """
         if self.id is None:
             raise ObjectHasNoId

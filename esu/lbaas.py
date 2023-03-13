@@ -104,7 +104,7 @@ class Lbaas(BaseAPI):
         Получить список пулов балансировщика, доступных в рамках данного Lbaas.
 
         Returns:
-            list: Список объектов :class:`esu.Vm`
+            list: Список объектов :class:`esu.LbassPool`
         """
         if self.id is None:
             raise ObjectHasNoId

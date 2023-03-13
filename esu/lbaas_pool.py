@@ -2,6 +2,19 @@ from esu.base import BaseAPI, Field, FieldList, ObjectAlreadyHasId, \
     ObjectHasNoId
 
 
+class LbaasPoolMember(BaseAPI):
+    """
+    Args:
+        port (str): Порт участника пула балансировщика
+        vm (object): Объект :class:`esu.Vm`
+        weight (str): Вес участника пула балансировщика
+    """
+    class Meta:
+        port = Field()
+        vm = Field('esu.Vm')
+        weight = Field()
+
+
 class LbaasPool(BaseAPI):
     """
     Args:
@@ -28,17 +41,17 @@ class LbaasPool(BaseAPI):
     class Meta:
         id = Field()
         name = Field()
-        lbaas_id = Field('esu.Project')
-        connlimit = Field('esu.Project')
-        cookie_name = Field('esu.Project')
-        members = FieldList('esu.LbaasPoolMember')
-        method = Field('esu.Project')
-        port = Field('esu.Project')
-        protocol = Field('esu.Project')
-        session_persistence = Field('esu.Project')
+        lbaas = Field('esu.Lbaas')
+        connlimit = Field()
+        cookie_name = Field()
+        members = FieldList(LbaasPoolMember)
+        method = Field()
+        port = Field()
+        protocol = Field()
+        session_persistence = Field()
 
     @classmethod
-    def get_object(cls, lbaas_id, pool_id, token=None):
+    def get_object(cls, lbaas, pool_id, token=None):
         """
         Получить объект пула балансировщика по его ID
 
@@ -50,8 +63,8 @@ class LbaasPool(BaseAPI):
         Returns:
             object: Возвращает объект LbaasPool :class:`esu.LbaasPool`
         """
-        pool = cls(token=token, id=pool_id, lbaas_id=lbaas_id)
-        pool._get_object('v1/lbaas/{}/pool'.format(pool.lbaas_id), pool.id)
+        pool = cls(token=token, id=pool_id, lbaas=lbaas)
+        pool._get_object('v1/lbaas/{}/pool'.format(pool.lbaas.id), pool.id)
         return pool
 
     def create(self):
@@ -86,18 +99,20 @@ class LbaasPool(BaseAPI):
             'vm': o.vm.id,
             'weight': o.weight
         } for o in self.members]
+        pull = {
+            'members': members,
+            'method': self.method,
+            'port': self.port,
+            'protocol': self.protocol,
+            'session_persistence': self.session_persistence,
+            'name': self.name,
+        }
+        if self.connlimit is not None:
+            pull['connlimit'] = self.connlimit
+        if self.cookie_name is not None:
+            pull['cookie_name'] = self.cookie_name
 
-        self._commit_object(
-            'v1/lbaas/{}/pool'.format(self.lbaas_id),
-            connlimit=self.connlimit,
-            members=members,
-            cookie_name=self.cookie_name,
-            method=self.method,
-            port=self.port,
-            protocol=self.protocol,
-            session_persistence=self.session_persistence,
-            name=self.name,
-        )
+        self._commit_object('v1/lbaas/{}/pool'.format(self.lbaas.id), **pull)
 
     def destroy(self):
         """
@@ -110,5 +125,5 @@ class LbaasPool(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        self._destroy_object('v1/lbaas/{}/pool'.format(self.lbaas_id), self.id)
+        self._destroy_object('v1/lbaas/{}/pool'.format(self.lbaas.id), self.id)
         self.id = None
