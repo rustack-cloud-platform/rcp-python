@@ -8006,5 +8006,67 @@
         },
         "response": null,
         "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/account/me",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "d4d16498-b6c3-4fa5-825a-e7ef9463f3b8",
+            "domain": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "name": "default",
+                "aliases": [
+                    {
+                        "id": "cc87f3fb-5a93-47e4-82f6-8405e1992726",
+                        "alias": "default"
+                    }
+                ]
+            },
+            "login": "test_login",
+            "username": "test_username"
+        },
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/account/5fbd6cf8-b346-434f-8192-884fb36f3c2c",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "d4d16498-b6c3-4fa5-825a-e7ef9463f3b8",
+            "domain": {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "name": "default",
+                "aliases": [
+                    {
+                        "id": "cc87f3fb-5a93-47e4-82f6-8405e1992726",
+                        "alias": "default"
+                    }
+                ]
+            },
+            "login": "test_login",
+            "username": "test_username"
+        },
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/account/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "detail": "Not found."
+        }
     }
 ]

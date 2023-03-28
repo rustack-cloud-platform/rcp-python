@@ -30,6 +30,10 @@ class PortAlreadyConnected(BaseEx):
     pass
 
 
+class TaskFailed(BaseEx):
+    pass
+
+
 class Field:
     def __init__(self, class_name=None, *, allow_none=False):
         self._class_name = class_name
@@ -121,10 +125,12 @@ class BaseAPI:
 
         while True:
             if time() - start_time > 600:
-                raise TaskTimeoutEx
+                raise TaskTimeoutEx("Time for waiting a task is expired")
 
             try:
-                self._call('GET', 'v1/job/{}'.format(job_id))
+                job = self._call('GET', 'v1/job/{}'.format(job_id))
+                if job['status'] == 'error':
+                    raise TaskFailed("Task is failed")
                 sleep(1)
             except NotFoundEx:
                 break
