@@ -20,7 +20,8 @@ class Domain(BaseAPI):
     Args:
         id (str): Идентификатор наименования домена
         name (str): Имя домена
-        aliases (str): Наименования домена
+        aliases (list): Список объектов класса :class:`esu.DomainAlias`.
+                        Список наименований, которые относятся к домену
 
     .. warning:: Объект доступен только для чтения и не может быть создан,
                  изменен или удален.
@@ -35,9 +36,13 @@ class User(BaseAPI):
     """
     Args:
         id (str): Идентификатор пользователя
+        domain (object): Объект класса :class:`esu.Domain`.
+                         Объект который указывает на принадлежность
+                         пользователя к определённому домену
         login (str): Логин пользователя
         username (str): Имя пользователя
-        domain (str): Домен к которому прикреплён пользователь
+        email (str): Почта
+        phone (str): Телефон
 
     .. warning:: Объект доступен только для чтения и не может быть создан,
                  изменен или удален.
@@ -46,7 +51,9 @@ class User(BaseAPI):
         id = Field()
         domain = Field(Domain)
         login = Field()
-        username = Field()
+        username = Field(allow_none=True)
+        email = Field(allow_none=True)
+        phone = Field(allow_none=True)
 
     @classmethod
     def get_object(cls, id, token=None):

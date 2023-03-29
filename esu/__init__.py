@@ -22,4 +22,4 @@ from .vdc import Vdc
 from .vm import Vm
 from .vm_metadata import VmMetadata
 
-__version__ = '0.1.10'
+__version__ = '0.1.11'
