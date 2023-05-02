@@ -25,7 +25,7 @@ class DnsRecord(BaseAPI):
     """
     class Meta:
         id = Field()
-        dns_id = Field('esu.Dns')
+        dns = Field('esu.Dns')
         data = Field()
         flag = Field()
         host = Field()
@@ -37,7 +37,7 @@ class DnsRecord(BaseAPI):
         weight = Field()
 
     @classmethod
-    def get_object(cls, dns_id, id, token=None):
+    def get_object(cls, dns, id, token=None):
         """
         Получить объект Dns запись по его ID
 
@@ -49,8 +49,8 @@ class DnsRecord(BaseAPI):
         Returns:
             object: Возвращает объект Dns :class:`esu.DnsRecord`
         """
-        dns_record = cls(token=token, id=id, dns_id=dns_id)
-        dns_record._get_object('v1/dns/{}/record'.format(dns_record.dns_id),
+        dns_record = cls(token=token, id=id, dns=dns)
+        dns_record._get_object('v1/dns/{}/record'.format(dns_record.dns.id),
                                dns_record.id)
         return dns_record
 
@@ -81,10 +81,11 @@ class DnsRecord(BaseAPI):
         self._commit()
 
     def _commit(self):
-        self._commit_object('v1/dns/{}/record'.format(self.dns_id),
+        self._commit_object('v1/dns/{}/record'.format(self.dns.id),
                             data=self.data, flag=self.flag, host=self.host,
-                            port=self.port, priority=self.priority,
-                            tag=self.tag, ttl=self.ttl, weight=self.weight)
+                            port=self.port, priority=self.priority, 
+                            type=self.type, tag=self.tag, ttl=self.ttl, 
+                            weight=self.weight)
 
     def destroy(self):
         """
@@ -97,5 +98,5 @@ class DnsRecord(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        self._destroy_object('v1/dns/{}/record'.format(self.dns_id), self.id)
+        self._destroy_object('v1/dns/{}/record'.format(self.dns.id), self.id)
         self.id = None
