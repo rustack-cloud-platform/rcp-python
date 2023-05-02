@@ -96,7 +96,7 @@ class BaseAPI:
         }
 
         url = '{}/{}'.format(self.endpoint_url, resource)
-        request_params = dict(url=url, headers=headers, timeout=30)
+        request_params = {'url': url, 'headers': headers, 'timeout': 30}
         http_method = http_method.lower()
 
         request_params['params' if http_method == 'get' else 'json'] = kwargs
@@ -110,7 +110,10 @@ class BaseAPI:
         resp.raise_for_status()
 
         if resp.status_code != 204:
-            answer = resp.json()
+            if 'config' in resource:
+                answer = resp.text
+            else:
+                answer = resp.json()
 
         for task_id in resp.headers.get('X-Esu-Tasks', '').split(','):
             task_id = task_id.strip()
@@ -124,7 +127,7 @@ class BaseAPI:
         start_time = time()
 
         while True:
-            if time() - start_time > 600:
+            if time() - start_time > 800:
                 raise TaskTimeoutEx("Time for waiting a task is expired")
 
             try:

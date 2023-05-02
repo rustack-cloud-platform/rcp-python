@@ -1,4 +1,7 @@
 from esu.base import BaseAPI, Field, ObjectAlreadyHasId, ObjectHasNoId
+from esu.dns import Dns
+from esu.kubernetes import Kubernetes
+from esu.s3 import S3
 from esu.vdc import Vdc
 
 
@@ -106,3 +109,42 @@ class Project(BaseAPI):
         """
 
         return self.client.allowed_hypervisors
+
+    def get_dns_zones(self):
+        """
+        Получить список доступных доменных зон в этом проекте. Вернет список
+        объектов :class:`esu.Dns`.
+
+        Returns:
+            list: Список объектов :class:`esu.Dns`
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        return self._get_list('v1/dns', Dns, project=self.id)
+
+    def get_k8s_clusters(self):
+        """
+        Получить список доступных кластеров Kubernetes в этом проекте. Вернет список
+        объектов :class:`esu.Kubernetes`.
+
+        Returns:
+            list: Список объектов :class:`esu.Kubernetes`
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        return self._get_list('v1/kubernetes', Kubernetes, project=self.id)
+
+    def get_s3_storages(self):
+        """
+        Получить список доступных s3 хранилищ в этом проекте. Вернет список
+        объектов :class:`esu.S3`.
+
+        Returns:
+            list: Список объектов :class:`esu.S3`
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        return self._get_list('v1/s3_storage', S3, project=self.id)

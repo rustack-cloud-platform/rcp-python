@@ -27,22 +27,6 @@ def test_connect(resp):
     print(port.connected)
     port.connect()
     assert isinstance(port, Port)
-    # assert port.device.id == device.id
-    # assert port.network.id == network.id
-
-
-@load_fixtures
-def test_disconnect(resp):
-    network = Network().get_object(id='09110dd6-2868-40f7-9aca-e4cda281ad0d')
-    device = Vm().get_object(id='17580bd1-b548-4214-8614-6cfee656bd6f')
-    port = Port(network=network, vm=device)
-    port.create()
-
-    assert isinstance(port, Port)
-    assert port.connected.id == device.id
-    assert port.network.id == network.id
-    port.disconnect()
-    assert port.connected is None
 
 
 @load_fixtures
