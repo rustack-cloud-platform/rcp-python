@@ -8068,5 +8068,431 @@
         "response": {
             "detail": "Not found."
         }
-    }
-]
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/account/d4d16498-b6c3-4fa5-825a-e7ef9463f3b8/key",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "e2fe4a85-16b1-4eac-a9a6-4c360caf1e3c",
+            "name": "test",
+            "public_key": "1241ndJSDfjnk235125jk1"
+        },
+        "request": {
+            "name": "test",
+            "public_key": "1241ndJSDfjnk235125jk1"
+        }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/account/d4d16498-b6c3-4fa5-825a-e7ef9463f3b8/key/e2fe4a85-16b1-4eac-a9a6-4c360caf1e3c",
+        "status": 204,
+        "headers": {
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": null,
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/kubernetes_template/253a9d25-3191-43de-ab9e-d2fbd48982c2",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "253a9d25-3191-43de-ab9e-d2fbd48982c2",
+            "name": "Kubernetes 1.22.1",
+            "master_template_name": "kuber-1.22.1-csi-master-new-ccm",
+            "node_template_name": "kuber-1.22.1-csi-node",
+            "vm_node_visible_template": {
+                "id": "304aed12-05cf-4974-acfe-2210ee3e99e6",
+                "name": "Ubuntu 20.04",
+                "before_deploy_text": "",
+                "after_deploy_text": "",
+                "icon": "/storage/bb532e32-2304-4ada-8bb7-ed20bf1544f2.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=X2I9NCWU8WP8SQ0PN4M8%2F20230504%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230504T075141Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=92eed63c938a252e53d6150cb74e636b9e6951a1e1c0073902c8b6616f8fc512"
+            },
+            "enabled": true,
+            "hypervisor_type": "kvm",
+            "script": "from authentication.models import PubKey, Token\n\ndef get_metadata(master=None, node=None):\n    if master:\n        return _prepare_master(master)\n    else:\n        return _prepare_node(node)\n \ndef _prepare_master(master):\n    hypervisor = master.vdc.hypervisor\n    api_url = hypervisor.get_setting('platform_internal_url')\n    api_token = hypervisor.get_setting('edge_api_token')\n\n    sa_token = Token(user=master.service_user)\n    sa_token.save()\n    sa_token = sa_token.original_key\n \n    return {\n        'user_data': f\"\"\"\\\n#cloud-config\ndebug:\n  verbose: true\ncloud_init_modules:\n  - migrator\n  - seed_random\n  - bootcmd\n  - write-files\n  - growpart\n  - resizefs\n  - set_hostname\n  - update_hostname\n  - update_etc_hosts\n  - users-groups\n  - ssh\n  - runcmd\nruncmd:\n  - runner install --api_url=\"{api_url}\" --token=\"{api_token}\" --sa_token=\"{sa_token}\" --runner_id=\"{master.short_id}\" --ifname=eth0 --kubernetes_uuid=\"{master.id}\" --version=\"1.22.1\"\nfqdn: \"{master.master_hostname}\"\nmanage_etc_hosts: true\ndisable_root: false\nssh_pwauth: yes\nusers:\n  - default\nssh_authorized_keys:\n  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKZnwlDIoHsfZukwf/QnHP8KR/diFMQgLFxG0Doe9qdZ/nE7xf3bUF9WNXwMEemQv6Vo6Jdp0kTswT+ZuELlxcvd4OgnIBChdY8qym/4/BFMqFJz6IJ1Bhenp/+bvy/cWR2bBKNiYb0Cw5dWU+0xbS75l6jy0oH3zCwVTNGQ7ieB5cwJaq3w9LYuXGITUN6pko3mJKMhQ1JB7mre8ZGkzKIwux5Eut4me1JCFfi/bGFlUUB/uFkzJIHtv4nlAmz3pW+Wv/6eqXXoaBrGp9Dmp3qPmnXtAywsnKGZ6ohp2jIcmJZ69ceJvB1jx5IoIR9W+ntBwlVhvmOdkSVy4yHiGL deploy@localhost\nchpasswd:\n  expire: false\n  list:\n    - root:\ntimezone: \"Europe/Moscow\"\npackage_update: false\ndatasource:\n  Ec2:\n    strict_id: false\n    timeout: 5\n    max_wait: 5\n    metadata_urls:\n      - http://169.254.169.254:80\n\"\"\",\n        'hostname': master.master_hostname[:15],\n        'instance-id': master.short_id,\n    }\n \ndef _prepare_node(node):\n    pub_keys = [node.kubernetes.service_public_key, node.kubernetes.user_public_key]\n    pub_keys = '\\n'.join([f'  - \"{k}\"' for k in pub_keys])\n \n    internal_ip = node.ports[0].ip_address\n \n    return {\n        'user_data': f\"\"\"\\\n#cloud-config\ndebug:\n  verbose: true\ncloud_init_modules:\n  - seed_random\n  - bootcmd\n  - write-files\n  - growpart\n  - resizefs\n  - set_hostname\n  - users-groups\n  - ssh\nbootcmd:\n  - echo {internal_ip} {node.hostname or node.short_id[:15]} > /etc/hosts\n  - echo \"127.0.0.1 localhost\" >> /etc/hosts\ndisable_root: false\nfqdn: \"{node.hostname or node.short_id[:15]}\"\nssh_pwauth: yes\nusers:\n  - default\nssh_authorized_keys:\n{pub_keys}\nchpasswd:\n  expire: false\n  list:\n    - root:\ntimezone: \"Europe/Moscow\"\npackage_update: false\ndatasource:\n  Ec2:\n    strict_id: false\n    timeout: 5\n    max_wait: 5\n    metadata_urls:\n      - http://169.254.169.254:80\n\"\"\",\n        'hostname': node.short_id[:15],\n        'instance-id': node.short_id,\n    }",
+            "min_node_cpu": 2,
+            "min_node_ram": 2,
+            "min_node_hdd": 10,
+            "position": 1
+        },
+        "request": {}
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/kubernetes",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS",
+            "X-Esu-Tasks": "b0cb8707-ca5d-4001-a394-517cd767dfff"
+        },
+        "response": {
+            "id": "eea40fd7-7f55-4be1-a6b2-c9517382bf24",
+            "name": "test",
+            "vdc": {
+                "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "template": {
+                "id": "253a9d25-3191-43de-ab9e-d2fbd48982c2",
+                "name": "Kubernetes 1.22.1"
+            },
+            "nodes_count": 1,
+            "node_platform": {
+                "id": "a4b4d376-f76b-41e7-a457-032b39c850f0",
+                "name": "Базовая",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "node_cpu": 2,
+            "node_ram": 2,
+            "node_disk_size": 10,
+            "node_storage_profile": {
+                "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
+                "name": "SSD",
+                "max_disk_size": 70,
+                "position": 20,
+                "billing_class": {
+                    "id": "vmware_hdd_ultrafast",
+                    "name": "Предоставление дискового пространства уровня SSD (ESXi)",
+                    "sku_mask": "IS-ESX-VHDD-SSD-CA-P-GB-D",
+                    "measure": "ГБ"
+                }
+            },
+            "user_public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCoko1rHM1Ddy0oSjtnjlY+EEPPiTLwzKqMPt/EeEOYu7zbt9vKmUHFsd3weaPhQXwxxFlE54vPLuci7zI/Y5WIsbhQPlXYYLcHdJGT00TES/SjuRZ+Crop04c7UbPMwUlKNs4SnoN6hdl7AwSDnGhqdPfCTy43hS/Z1e6D1UxwMtxC5UzgaUyTWseg+S0k20eQTUiJb0wrRPQ8v+4hhx9OfYQlYRRoZharSB4xN6U/wVLToum4yXSt4jr4G5bb/jfKQ1EQkTEUmR7bKuT2N7ujC1BwA4uiFHEDtRJB6tWSckT6QDGRaQKMbdIyWuH9jKd371AcqTcTI4bZzdftWd5Z bandov_admin@local",
+            "job_id": null,
+            "locked": false,
+            "vms": [
+                {
+                    "id": "7c6f6a74-0d5e-44d6-8866-80691f45c10e",
+                    "name": "vm-7c6f6a74",
+                    "cpu": 2,
+                    "ram": 2.0,
+                    "power": true,
+                    "platform": "a4b4d376-f76b-41e7-a457-032b39c850f0",
+                    "vdc": {
+                        "id": "10da9766-7c6c-49b0-bf82-a40bbc788b97",
+                        "name": "ВЦОД VMware",
+                        "hypervisor": {
+                            "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                            "name": "VMware",
+                            "type": "vmware",
+                            "position": 40,
+                            "icon": null
+                        }
+                    }
+                }
+            ],
+            "floating": {
+                "id": "36d3a233-28bb-4d7e-b89f-d05e0f3a3f4f",
+                "ip_address": "10.11.133.45"
+            }
+        },
+        "request": {
+            "name": "test",
+            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+            "node_cpu": 2,
+            "node_ram": 2,
+            "node_disk_size": 10,
+            "node_storage_profile": "563a9b7c-419a-4630-9ac8-8022d740f12a",
+            "nodes_count": 2,
+            "user_public_key": "e2fe4a85-16b1-4eac-a9a6-4c360caf1e3c",
+            "template": "253a9d25-3191-43de-ab9e-d2fbd48982c2",
+            "floating": null
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/kubernetes/eea40fd7-7f55-4be1-a6b2-c9517382bf24",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "eea40fd7-7f55-4be1-a6b2-c9517382bf24",
+            "name": "test",
+            "vdc": {
+                "id": "10da9766-7c6c-49b0-bf82-a40bbc788b97",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "template": {
+                "id": "0e021edc-e25b-4671-b0cb-521fab5daca0",
+                "name": "Kubernetes 1.22.1"
+            },
+            "nodes_count": 1,
+            "node_platform": {
+                "id": "a4b4d376-f76b-41e7-a457-032b39c850f0",
+                "name": "Базовая",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "node_cpu": 2,
+            "node_ram": 2,
+            "node_disk_size": 10,
+            "node_storage_profile": {
+                "id": "a55a900b-21f0-4d6b-95af-cff7f4ff2a60",
+                "name": "SSD",
+                "max_disk_size": 70,
+                "position": 20,
+                "billing_class": {
+                    "id": "vmware_hdd_ultrafast",
+                    "name": "Предоставление дискового пространства уровня SSD (ESXi)",
+                    "sku_mask": "IS-ESX-VHDD-SSD-CA-P-GB-D",
+                    "measure": "ГБ"
+                }
+            },
+            "user_public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCoko1rHM1Ddy0oSjtnjlY+EEPPiTLwzKqMPt/EeEOYu7zbt9vKmUHFsd3weaPhQXwxxFlE54vPLuci7zI/Y5WIsbhQPlXYYLcHdJGT00TES/SjuRZ+Crop04c7UbPMwUlKNs4SnoN6hdl7AwSDnGhqdPfCTy43hS/Z1e6D1UxwMtxC5UzgaUyTWseg+S0k20eQTUiJb0wrRPQ8v+4hhx9OfYQlYRRoZharSB4xN6U/wVLToum4yXSt4jr4G5bb/jfKQ1EQkTEUmR7bKuT2N7ujC1BwA4uiFHEDtRJB6tWSckT6QDGRaQKMbdIyWuH9jKd371AcqTcTI4bZzdftWd5Z bandov_admin@local",
+            "job_id": null,
+            "locked": false,
+            "vms": [
+                {
+                    "id": "7c6f6a74-0d5e-44d6-8866-80691f45c10e",
+                    "name": "vm-7c6f6a74",
+                    "cpu": 2,
+                    "ram": 2.0,
+                    "power": true,
+                    "platform": "a4b4d376-f76b-41e7-a457-032b39c850f0",
+                    "vdc": {
+                        "id": "10da9766-7c6c-49b0-bf82-a40bbc788b97",
+                        "name": "ВЦОД VMware",
+                        "hypervisor": {
+                            "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                            "name": "VMware",
+                            "type": "vmware",
+                            "position": 40,
+                            "icon": null
+                        }
+                    }
+                }
+            ],
+            "floating": {
+                "id": "36d3a233-28bb-4d7e-b89f-d05e0f3a3f4f",
+                "ip_address": "10.11.133.45"
+            }
+        },
+        "request": {}
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/kubernetes/eea40fd7-7f55-4be1-a6b2-c9517382bf24",
+        "status": 204,
+        "headers": {
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": null,
+        "request": {}
+    },
+    {
+            "method": "GET",
+            "url": "https://api.example.com/v1/s3_storage/21000000-2100-2100-2100-210000000000",
+            "status": 404,
+            "headers": {
+                "Content-Type": "application/json",
+                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+            },
+            "response": {
+                "detail": "Not found."
+            }
+        },
+        {
+            "method": "GET",
+            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "status": 200,
+            "headers": {
+                "Content-Type": "application/json",
+                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+            },
+            "response": {
+                "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+                "ctime": "2023-05-04T12:49:22.464698",
+                "name": "S3",
+                "access_key": "QOKFLFWX38FBM03U59J4",
+                "secret_key": "Qtoi3SqOhlM5uNfr1BeM5w1PZCc7kGVO3qZIKQfp",
+                "client_endpoint": "https://10.11.153.39:8082",
+                "real_size": 0.0,
+                "job_id": null,
+                "locked": false,
+                "project": {
+                    "id": "6c084322-5cc7-42b7-83a7-02da1e6496f4",
+                    "name": "222"
+                }
+            }
+        },
+        {
+            "method": "POST",
+            "url": "https://api.example.com/v1/s3_storage",
+            "status": 201,
+            "headers": {
+                "Content-Type": "application/json",
+                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+            },
+            "response": {
+                "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+                "ctime": "2023-05-04T12:49:22.464698",
+                "name": "New S3",
+                "access_key": "QOKFLFWX38FBM03U59J4",
+                "secret_key": "Qtoi3SqOhlM5uNfr1BeM5w1PZCc7kGVO3qZIKQfp",
+                "client_endpoint": "https://10.11.153.39:8082",
+                "real_size": 0.0,
+                "job_id": null,
+                "locked": false,
+                "project": {
+                    "id": "a737cd39-e7a7-46b8-a756-fb8ccceeed8f",
+                    "name": "222"
+                }
+            },
+             "request": {
+                 "name": "New S3",
+                 "project": "a737cd39-e7a7-46b8-a756-fb8ccceeed8f"
+                }
+        },
+        {
+            "method": "PUT",
+            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "status": 200,
+            "headers": {
+                "Content-Type": "application/json",
+                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+            },
+            "response": {
+                "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+                "ctime": "2023-05-04T12:49:22.464698",
+                "name": "Renamed S3",
+                "access_key": "QOKFLFWX38FBM03U59J4",
+                "secret_key": "Qtoi3SqOhlM5uNfr1BeM5w1PZCc7kGVO3qZIKQfp",
+                "client_endpoint": "https://10.11.153.39:8082",
+                "real_size": 0.0,
+                "job_id": null,
+                "locked": false,
+                "project": {
+                    "id": "6c084322-5cc7-42b7-83a7-02da1e6496f4",
+                    "name": "222"
+                }
+            },
+             "request": {
+                 "name": "Renamed S3",
+                 "project": "6c084322-5cc7-42b7-83a7-02da1e6496f4"
+                }
+        },
+        {
+            "method": "DELETE",
+            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "status": 204,
+            "headers": {
+                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+            },
+            "response": null,
+            "request": {}
+        },
+        {
+            "method": "GET",
+            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/21000000-2100-2100-2100-210000000000",
+            "status": 404,
+            "headers": {
+                "Content-Type": "application/json",
+                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+            },
+            "response": {
+                "detail": "Not found."
+            }
+        },
+        {
+            "method": "GET",
+            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/bef66c58-66d0-4161-a6ac-6caf85a9087d",
+            "status": 200,
+            "headers": {
+                "Content-Type": "application/json",
+                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+            },
+            "response": {
+                "id": "bef66c58-66d0-4161-a6ac-6caf85a9087d",
+                "name": "S3bucket",
+                "external_name": "111-bef66c58",
+                "job_id": null,
+                "locked": false
+            }
+        },
+        {
+          "method": "POST",
+          "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket",
+          "status": 201,
+          "headers": {
+              "Content-Type": "application/json",
+              "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+          },
+          "response": {
+              "id": "bef66c58-66d0-4161-a6ac-6caf85a9087d",
+              "name": "S3bucket",
+              "external_name": "111-bef66c58",
+              "job_id": null,
+              "locked": false
+          },
+           "request": {
+               "name": "S3bucket"
+              }
+        },
+        {
+          "method": "PUT",
+          "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/bef66c58-66d0-4161-a6ac-6caf85a9087d",
+          "status": 201,
+          "headers": {
+              "Content-Type": "application/json",
+              "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+          },
+          "response": {
+              "id": "bef66c58-66d0-4161-a6ac-6caf85a9087d",
+              "name": "Renamed S3bucket",
+              "external_name": "111-bef66c58",
+              "job_id": null,
+              "locked": false
+          },
+           "request": {
+               "name": "Renamed S3bucket"
+              }
+        },
+        {
+          "method": "DELETE",
+          "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/bef66c58-66d0-4161-a6ac-6caf85a9087d",
+          "status": 204,
+          "headers": {
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+          },
+          "response": null,
+          "request": {}
+        }
+      ]

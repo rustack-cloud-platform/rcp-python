@@ -1,6 +1,7 @@
 from esu.base import BaseAPI, Field, ObjectAlreadyHasId, ObjectHasNoId
 from esu.disk import Disk
 from esu.firewall_template import FirewallTemplate
+from esu.kubernetes_template import KubernetesTemplate
 from esu.port import Port
 from esu.storage_profile import StorageProfile
 from esu.template import Template
@@ -220,3 +221,17 @@ class Vdc(BaseAPI):
         vm.create()
 
         return vm
+
+    def get_k8s_templates(self):
+        """
+        Получить список шаблонов k8s для создания кластеров, доступных
+        в данном ВЦОДе.
+
+        Returns:
+            list: Список объектов :class:`esu.KubernetesTemplate`
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        return self._get_list('v1/kubernetes_template', KubernetesTemplate,
+                              vdc=self.id)
