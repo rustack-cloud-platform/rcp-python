@@ -125,8 +125,8 @@ class Project(BaseAPI):
 
     def get_k8s_clusters(self):
         """
-        Получить список доступных кластеров Kubernetes в этом проекте. Вернет список
-        объектов :class:`esu.Kubernetes`.
+        Получить список доступных кластеров Kubernetes в этом проекте.
+        Вернет список объектов :class:`esu.Kubernetes`.
 
         Returns:
             list: Список объектов :class:`esu.Kubernetes`

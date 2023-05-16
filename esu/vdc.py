@@ -1,6 +1,7 @@
 from esu.base import BaseAPI, Field, ObjectAlreadyHasId, ObjectHasNoId
 from esu.disk import Disk
 from esu.firewall_template import FirewallTemplate
+from esu.image import Image
 from esu.kubernetes_template import KubernetesTemplate
 from esu.port import Port
 from esu.storage_profile import StorageProfile
@@ -235,3 +236,15 @@ class Vdc(BaseAPI):
 
         return self._get_list('v1/kubernetes_template', KubernetesTemplate,
                               vdc=self.id)
+
+    def get_images(self):
+        """
+        Получить список образов, доступных в данном ВЦОДе.
+
+        Returns:
+            list: Список объектов :class:`esu.Image`
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        return self._get_list('v1/image', Image, vdc=self.id)
