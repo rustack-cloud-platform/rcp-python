@@ -69,9 +69,9 @@ class Image(BaseAPI):
 
         self._commit(vm=vm)
 
-    def get_upload_link(self):
+    def create_for_upload(self):
         """
-        Создать объект образа и получить ссылку для загрузки файлов образа
+        Создать объект образа для последующей загрузки в него файлов
 
         Raises:
             ObjectAlreadyHasId: Если производится попытка создать объект,
@@ -79,6 +79,10 @@ class Image(BaseAPI):
         """
         self._commit()
 
+    def get_upload_link(self):
+        """
+        Получить ссылку для загрузки файлов образа
+        """
         image = {'name': self.name, 'type': self.type}
 
         resp = self._call('POST', 'v1/image/{}/file'.format(self.id), **image)
@@ -91,9 +95,9 @@ class Image(BaseAPI):
         Подтверждение необходимо после загрузки файлов образа по полученному
         url для загрузки файлов
         """
-        self._call('POST', 'v1/image/{}/commit'.format(self.id))
-        image = self.get_object(id=self.id)
-        self.files = image.files
+        resp = self._call('POST', 'v1/image/{}/commit'.format(self.id))
+        self.kwargs = resp
+        self._fill()
         return self
 
     def save(self):

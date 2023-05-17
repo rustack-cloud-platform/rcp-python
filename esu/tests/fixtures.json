@@ -8318,181 +8318,543 @@
         "request": {}
     },
     {
-            "method": "GET",
-            "url": "https://api.example.com/v1/s3_storage/21000000-2100-2100-2100-210000000000",
-            "status": 404,
-            "headers": {
-                "Content-Type": "application/json",
-                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-            },
-            "response": {
-                "detail": "Not found."
-            }
-        },
-        {
-            "method": "GET",
-            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb",
-            "status": 200,
-            "headers": {
-                "Content-Type": "application/json",
-                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-            },
-            "response": {
-                "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
-                "ctime": "2023-05-04T12:49:22.464698",
-                "name": "S3",
-                "access_key": "QOKFLFWX38FBM03U59J4",
-                "secret_key": "Qtoi3SqOhlM5uNfr1BeM5w1PZCc7kGVO3qZIKQfp",
-                "client_endpoint": "https://10.11.153.39:8082",
-                "real_size": 0.0,
-                "job_id": null,
-                "locked": false,
-                "project": {
-                    "id": "6c084322-5cc7-42b7-83a7-02da1e6496f4",
-                    "name": "222"
-                }
-            }
-        },
-        {
-            "method": "POST",
-            "url": "https://api.example.com/v1/s3_storage",
-            "status": 201,
-            "headers": {
-                "Content-Type": "application/json",
-                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-            },
-            "response": {
-                "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
-                "ctime": "2023-05-04T12:49:22.464698",
-                "name": "New S3",
-                "access_key": "QOKFLFWX38FBM03U59J4",
-                "secret_key": "Qtoi3SqOhlM5uNfr1BeM5w1PZCc7kGVO3qZIKQfp",
-                "client_endpoint": "https://10.11.153.39:8082",
-                "real_size": 0.0,
-                "job_id": null,
-                "locked": false,
-                "project": {
-                    "id": "a737cd39-e7a7-46b8-a756-fb8ccceeed8f",
-                    "name": "222"
-                }
-            },
-             "request": {
-                 "name": "New S3",
-                 "project": "a737cd39-e7a7-46b8-a756-fb8ccceeed8f"
-                }
-        },
-        {
-            "method": "PUT",
-            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb",
-            "status": 200,
-            "headers": {
-                "Content-Type": "application/json",
-                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-            },
-            "response": {
-                "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
-                "ctime": "2023-05-04T12:49:22.464698",
-                "name": "Renamed S3",
-                "access_key": "QOKFLFWX38FBM03U59J4",
-                "secret_key": "Qtoi3SqOhlM5uNfr1BeM5w1PZCc7kGVO3qZIKQfp",
-                "client_endpoint": "https://10.11.153.39:8082",
-                "real_size": 0.0,
-                "job_id": null,
-                "locked": false,
-                "project": {
-                    "id": "6c084322-5cc7-42b7-83a7-02da1e6496f4",
-                    "name": "222"
-                }
-            },
-             "request": {
-                 "name": "Renamed S3",
-                 "project": "6c084322-5cc7-42b7-83a7-02da1e6496f4"
-                }
-        },
-        {
-            "method": "DELETE",
-            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb",
-            "status": 204,
-            "headers": {
-                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-            },
-            "response": null,
-            "request": {}
-        },
-        {
-            "method": "GET",
-            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/21000000-2100-2100-2100-210000000000",
-            "status": 404,
-            "headers": {
-                "Content-Type": "application/json",
-                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-            },
-            "response": {
-                "detail": "Not found."
-            }
-        },
-        {
-            "method": "GET",
-            "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/bef66c58-66d0-4161-a6ac-6caf85a9087d",
-            "status": 200,
-            "headers": {
-                "Content-Type": "application/json",
-                "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-            },
-            "response": {
-                "id": "bef66c58-66d0-4161-a6ac-6caf85a9087d",
-                "name": "S3bucket",
-                "external_name": "111-bef66c58",
-                "job_id": null,
-                "locked": false
-            }
-        },
-        {
-          "method": "POST",
-          "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket",
-          "status": 201,
-          "headers": {
-              "Content-Type": "application/json",
-              "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-          },
-          "response": {
-              "id": "bef66c58-66d0-4161-a6ac-6caf85a9087d",
-              "name": "S3bucket",
-              "external_name": "111-bef66c58",
-              "job_id": null,
-              "locked": false
-          },
-           "request": {
-               "name": "S3bucket"
-              }
-        },
-        {
-          "method": "PUT",
-          "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/bef66c58-66d0-4161-a6ac-6caf85a9087d",
-          "status": 201,
-          "headers": {
-              "Content-Type": "application/json",
-              "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-          },
-          "response": {
-              "id": "bef66c58-66d0-4161-a6ac-6caf85a9087d",
-              "name": "Renamed S3bucket",
-              "external_name": "111-bef66c58",
-              "job_id": null,
-              "locked": false
-          },
-           "request": {
-               "name": "Renamed S3bucket"
-              }
-        },
-        {
-          "method": "DELETE",
-          "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/bef66c58-66d0-4161-a6ac-6caf85a9087d",
-          "status": 204,
-          "headers": {
+        "method": "GET",
+        "url": "https://api.example.com/v1/s3_storage/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
             "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
-          },
-          "response": null,
-          "request": {}
+        },
+        "response": {
+            "detail": "Not found."
         }
-      ]
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "ctime": "2023-05-04T12:49:22.464698",
+            "name": "S3",
+            "access_key": "QOKFLFWX38FBM03U59J4",
+            "secret_key": "Qtoi3SqOhlM5uNfr1BeM5w1PZCc7kGVO3qZIKQfp",
+            "client_endpoint": "https://10.11.153.39:8082",
+            "real_size": 0.0,
+            "job_id": null,
+            "locked": false,
+            "project": {
+                "id": "6c084322-5cc7-42b7-83a7-02da1e6496f4",
+                "name": "222"
+            }
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/s3_storage",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "ctime": "2023-05-04T12:49:22.464698",
+            "name": "New S3",
+            "access_key": "QOKFLFWX38FBM03U59J4",
+            "secret_key": "Qtoi3SqOhlM5uNfr1BeM5w1PZCc7kGVO3qZIKQfp",
+            "client_endpoint": "https://10.11.153.39:8082",
+            "real_size": 0.0,
+            "job_id": null,
+            "locked": false,
+            "project": {
+                "id": "a737cd39-e7a7-46b8-a756-fb8ccceeed8f",
+                "name": "222"
+            }
+        },
+         "request": {
+             "name": "New S3",
+             "project": "a737cd39-e7a7-46b8-a756-fb8ccceeed8f"
+            }
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "ctime": "2023-05-04T12:49:22.464698",
+            "name": "Renamed S3",
+            "access_key": "QOKFLFWX38FBM03U59J4",
+            "secret_key": "Qtoi3SqOhlM5uNfr1BeM5w1PZCc7kGVO3qZIKQfp",
+            "client_endpoint": "https://10.11.153.39:8082",
+            "real_size": 0.0,
+            "job_id": null,
+            "locked": false,
+            "project": {
+                "id": "6c084322-5cc7-42b7-83a7-02da1e6496f4",
+                "name": "222"
+            }
+        },
+         "request": {
+             "name": "Renamed S3",
+             "project": "6c084322-5cc7-42b7-83a7-02da1e6496f4"
+            }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 204,
+        "headers": {
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": null,
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "detail": "Not found."
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/bef66c58-66d0-4161-a6ac-6caf85a9087d",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "bef66c58-66d0-4161-a6ac-6caf85a9087d",
+            "name": "S3bucket",
+            "external_name": "111-bef66c58",
+            "job_id": null,
+            "locked": false
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket",
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json",
+          "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+      },
+        "response": {
+          "id": "bef66c58-66d0-4161-a6ac-6caf85a9087d",
+          "name": "S3bucket",
+          "external_name": "111-bef66c58",
+          "job_id": null,
+          "locked": false
+      },
+        "request": {
+           "name": "S3bucket"
+          }
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/bef66c58-66d0-4161-a6ac-6caf85a9087d",
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json",
+          "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+      },
+      "response": {
+          "id": "bef66c58-66d0-4161-a6ac-6caf85a9087d",
+          "name": "Renamed S3bucket",
+          "external_name": "111-bef66c58",
+          "job_id": null,
+          "locked": false
+      },
+       "request": {
+           "name": "Renamed S3bucket"
+          }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/s3_storage/f01776bb-968b-4b8f-835c-669535a9d0eb/bucket/bef66c58-66d0-4161-a6ac-6caf85a9087d",
+        "status": 204,
+        "headers": {
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": null,
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/image/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "detail": "Not found."
+        }
+     },
+     {
+        "method": "GET",
+        "url": "https://api.example.com/v1/image/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "name": "New_Image",
+            "vdc": {
+                "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "type": "ovf",
+            "ready": true,
+            "size": 0,
+            "tags": [],
+            "job_id": null,
+            "locked": false,
+            "files": [
+                {
+                    "id": "b86661a3-220c-4b8b-8038-5c3ec24cd54f",
+                    "name": "vm-9869038f-0.vmdk",
+                    "type": "vmdk",
+                    "size": 845301760
+                },
+                {
+                    "id": "e4ea322e-ea62-4dff-b2c5-00241b8c2c63",
+                    "name": "vm-9869038f.ovf",
+                    "type": "ovf",
+                    "size": 9201
+                }
+            ]
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/image",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "request": {
+            "vm":"954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+            "name":"Test_Image",
+            "vdc":"e5d9a192-c5da-485a-b134-1b14ec9c57d9"
+        },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "name": "Test_Image",
+            "vdc": {
+                "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "type": "ovf",
+            "ready": false,
+            "size": 0,
+            "tags": [],
+            "job_id": "ebc000b6-494c-403d-8a4c-8889dafe5137",
+            "locked": true,
+            "files": []
+            }
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/image/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json",
+          "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+      },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "name": "Image_Renamed",
+            "vdc": {
+                "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "type": "ovf",
+            "ready": false,
+            "size": 0,
+            "tags": [],
+            "job_id": "ebc000b6-494c-403d-8a4c-8889dafe5137",
+            "locked": true,
+            "files": []
+            },
+       "request": {
+           "name": "Image_Renamed",
+           "vdc": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+           "type": "ovf"
+          }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/image/f01776bb-968b-4b8f-835c-669535a9d0eb/deploy",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+            "ctime": "2021-09-07T00:02:47.752764",
+            "locked": false,
+            "job_id": null,
+            "template": {
+                "id": "70722cb1-6e03-4900-ad78-b680205cd003",
+                "name": "VMWARE Ubuntu 18",
+                "before_deploy_text": "",
+                "after_deploy_text": "",
+                "icon": null
+            },
+            "vdc": {
+                "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                "name": "Vdc New Name",
+                "hypervisor": {
+                    "id": "478f179a-037a-4795-a8c4-7cf0a83b5390",
+                    "name": "vmware",
+                    "type": "vmware"
+                }
+            },
+            "name": "vm1",
+            "hostname": "vm-954fd467",
+            "cpu": 2,
+            "ram": 4,
+            "description": "",
+            "metadata": [],
+            "power": true,
+            "hotadd_feature": false,
+            "snapshots": 0,
+            "kubernetes": null,
+            "has_metrics": false,
+            "platform": {
+                "id": "f0cec20a-fa80-4fa0-86a9-83c91a484cd4",
+                "name": "base",
+                "hypervisor": {
+                    "id": "478f179a-037a-4795-a8c4-7cf0a83b5390",
+                    "name": "vmware",
+                    "type": "vmware"
+                }
+            },
+            "disks": [
+                {
+                    "id": "bb68f112-f098-42c8-a232-deb0f3412473",
+                    "name": "Disk 1",
+                    "storage_profile": {
+                        "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
+                        "name": "SATA VMWARE",
+                        "max_disk_size": 32768,
+                        "position": 1,
+                        "billing_class": {
+                            "id": "vmware_hdd_fast",
+                            "name": "Предоставление дискового пространства уровня SAS (ESXi)",
+                            "sku_mask": "IS-ESX-VHDD-SAS-CA-P-GB-D",
+                            "measure": "ГБ"
+                        }
+                    },
+                    "size": 11,
+                    "scsi": "0:0",
+                    "is_root": true,
+                    "locked": false,
+                    "job_id": null,
+                    "has_snapshot": false
+                }
+            ],
+            "ports": [
+                {
+                    "id": "fb94893b-7c58-4b35-9164-48f0f7b1e84d",
+                    "ctime": "2021-09-07T00:02:47.754581",
+                    "network": {
+                        "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
+                        "name": "Default",
+                        "external": false
+                    },
+                    "ip_address": "10.0.1.30",
+                    "fw_templates": [],
+                    "connected": {
+                        "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+                        "type": "vm",
+                        "name": "vm1",
+                        "vdc": {
+                            "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                            "name": "Vdc New Name",
+                            "hypervisor": {
+                                "id": "478f179a-037a-4795-a8c4-7cf0a83b5390",
+                                "name": "vmware",
+                                "type": "vmware"
+                            }
+                        }
+                    },
+                    "locked": false,
+                    "job_id": null,
+                    "type": "vm_int",
+                    "router": {
+                        "id": "c4ff1b48-f641-4427-9d10-280614b43a8f",
+                        "name": "Router",
+                        "is_default": true,
+                        "locked": false
+                    },
+                    "enable_security": false
+                }
+            ],
+            "floating": null,
+            "cdrom": null
+        },
+        "request": {
+            "name": "vm1",
+            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+            "cpu": 2,
+            "ram": 4,
+            "network":"b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
+            "storage_profile": "286bb153-87b0-4f9e-9225-947554df6ddb"
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/image",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "request": {
+            "type": "iso",
+            "name": "Test_Image",
+            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9"
+        },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "name": "Test_Image",
+            "vdc": {
+                "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "type": "iso",
+            "ready": false,
+            "size": 0,
+            "tags": [],
+            "job_id": "ebc000b6-494c-403d-8a4c-8889dafe5137",
+            "locked": true,
+            "files": []
+            }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/image/f01776bb-968b-4b8f-835c-669535a9d0eb/commit",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "request": {},
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "name": "Test_Image",
+            "vdc": {
+                "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "type": "iso",
+            "ready": false,
+            "size": 0,
+            "tags": [],
+            "job_id": null,
+            "locked": false,
+            "files": [{
+                "id": "8a7cb93e-b17b-4b77-a147-c0ced84b9d59",
+                "name": "test.iso",
+                "type": "iso",
+                "size": 0
+            }]
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/image/f01776bb-968b-4b8f-835c-669535a9d0eb/file",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "request": {
+            "type": "iso",
+            "name": "Test_Image"
+        },
+        "response": {
+            "url": "/proxy/ed32f09e3c94015149ff43fb7dacdc60/"
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/image/f01776bb-968b-4b8f-835c-669535a9d0eb/file/f01776bb-968b-4b8f-835c-669535a9d0de",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "request": {},
+        "response": {
+            "url": "/proxy/f7f3aab95f003f0160bab00788084ef7/file.iso"
+        }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/image/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 204,
+        "headers": {
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": null,
+        "request": {}
+    }
+]
