@@ -11,11 +11,11 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 project = 'rustack-esu'
-copyright = '2021, SBCloud LLC'
+copyright = '2023, Rustack LLC'
 author = 'Development Team'
 
 # The full version, including alpha/beta/rc tags
-version = '0.1.6'
+version = '0.1.13'
 language = 'ru'
 
 extensions = [
