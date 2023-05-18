@@ -8856,5 +8856,604 @@
         },
         "response": null,
         "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/backup/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "detail": "Not found."
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "ctime": "2023-05-17T11:18:30.801416",
+            "name": "New_Backup",
+            "vdc": {
+                "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "vms": [
+                {
+                    "id": "9869038f-605d-4fe1-97a1-2607e6b97f50",
+                    "name": "222"
+                }
+            ],
+            "description": "",
+            "schedule_enabled": true,
+            "retain_cycles": 14,
+            "week_days": [1],
+            "time": "09:00:00",
+            "locked": false,
+            "size": 0.9108,
+            "job_id": null
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/backup",
+        "status": 201,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "request": {
+            "name": "Test_Backup",
+            "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+            "retain_cycles": 2,
+            "week_days": [1, 2],
+            "time": "09:00:00",
+            "vms": ["954fd467-fd9a-4ce7-b4df-1e81e557bce9"]
+        },
+        "response": {
+            "id": "1ddd31a2-9b32-4db8-9731-5378462e6f48",
+            "ctime": "2023-05-18T06:51:53.426806",
+            "name": "Test_Backup",
+            "vdc": {
+                "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 2,
+                    "icon": null
+                }
+            },
+            "vms": [
+                {
+                    "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+                    "name": "vm-2129c64a"
+                }
+            ],
+            "description": "",
+            "schedule_enabled": true,
+            "retain_cycles": 2,
+            "week_days": [1, 2],
+            "time": "09:00:00",
+            "locked": true,
+            "size": 0.0
+        }
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "ctime": "2023-05-17T11:18:30.801416",
+            "name": "New_Backup",
+            "vdc": {
+                "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "vms": [
+                {
+                    "id": "9869038f-605d-4fe1-97a1-2607e6b97f50",
+                    "name": "222"
+                },
+                {
+                    "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+                    "name": "Vm"
+                }
+            ],
+            "description": "",
+            "schedule_enabled": true,
+            "retain_cycles": 14,
+            "week_days": [1],
+            "time": "09:00:00",
+            "locked": false,
+            "size": 0.9108,
+            "job_id": null
+        },
+        "request": {
+            "name": "New_Backup",
+            "vdc": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+            "retain_cycles": 14,
+            "week_days": [1],
+            "time": "09:00:00",
+            "vms": ["9869038f-605d-4fe1-97a1-2607e6b97f50",
+                "954fd467-fd9a-4ce7-b4df-1e81e557bce9"]
+        }
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "f01776bb-968b-4b8f-835c-669535a9d0eb",
+            "ctime": "2023-05-17T11:18:30.801416",
+            "name": "Backup_renamed",
+            "vdc": {
+                "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                "name": "ВЦОД VMware",
+                "hypervisor": {
+                    "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                    "name": "VMware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            "vms": [
+                {
+                    "id": "9869038f-605d-4fe1-97a1-2607e6b97f50",
+                    "name": "222"
+                }
+            ],
+            "description": "",
+            "schedule_enabled": true,
+            "retain_cycles": 2,
+            "week_days": [1,2],
+            "time": "11:00:00",
+            "locked": false,
+            "size": 0.9108,
+            "job_id": null
+        },
+        "request": {
+            "name": "Backup_renamed",
+            "vdc": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+            "retain_cycles": 2,
+            "week_days": [1,2],
+            "time": "11:00:00",
+            "vms": ["9869038f-605d-4fe1-97a1-2607e6b97f50"]
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb/start_immediately",
+        "status": 202,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {},
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb/restore_points?page=1",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "8edd98c9-b96e-4ff6-be62-30a19a98b2ed",
+                    "ctime": "2023-05-17T11:31:29.927000",
+                    "vm": {
+                        "id": "9869038f-605d-4fe1-97a1-2607e6b97f50",
+                        "name": "222",
+                        "cpu": 1,
+                        "ram": 1.0,
+                        "power": true,
+                        "platform": "a4b4d376-f76b-41e7-a457-032b39c850f0",
+                        "vdc": {
+                            "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                            "name": "ВЦОД VMware",
+                            "hypervisor": {
+                                "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                                "name": "VMware",
+                                "type": "vmware",
+                                "position": 40,
+                                "icon": null
+                            }
+                        }
+                    },
+                    "backup": {
+                        "id": "536e54c8-f728-430d-b97d-37a188fd04f2",
+                        "name": "2333",
+                        "size": 0.9108,
+                        "vdc": {
+                            "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                            "name": "ВЦОД VMware",
+                            "hypervisor": {
+                                "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                                "name": "VMware",
+                                "type": "vmware",
+                                "position": 40,
+                                "icon": null
+                            }
+                        }
+                    },
+                    "backup_type": "Полный",
+                    "backup_size": 977993728,
+                    "data_size": 10737441808
+                }
+            ],
+            "total": 1,
+            "limit": 10
+            }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb/restore_points?page=2",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "That page contains no results - 2"
+            ]
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb/restore",
+        "status": 202,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {},
+        "request": {
+              "power_on": true,
+              "quick_restore": false,
+              "restore_point": "8edd98c9-b96e-4ff6-be62-30a19a98b2ed",
+              "vm": "954fd467-fd9a-4ce7-b4df-1e81e557bce9"
+            }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb",
+        "status": 204,
+        "headers": {
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": null,
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/kubernetes_template?vdc=e5d9a192-c5da-485a-b134-1b14ec9c57d9&page=1",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "f9ff2cc1-ac19-4cf1-8ae5-2de64ccfa424",
+                    "name": "test_1.26.4",
+                    "master_template_name": "kuber-1.26.4-csi-master",
+                    "node_template_name": "kuber-1.26.4-csi-node",
+                    "vm_node_visible_template": {
+                        "id": "9cb0948a-8ee9-4edc-a5a6-88ec82898bcd",
+                        "name": "Ubuntu 20.04",
+                        "before_deploy_text": "",
+                        "after_deploy_text": "",
+                        "icon": "/storage/6ae37f29-c9a0-4850-97db-08b6658e584d.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=X2I9NCWU8WP8SQ0PN4M8%2F20230518%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230518T092714Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=cbae037b67c9eecbba85eba160c07060239c86fcbb8091d0ebfc32b928b89c32"
+                    },
+                    "enabled": true,
+                    "hypervisor_type": "vmware",
+                    "min_node_cpu": 2,
+                    "min_node_ram": 2,
+                    "min_node_hdd": 10,
+                    "position": 1
+                },
+                {
+                    "id": "0e021edc-e25b-4671-b0cb-521fab5daca0",
+                    "name": "Kubernetes 1.22.1",
+                    "master_template_name": "kuber-1.22.1-csi-master-new-ccm",
+                    "node_template_name": "kuber-1.22.1-csi-node",
+                    "vm_node_visible_template": {
+                        "id": "9cb0948a-8ee9-4edc-a5a6-88ec82898bcd",
+                        "name": "Ubuntu 20.04",
+                        "before_deploy_text": "",
+                        "after_deploy_text": "",
+                        "icon": "/storage/6ae37f29-c9a0-4850-97db-08b6658e584d.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=X2I9NCWU8WP8SQ0PN4M8%2F20230518%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230518T092714Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=cbae037b67c9eecbba85eba160c07060239c86fcbb8091d0ebfc32b928b89c32"
+                    },
+                    "enabled": true,
+                    "hypervisor_type": "vmware",
+                    "min_node_cpu": 2,
+                    "min_node_ram": 2,
+                    "min_node_hdd": 10,
+                    "position": 1
+                },
+                {
+                    "id": "0af9c96c-927d-4098-807a-5529271d2ef4",
+                    "name": "Kubernetes 1.19",
+                    "master_template_name": "kuber-1.19-balancer-master",
+                    "node_template_name": "kuber-1.19-balancer-node",
+                    "vm_node_visible_template": {
+                        "id": "97c16829-d3de-4250-87ab-7e181d026cc7",
+                        "name": "CentOS 8",
+                        "before_deploy_text": "",
+                        "after_deploy_text": "",
+                        "icon": "/storage/30c9cfc0-c517-428d-8eb9-2147e63b7a53.svg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=X2I9NCWU8WP8SQ0PN4M8%2F20230518%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230518T092714Z&X-Amz-Expires=43200&X-Amz-SignedHeaders=host&X-Amz-Signature=3d70c4c4a4990cf64c71e681ff1d9d6cc32a9761597f20e5f4baa1186894a2f2"
+                    },
+                    "enabled": true,
+                    "hypervisor_type": "vmware",
+                    "min_node_cpu": 2,
+                    "min_node_ram": 2,
+                    "min_node_hdd": 10,
+                    "position": 5
+                }
+            ],
+            "total": 3,
+            "limit": 100
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/kubernetes_template?vdc=e5d9a192-c5da-485a-b134-1b14ec9c57d9&page=2",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "That page contains no results - 2"
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/image?vdc=e5d9a192-c5da-485a-b134-1b14ec9c57d9&page=1",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "92f59fb5-b6b4-49e2-bc7d-f1e02b986bab",
+                    "name": "444",
+                    "vdc": {
+                        "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                        "name": "ВЦОД VMware",
+                        "hypervisor": {
+                            "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                            "name": "VMware",
+                            "type": "vmware",
+                            "position": 40,
+                            "icon": null
+                        }
+                    },
+                    "type": "iso",
+                    "ready": true,
+                    "size": 0,
+                    "tags": [],
+                    "job_id": null,
+                    "locked": false
+                },
+                {
+                    "id": "3d620d9a-52d3-4a05-bc25-9da45964b030",
+                    "name": "222",
+                    "vdc": {
+                        "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                        "name": "ВЦОД VMware",
+                        "hypervisor": {
+                            "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                            "name": "VMware",
+                            "type": "vmware",
+                            "position": 40,
+                            "icon": null
+                        }
+                    },
+                    "type": "ovf",
+                    "ready": true,
+                    "size": 0,
+                    "tags": [],
+                    "job_id": null,
+                    "locked": false
+                },
+                {
+                    "id": "b94d9a30-dcff-43da-a58a-4de095da07c5",
+                    "name": "222",
+                    "vdc": {
+                        "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                        "name": "ВЦОД VMware",
+                        "hypervisor": {
+                            "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                            "name": "VMware",
+                            "type": "vmware",
+                            "position": 40,
+                            "icon": null
+                        }
+                    },
+                    "type": "ovf",
+                    "ready": true,
+                    "size": 0,
+                    "tags": [],
+                    "job_id": null,
+                    "locked": false
+                }
+            ],
+            "total": 3,
+            "limit": 10
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/image?vdc=e5d9a192-c5da-485a-b134-1b14ec9c57d9&page=2",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "That page contains no results - 2"
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/backup?vdc=e5d9a192-c5da-485a-b134-1b14ec9c57d9&page=1",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "536e54c8-f728-430d-b97d-37a188fd04f2",
+                    "ctime": "2023-05-17T11:18:30.801416",
+                    "name": "2333",
+                    "vdc": {
+                        "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                        "name": "ВЦОД VMware",
+                        "hypervisor": {
+                            "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                            "name": "VMware",
+                            "type": "vmware",
+                            "position": 40,
+                            "icon": null
+                        }
+                    },
+                    "vms": [
+                        {
+                            "id": "9869038f-605d-4fe1-97a1-2607e6b97f50",
+                            "name": "222"
+                        }
+                    ],
+                    "description": "",
+                    "schedule_enabled": true,
+                    "retain_cycles": 14,
+                    "week_days": [
+                        1
+                    ],
+                    "time": "08:00:00",
+                    "locked": false,
+                    "size": 0.9108,
+                    "job_id": null
+                },
+                {
+                    "id": "62b62bd0-b7ae-4ac9-8fb4-e79bdb71e68e",
+                    "ctime": "2023-05-17T09:35:38.998445",
+                    "name": "111",
+                    "vdc": {
+                        "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                        "name": "ВЦОД VMware",
+                        "hypervisor": {
+                            "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                            "name": "VMware",
+                            "type": "vmware",
+                            "position": 40,
+                            "icon": null
+                        }
+                    },
+                    "vms": [
+                        {
+                            "id": "6914edd1-e282-45ba-b5a0-c7ddf04c205c",
+                            "name": "222"
+                        }
+                    ],
+                    "description": "",
+                    "schedule_enabled": true,
+                    "retain_cycles": 1,
+                    "week_days": [
+                        1
+                    ],
+                    "time": "09:00:00",
+                    "locked": false,
+                    "size": 0.9108,
+                    "job_id": null
+                }
+            ],
+            "total": 2,
+            "limit": 10
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/backup?vdc=e5d9a192-c5da-485a-b134-1b14ec9c57d9&page=2",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "That page contains no results - 2"
+            ]
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/vm/954fd467-fd9a-4ce7-b4df-1e81e557bce9/mount_iso",
+        "status": 202,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {},
+        "request": {
+              "image": "f01776bb-968b-4b8f-835c-669535a9d0eb"
+            }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/vm/954fd467-fd9a-4ce7-b4df-1e81e557bce9/unmount_iso",
+        "status": 202,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {},
+        "request": {}
     }
 ]

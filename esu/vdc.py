@@ -1,3 +1,4 @@
+from esu.backup import Backup
 from esu.base import BaseAPI, Field, ObjectAlreadyHasId, ObjectHasNoId
 from esu.disk import Disk
 from esu.firewall_template import FirewallTemplate
@@ -248,3 +249,15 @@ class Vdc(BaseAPI):
             raise ObjectHasNoId
 
         return self._get_list('v1/image', Image, vdc=self.id)
+
+    def get_backups(self):
+        """
+        Получить список задач резервного копирования, доступных в данном ВЦОДе.
+
+        Returns:
+            list: Список объектов :class:`esu.Backup`
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+
+        return self._get_list('v1/backup', Backup, vdc=self.id)

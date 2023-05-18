@@ -1,8 +1,11 @@
 import pytest
 
+from esu.backup import Backup
 from esu.base import NotFoundEx
 from esu.disk import Disk
 from esu.firewall_template import FirewallTemplate
+from esu.image import Image
+from esu.kubernetes_template import KubernetesTemplate
 from esu.network import Network
 from esu.port import Port
 from esu.project import Project
@@ -175,3 +178,33 @@ def test_get_disks(rsps):
     assert len(disks) == 7
     assert isinstance(disks[0], Disk)
     assert disks[0].scsi == '0:0'
+
+
+@load_fixtures
+def test_get_k8s_templates(rsps):
+    vdc_id = 'e5d9a192-c5da-485a-b134-1b14ec9c57d9'
+    vdc = Vdc.get_object(vdc_id)
+
+    k8s_templates = vdc.get_k8s_templates()
+    assert len(k8s_templates) == 3
+    assert isinstance(k8s_templates[0], KubernetesTemplate)
+
+
+@load_fixtures
+def test_get_images(rsps):
+    vdc_id = 'e5d9a192-c5da-485a-b134-1b14ec9c57d9'
+    vdc = Vdc.get_object(vdc_id)
+
+    images = vdc.get_images()
+    assert len(images) == 3
+    assert isinstance(images[0], Image)
+
+
+@load_fixtures
+def test_get_backups(rsps):
+    vdc_id = 'e5d9a192-c5da-485a-b134-1b14ec9c57d9'
+    vdc = Vdc.get_object(vdc_id)
+
+    backups = vdc.get_backups()
+    assert len(backups) == 2
+    assert isinstance(backups[0], Backup)
