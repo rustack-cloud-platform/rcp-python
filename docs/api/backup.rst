@@ -47,6 +47,5 @@ Backup
   from esu import Vm, Backup
 
   backup = Backup.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
-  vm = Vm.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   restore_point = backup.get_restore_points()[0]  # Первая доступная точка восстановления
-  backup.restore(vm=vm, restore_point=restore_point)
+  backup.restore(restore_point=restore_point)

@@ -128,10 +128,11 @@ class Backup(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        return self._get_list('v1/backup/{}/restore_points'.format(self.id),
+        return self._get_list('v1/backup/{}/restore_points?'
+                              'sort=-ctime'.format(self.id),
                               RestorePoint)
 
-    def restore(self, vm, restore_point, power_on=True, quick_restore=False):
+    def restore(self, restore_point, power_on=True, quick_restore=False):
         """
         Восстановить сервер из точки восстановления
 
@@ -151,10 +152,34 @@ class Backup(BaseAPI):
         restore = {
             "power_on": power_on,
             "quick_restore": quick_restore,
-            "vm": vm.id,
+            "vm": restore_point.vm.id,
             "restore_point": restore_point.id
         }
         self._call('POST', 'v1/backup/{}/restore'.format(self.id), **restore)
+
+    def get_backup_log(self):
+        """
+        Получить лог создания точек восстановления из задачи
+
+        Returns:
+            dict: Отчёт создания точек восстановления
+        """
+
+        log = self._call('GET', 'v1/backup/log?backup={}'
+                                '&sort=-ctime'.format(self.id))
+        return log
+
+    def get_restore_log(self, vm):
+        f"""
+        Получить лог восстановления сервера из задачи
+
+        Returns:
+            dict: Отчёт восстановления сервера
+        """
+
+        log = self._call('GET', 'v1/backup/log?vm={}'
+                                '&sort=-ctime'.format(vm.id))
+        return log
 
     def destroy(self):
         """

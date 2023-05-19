@@ -9066,7 +9066,7 @@
     },
     {
         "method": "GET",
-        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb/restore_points?page=1",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb/restore_points?page=1&sort=-ctime",
         "status": 200,
         "headers": {
             "Content-Type": "application/json",
@@ -9123,7 +9123,7 @@
     },
     {
         "method": "GET",
-        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb/restore_points?page=2",
+        "url": "https://api.example.com/v1/backup/f01776bb-968b-4b8f-835c-669535a9d0eb/restore_points?page=2&sort=-ctime",
         "status": 404,
         "headers": {
             "Content-Type": "application/json",
@@ -9148,7 +9148,7 @@
               "power_on": true,
               "quick_restore": false,
               "restore_point": "8edd98c9-b96e-4ff6-be62-30a19a98b2ed",
-              "vm": "954fd467-fd9a-4ce7-b4df-1e81e557bce9"
+              "vm": "9869038f-605d-4fe1-97a1-2607e6b97f50"
             }
     },
     {
@@ -9455,5 +9455,111 @@
         },
         "response": {},
         "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/backup/log?backup=f01776bb-968b-4b8f-835c-669535a9d0eb&sort=-ctime",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "65528583-e53d-41b7-9bfa-ddaba303f929",
+                    "ctime": "2023-05-17T09:49:43.223000",
+                    "etime": "2023-05-17T09:54:59.883000",
+                    "state": "Закончен",
+                    "result": "Успешно",
+                    "name": "62b62bd0-b7ae-4ac9-8fb4-e79bdb71e68e (Full)",
+                    "backup": {
+                        "id": "62b62bd0-b7ae-4ac9-8fb4-e79bdb71e68e",
+                        "name": "111",
+                        "size": 0.9108,
+                        "vdc": {
+                            "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                            "name": "ВЦОД VMware",
+                            "hypervisor": {
+                                "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                                "name": "VMware",
+                                "type": "vmware",
+                                "position": 40,
+                                "icon": null
+                            }
+                        }
+                    }
+                }
+            ],
+            "total": 1,
+            "limit": 10
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/backup/log?vm=954fd467-fd9a-4ce7-b4df-1e81e557bce9&sort=-ctime",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "89ff2ccc-1010-4e9e-83cc-beadc18d93d9",
+                    "ctime": "2023-05-18T08:36:51.750000",
+                    "etime": "2023-05-18T08:39:18.407000",
+                    "state": "Закончен",
+                    "result": "Успешно",
+                    "vm": {
+                        "id": "9869038f-605d-4fe1-97a1-2607e6b97f50",
+                        "name": "222",
+                        "cpu": 1,
+                        "ram": 1.0,
+                        "power": true,
+                        "platform": "a4b4d376-f76b-41e7-a457-032b39c850f0",
+                        "vdc": {
+                            "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                            "name": "ВЦОД VMware",
+                            "hypervisor": {
+                                "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                                "name": "VMware",
+                                "type": "vmware",
+                                "position": 40,
+                                "icon": null
+                            }
+                        }
+                    }
+                },
+                {
+                    "id": "8fa3e043-518c-4a44-8801-d67e2f5fff0c",
+                    "ctime": "2023-05-17T11:47:42.593000",
+                    "etime": "2023-05-17T11:49:52.750000",
+                    "state": "Закончен",
+                    "result": "Успешно",
+                    "vm": {
+                        "id": "9869038f-605d-4fe1-97a1-2607e6b97f50",
+                        "name": "222",
+                        "cpu": 1,
+                        "ram": 1.0,
+                        "power": true,
+                        "platform": "a4b4d376-f76b-41e7-a457-032b39c850f0",
+                        "vdc": {
+                            "id": "71d4a2a1-c74b-444c-87ae-e3ff27fe8ccd",
+                            "name": "ВЦОД VMware",
+                            "hypervisor": {
+                                "id": "7c4809eb-706e-493b-b510-73911e54b761",
+                                "name": "VMware",
+                                "type": "vmware",
+                                "position": 40,
+                                "icon": null
+                            }
+                        }
+                    }
+                }
+            ],
+            "total": 2,
+            "limit": 10
+        }
     }
 ]

@@ -100,13 +100,24 @@ def test_get_restore_points(rsps):
 
 @load_fixtures
 def test_restore(rsps):
-    vm_id = '954fd467-fd9a-4ce7-b4df-1e81e557bce9'
-    vm = Vm.get_object(vm_id)
-
     backup = Backup().get_object(id='f01776bb-968b-4b8f-835c-669535a9d0eb')
     rps = backup.get_restore_points()
     restore_point = rps[0]
-    backup.restore(vm=vm, restore_point=restore_point)
+    backup.restore(restore_point=restore_point)
+
+
+@load_fixtures
+def test_get_backup_logs(rsps):
+    backup = Backup().get_object(id='f01776bb-968b-4b8f-835c-669535a9d0eb')
+    backup.get_backup_log()
+
+
+@load_fixtures
+def test_get_restore_logs(rsps):
+    vm_id = '954fd467-fd9a-4ce7-b4df-1e81e557bce9'
+    vm = Vm.get_object(vm_id)
+    backup = Backup()
+    backup.get_restore_log(vm=vm)
 
 
 @load_fixtures
