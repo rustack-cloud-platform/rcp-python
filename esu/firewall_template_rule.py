@@ -7,14 +7,15 @@ class FirewallTemplateRule(BaseAPI):
         id (str): Идентификатор правила брандмауэра
         name (str): Имя правила брандмауэра
         firewall (str): Объект класса :class:`esu.FirewallTemplate`.
-                Проект, к которому относится данное правило брандмауэра
+                Шаблон брандмауэра, к которому относится данное правило
+                брандмауэра
         direction (str): направление правила брандмауэра
         destination_ip (str): destination_ip правила брандмауэра
         dst_port_range_max (str): dst_port_range_max правила брандмауэра
         dst_port_range_min (str): dst_port_range_min правила брандмауэра
         protocol (str): protocol правила брандмауэра
         token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
+                использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``direction``, ``name`` и ``protocol`` необходимы для
               создания.
@@ -36,12 +37,12 @@ class FirewallTemplateRule(BaseAPI):
         Получить объект правил брандмауэра по его ID
 
         Args:
-            id (str): Идентификатор шаблона брандмауэра
+            id (str): Идентификатор правила шаблона брандмауэра
             token (str): Токен для доступа к API. Если не передан, будет
                          использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
-            object: Возвращает объект шаблона брандмауэра
+            object: Возвращает объект правила шаблона брандмауэра
             :class:`esu.FirewallTemplateRule`
         """
         firewall_rule = cls(token=token, id=rule_id, firewall=firewall)
