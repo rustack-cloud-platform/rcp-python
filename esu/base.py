@@ -109,7 +109,7 @@ class BaseAPI:
 
         resp.raise_for_status()
 
-        if resp.status_code != 204:
+        if resp.status_code not in (202, 204):
             if 'config' in resource:
                 answer = resp.text
             else:

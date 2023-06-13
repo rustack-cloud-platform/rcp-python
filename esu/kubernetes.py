@@ -15,9 +15,9 @@ class Kubernetes(BaseAPI):
                   относится данный кластер
         template (str): Идентификатор шаблона Kubernetes
         user_public_key (string): публичный SSH ключ
-        floating (object): Объект класса :class:`esu.Port`. 
-                    Порт подключения кластера к внешней сети.
-                    Если None, кластер не имеет подключения к внешней сети.
+        floating (object): Объект класса :class:`esu.Port`.
+            Порт подключения кластера к внешней сети.
+            Если None, кластер не имеет подключения к внешней сети.
         """
     class Meta:
         id = Field()
@@ -43,7 +43,8 @@ class Kubernetes(BaseAPI):
                          использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
-            object: Возвращает объект кластера kubernetes :class:`esu.Kubernetes`
+            object: Возвращает объект кластера
+            kubernetes :class:`esu.Kubernetes`
         """
         k8s = cls(token=token, id=id)
         k8s._get_object('v1/kubernetes', k8s.id)
@@ -56,7 +57,7 @@ class Kubernetes(BaseAPI):
 
         Raises:
             ObjectAlreadyHasId: Если производится попытка создать объект,
-                                который уже существует
+            который уже существует
         """
         if self.id is not None:
             raise ObjectAlreadyHasId

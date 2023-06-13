@@ -3,6 +3,7 @@ import pytest
 from esu.base import NotFoundEx
 from esu.disk import Disk
 from esu.firewall_template import FirewallTemplate
+from esu.image import Image
 from esu.network import Network
 from esu.port import Port
 from esu.storage_profile import StorageProfile
@@ -243,3 +244,21 @@ def test_get_disks(rsps):
     assert len(disks) == 1
     assert isinstance(disks[0], Disk)
     assert disks[0].size == 11
+
+
+@load_fixtures
+def test_mount_iso(rsps):
+    vm_id = '954fd467-fd9a-4ce7-b4df-1e81e557bce9'
+    vm = Vm.get_object(vm_id)
+    image_id = 'f01776bb-968b-4b8f-835c-669535a9d0eb'
+    image = Image.get_object(image_id)
+
+    vm.mount_iso(image)
+
+
+@load_fixtures
+def test_unmount_iso(rsps):
+    vm_id = '954fd467-fd9a-4ce7-b4df-1e81e557bce9'
+    vm = Vm.get_object(vm_id)
+
+    vm.unmount_iso()

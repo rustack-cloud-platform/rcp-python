@@ -20,7 +20,7 @@ class LbaasPool(BaseAPI):
     Args:
         id (str): Идентификатор Lbaas Pool
         name (str): Имя Lbaas Pool
-        lbaas_id (object): Объект класса :class:`esu.Lbaas`. Проект, к
+        lbaas (object): Объект класса :class:`esu.Lbaas`. Балансировщик, к
                           которому относится данный Lbaas Pool
         connlimit (str): лимит соединений  для пула балансировщика
         cookie_name (str): Имя cookie

@@ -1,7 +1,7 @@
 FirewallTemplate
 ================
 
-Шаблона брандмауэра. Метод :func:`esu.Vdc.get_firewall_templates`
+Шаблон брандмауэра. Метод :func:`esu.Vdc.get_firewall_templates`
 позволяет получить все шаблоны брандмауэра, доступные в определенном ВЦОДе.
 
 

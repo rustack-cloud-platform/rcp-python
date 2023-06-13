@@ -53,6 +53,7 @@ class Vm(BaseAPI):
         disks = FieldList('esu.Disk')
         floating = Field('esu.Port', allow_none=True)
         hotadd_feature = Field()
+        cdrom = Field('esu.Image', allow_none=True)
 
     @classmethod
     def get_object(cls, id, token=None):
@@ -244,5 +245,30 @@ class Vm(BaseAPI):
         return '{}{}'.format(self.endpoint_url, uri)
 
     def revert(self, snapshot):
+        """
+        Восстановить сервер из снапшота
+
+        Args:
+            snapshot (object): объект снапшота :class:`esu.Snapshot`
+        """
         vm = self._call('POST', 'v2/snapshot/{}/revert'.format(snapshot.id))
         return vm
+
+    def mount_iso(self, image):
+        """
+        Примонтировать iso к серверу как CD-ROM.
+        После перезагрузки сервера он будет загружен с этого
+        диска если он загрузочный
+
+        Args:
+            image (object): объект образа :class:`esu.Image`
+        """
+        image = {'image': image.id}
+        self._call('POST', 'v1/vm/{}/mount_iso'.format(self.id), **image)
+
+    def unmount_iso(self):
+        """
+        Отмонтировать iso от сервера
+        После перезагрузки сервера он будет загружен с основного диска
+        """
+        self._call('POST', 'v1/vm/{}/unmount_iso'.format(self.id))

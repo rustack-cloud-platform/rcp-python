@@ -46,6 +46,8 @@
    api/template
    api/template_field
    api/vm_metadata
+   api/kubernetes
+   api/kubernetes_template
 
 
 .. toctree::
@@ -54,10 +56,21 @@
 
    api/disk
    api/storage_profile
+   api/s3
+   api/s3_bucket
 
 
 .. toctree::
-   :caption: Сеть и маршрутизация
+   :caption: Резервное копирование, снапшоты и образы
+   :maxdepth: 1
+
+   api/backup
+   api/image
+   api/snapshot
+
+
+.. toctree::
+   :caption: Сеть, маршрутизация, доменные зоны
    :maxdepth: 1
 
    api/network
@@ -65,6 +78,9 @@
    api/router
    api/port
    api/firewall_template
+   api/firewall_template_rule
+   api/dns
+   api/dns_record
 
 .. toctree::
    :caption: CHANGELOG
