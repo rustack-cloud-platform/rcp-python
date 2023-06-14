@@ -98,9 +98,7 @@ class Backup(BaseAPI):
         self._commit()
 
     def _commit(self):
-        vms = []
-        for i in self.vms:
-            vms.append(i.id)
+        vms = [i.id for i in self.vms]
 
         job = {
             'name': self.name,
@@ -128,9 +126,9 @@ class Backup(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        return self._get_list('v1/backup/{}/restore_points?'
-                              'sort=-ctime'.format(self.id),
-                              RestorePoint)
+        return self._get_list(
+            'v1/backup/{}/restore_points?'
+            'sort=-ctime'.format(self.id), RestorePoint)
 
     def restore(self, restore_point, power_on=True, quick_restore=False):
         """
@@ -165,12 +163,13 @@ class Backup(BaseAPI):
             dict: Отчёт создания точек восстановления
         """
 
-        log = self._call('GET', 'v1/backup/log?backup={}'
-                                '&sort=-ctime'.format(self.id))
+        log = self._call(
+            'GET', 'v1/backup/log?backup={}'
+            '&sort=-ctime'.format(self.id))
         return log
 
     def get_restore_log(self, vm):
-        f"""
+        """
         Получить лог восстановления сервера из задачи
 
         Returns:
@@ -178,7 +177,7 @@ class Backup(BaseAPI):
         """
 
         log = self._call('GET', 'v1/backup/log?vm={}'
-                                '&sort=-ctime'.format(vm.id))
+                         '&sort=-ctime'.format(vm.id))
         return log
 
     def destroy(self):

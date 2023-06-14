@@ -17,6 +17,7 @@ class S3(BaseAPI):
         id = Field()
         name = Field()
         project = Field('esu.Project')
+        backend = Field()
         access_key = Field()
         secret_key = Field()
         client_endpoint = Field()
@@ -64,7 +65,8 @@ class S3(BaseAPI):
 
     def _commit(self):
         s3 = {'project': self.project.id, 'name': self.name}
-
+        if self.backend is not None:
+            s3['backend'] = self.backend
         self._commit_object('v1/s3_storage', **s3)
 
     def destroy(self):
