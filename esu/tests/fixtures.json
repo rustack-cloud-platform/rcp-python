@@ -9561,5 +9561,793 @@
             "total": 2,
             "limit": 10
         }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/firewall_rule/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "Not found"
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/firewall_rule/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+            "name": "New_router_firewall_rule",
+            "protocol": "tcp",
+            "direction": "ingress",
+            "source_ip": "10.0.1.0/24",
+            "src_port_range_min": 80,
+            "src_port_range_max": 90,
+            "destination_ip": null,
+            "dst_port_range_min": 80,
+            "dst_port_range_max": 90
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/firewall_rule",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf05",
+            "name": "Rule",
+            "protocol": "tcp",
+            "direction": "ingress",
+            "source_ip": "10.0.1.0/24",
+            "src_port_range_min": 80,
+            "src_port_range_max": 90,
+            "destination_ip": null,
+            "dst_port_range_min": 80,
+            "dst_port_range_max": 90
+        },
+        "request": {
+            "name": "Rule",
+            "protocol": "tcp",
+            "direction": "ingress",
+            "source_ip": "10.0.1.0/24",
+            "src_port_range_min": 80,
+            "src_port_range_max": 90,
+            "destination_ip": null,
+            "dst_port_range_min": 80,
+            "dst_port_range_max": 90
+        }
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/firewall_rule/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf05",
+            "name": "Rule Renamed",
+            "protocol": "tcp",
+            "direction": "egress",
+            "source_ip": null,
+            "src_port_range_min": null,
+            "src_port_range_max": null,
+            "destination_ip": "10.0.1.0/24",
+            "dst_port_range_min": 100,
+            "dst_port_range_max": 200
+        },
+        "request": {
+            "name": "Rule Renamed",
+            "protocol": "tcp",
+            "direction": "egress",
+            "source_ip": null,
+            "src_port_range_min": null,
+            "src_port_range_max": null,
+            "destination_ip": "10.0.1.0/24",
+            "dst_port_range_min": 100,
+            "dst_port_range_max": 200
+        }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/firewall_rule/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf05",
+            "name": "Rule Renamed",
+            "protocol": "tcp",
+            "direction": "egress",
+            "source_ip": null,
+            "src_port_range_min": null,
+            "src_port_range_max": null,
+            "destination_ip": "10.0.1.0/24",
+            "dst_port_range_min": 100,
+            "dst_port_range_max": 200
+        },
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/port_forwarding/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "Not found"
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+                "local_ip": "10.0.1.2",
+                "protocol": "tcp",
+                "internal_port": 80,
+                "external_port_range_start": 80,
+                "external_port_range_end": 80
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/port_forwarding",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+            "local_ip": "10.0.1.2",
+            "protocol": "tcp",
+            "internal_port": 80,
+            "external_port_range_start": 80,
+            "external_port_range_end": 80
+        },
+        "request": {
+            "local_ip": "10.0.1.2",
+            "protocol": "tcp",
+            "internal_port": 80,
+            "external_port_range_start": 80,
+            "external_port_range_end": 80
+        }
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+            "local_ip": "10.0.1.3",
+            "protocol": "udp",
+            "internal_port": 90,
+            "external_port_range_start": 80,
+            "external_port_range_end": 100
+        },
+        "request": {
+            "local_ip": "10.0.1.3",
+            "protocol": "udp",
+            "internal_port": 90,
+            "external_port_range_start": 80,
+            "external_port_range_end": 100
+        }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+            "local_ip": "10.0.1.3",
+            "protocol": "udp",
+            "internal_port": 90,
+            "external_port_range_start": 80,
+            "external_port_range_end": 100
+        },
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/route/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "Not found"
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/route/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+                "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+                "destination": "10.0.2.0/24",
+                "nexthop": "10.0.1.1"
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/route",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "3e137dcf-217d-4136-878c-114d871809d1",
+            "destination": "10.0.2.0/24",
+            "nexthop": "10.0.1.1"
+        },
+        "request": {
+            "destination": "10.0.2.0/24",
+            "nexthop": "10.0.1.1"
+        }
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/route/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "3e137dcf-217d-4136-878c-114d871809d1",
+            "destination": "10.0.3.0/24",
+            "nexthop": "10.0.1.3"
+        },
+        "request": {
+            "destination": "10.0.3.0/24",
+            "nexthop": "10.0.1.3"
+        }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/router/58385696-32c6-4a5c-bafe-895815eedf04/route/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "3e137dcf-217d-4136-878c-114d871809d1",
+            "destination": "10.0.3.0/24",
+            "nexthop": "10.0.1.3"
+        },
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/port_forwarding/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "Not found"
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+            "name": "10.11.143.46",
+            "vdc": {
+                "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                "name": "ВЦОД РУСТЭК",
+                "hypervisor": {
+                    "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                    "name": "РУСТЭК",
+                    "type": "kvm",
+                    "position": 11,
+                    "icon": null
+                }
+            },
+            "job_id": null,
+            "locked": false,
+            "floating": {
+                "id": "e53ac707-adb9-4426-bcc1",
+                "ip_address": "10.11.143.46"
+            }
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/port_forwarding",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "f41bd43e-7bed-4c5d-8764-8269274db9fd",
+            "name": "10.11.143.46",
+            "vdc": {
+                "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                "name": "ВЦОД РУСТЭК",
+                "hypervisor": {
+                    "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                    "name": "РУСТЭК",
+                    "type": "kvm",
+                    "position": 11,
+                    "icon": null
+                }
+            },
+            "job_id": null,
+            "locked": false,
+            "floating": {
+                "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+                "ip_address": "10.11.143.46"
+            }
+        },
+        "request": {
+            "floating": "954fd467-fd9a-4ce7-b4df-1e81e557bce9"
+        }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+            "name": "10.11.143.46",
+            "vdc": {
+                "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                "name": "ВЦОД РУСТЭК",
+                "hypervisor": {
+                    "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                    "name": "РУСТЭК",
+                    "type": "kvm",
+                    "position": 11,
+                    "icon": null
+                }
+            },
+            "job_id": null,
+            "locked": false,
+            "floating": {
+                "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+                "ip_address": "10.11.143.46"
+            }
+        },
+        "request": {}
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04/rule/21000000-2100-2100-2100-210000000000",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "Not found"
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04/rule/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "58385696-32c6-4a5c-bafe-895815eedf04",
+            "port": {
+                "id": "dfe4dc9c-a059-4e28-a8cf-51e3c4f52dc2",
+                "ctime": "2023-05-02T10:31:51.052918",
+                "network": {
+                    "id": "a3663c1c-0d60-4d50-a2a5-40de62bd4c3f",
+                    "name": "Сеть",
+                    "external": false
+                },
+                "ip_address": "10.0.1.3",
+                "fw_templates": [
+                    {
+                        "id": "00000000-0000-0000-0000-000000000000",
+                        "vdc": null,
+                        "name": "Разрешить исходящие",
+                        "description": "Разрешить все исходящие соединения",
+                        "rules_count": 1,
+                        "mtime": "2022-02-22T07:39:30.218963",
+                        "shared": true,
+                        "job_id": null,
+                        "locked": false
+                    }
+                ],
+                "connected": {
+                    "id": "2c0ea79f-6c38-4ad0-859b-1d68a7a93288",
+                    "type": "vm",
+                    "name": "111",
+                    "vdc": {
+                        "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                        "name": "ВЦОД РУСТЭК",
+                        "hypervisor": {
+                            "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                            "name": "РУСТЭК",
+                            "type": "kvm",
+                            "position": 11,
+                            "icon": null
+                        }
+                    }
+                },
+                "type": "vm_int",
+                "router": {
+                    "id": "cd12c564-846f-40cf-b0d4-d40152e45f84",
+                    "name": "Роутер",
+                    "is_default": true,
+                    "locked": false,
+                    "vdc": {
+                        "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                        "name": "ВЦОД РУСТЭК",
+                        "hypervisor": {
+                            "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                            "name": "РУСТЭК",
+                            "type": "kvm",
+                            "position": 11,
+                            "icon": null
+                        }
+                    },
+                    "job_id": null
+                },
+                "enable_security": false,
+                "vdc": {
+                    "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                    "name": "ВЦОД РУСТЭК",
+                    "hypervisor": {
+                        "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                        "name": "РУСТЭК",
+                        "type": "kvm",
+                        "position": 11,
+                        "icon": null
+                    }
+                },
+                "job_id": null,
+                "locked": false
+            },
+            "internal_port": 80,
+            "external_port": 80,
+            "protocol": "tcp",
+            "job_id": "7ba68546-f235-47ea-9189-a3bec0327e8c",
+            "locked": true
+        }
+    },
+    {
+        "method": "POST",
+        "url": "https://api.example.com/v1/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04/rule",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "ae4a1a67-f4f4-4f90-be14-a2c664c17082",
+            "port": {
+                "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+                "ctime": "2023-05-02T10:31:51.052918",
+                "network": {
+                    "id": "a3663c1c-0d60-4d50-a2a5-40de62bd4c3f",
+                    "name": "Сеть",
+                    "external": false
+                },
+                "ip_address": "10.0.1.3",
+                "fw_templates": [
+                    {
+                        "id": "00000000-0000-0000-0000-000000000000",
+                        "vdc": null,
+                        "name": "Разрешить исходящие",
+                        "description": "Разрешить все исходящие соединения",
+                        "rules_count": 1,
+                        "mtime": "2022-02-22T07:39:30.218963",
+                        "shared": true,
+                        "job_id": null,
+                        "locked": false
+                    }
+                ],
+                "connected": {
+                    "id": "2c0ea79f-6c38-4ad0-859b-1d68a7a93288",
+                    "type": "vm",
+                    "name": "111",
+                    "vdc": {
+                        "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                        "name": "ВЦОД РУСТЭК",
+                        "hypervisor": {
+                            "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                            "name": "РУСТЭК",
+                            "type": "kvm",
+                            "position": 11,
+                            "icon": null
+                        }
+                    }
+                },
+                "type": "vm_int",
+                "router": {
+                    "id": "cd12c564-846f-40cf-b0d4-d40152e45f84",
+                    "name": "Роутер",
+                    "is_default": true,
+                    "locked": false,
+                    "vdc": {
+                        "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                        "name": "ВЦОД РУСТЭК",
+                        "hypervisor": {
+                            "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                            "name": "РУСТЭК",
+                            "type": "kvm",
+                            "position": 11,
+                            "icon": null
+                        }
+                    },
+                    "job_id": null
+                },
+                "enable_security": false,
+                "vdc": {
+                    "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                    "name": "ВЦОД РУСТЭК",
+                    "hypervisor": {
+                        "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                        "name": "РУСТЭК",
+                        "type": "kvm",
+                        "position": 11,
+                        "icon": null
+                    }
+                },
+                "job_id": null,
+                "locked": false
+            },
+            "internal_port": 80,
+            "external_port": 80,
+            "protocol": "tcp",
+            "job_id": "7ba68546-f235-47ea-9189-a3bec0327e8c",
+            "locked": true
+        },
+        "request": {
+            "internal_port": 80,
+            "external_port": 80,
+            "protocol": "tcp",
+            "port": "954fd467-fd9a-4ce7-b4df-1e81e557bce9"
+        }
+    },
+    {
+        "method": "PUT",
+        "url": "https://api.example.com/v1/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04/rule/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "ae4a1a67-f4f4-4f90-be14-a2c664c17082",
+            "port": {
+                "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+                "ctime": "2023-05-02T10:31:51.052918",
+                "network": {
+                    "id": "a3663c1c-0d60-4d50-a2a5-40de62bd4c3f",
+                    "name": "Сеть",
+                    "external": false
+                },
+                "ip_address": "10.0.1.3",
+                "fw_templates": [
+                    {
+                        "id": "00000000-0000-0000-0000-000000000000",
+                        "vdc": null,
+                        "name": "Разрешить исходящие",
+                        "description": "Разрешить все исходящие соединения",
+                        "rules_count": 1,
+                        "mtime": "2022-02-22T07:39:30.218963",
+                        "shared": true,
+                        "job_id": null,
+                        "locked": false
+                    }
+                ],
+                "connected": {
+                    "id": "2c0ea79f-6c38-4ad0-859b-1d68a7a93288",
+                    "type": "vm",
+                    "name": "111",
+                    "vdc": {
+                        "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                        "name": "ВЦОД РУСТЭК",
+                        "hypervisor": {
+                            "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                            "name": "РУСТЭК",
+                            "type": "kvm",
+                            "position": 11,
+                            "icon": null
+                        }
+                    }
+                },
+                "type": "vm_int",
+                "router": {
+                    "id": "cd12c564-846f-40cf-b0d4-d40152e45f84",
+                    "name": "Роутер",
+                    "is_default": true,
+                    "locked": false,
+                    "vdc": {
+                        "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                        "name": "ВЦОД РУСТЭК",
+                        "hypervisor": {
+                            "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                            "name": "РУСТЭК",
+                            "type": "kvm",
+                            "position": 11,
+                            "icon": null
+                        }
+                    },
+                    "job_id": null
+                },
+                "enable_security": false,
+                "vdc": {
+                    "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                    "name": "ВЦОД РУСТЭК",
+                    "hypervisor": {
+                        "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                        "name": "РУСТЭК",
+                        "type": "kvm",
+                        "position": 11,
+                        "icon": null
+                    }
+                },
+                "job_id": null,
+                "locked": false
+            },
+             "internal_port": 90,
+            "external_port": 90,
+            "protocol": "udp",
+            "job_id": "7ba68546-f235-47ea-9189-a3bec0327e8c",
+            "locked": true
+        },
+        "request": {
+            "internal_port": 90,
+            "external_port": 90,
+            "protocol": "udp",
+            "port": "dfe4dc9c-a059-4e28-a8cf-51e3c4f52dc2"
+        }
+    },
+    {
+        "method": "DELETE",
+        "url": "https://api.example.com/v1/port_forwarding/58385696-32c6-4a5c-bafe-895815eedf04/rule/58385696-32c6-4a5c-bafe-895815eedf04",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "ae4a1a67-f4f4-4f90-be14-a2c664c17082",
+            "port": {
+                "id": "954fd467-fd9a-4ce7-b4df-1e81e557bce9",
+                "ctime": "2023-05-02T10:31:51.052918",
+                "network": {
+                    "id": "a3663c1c-0d60-4d50-a2a5-40de62bd4c3f",
+                    "name": "Сеть",
+                    "external": false
+                },
+                "ip_address": "10.0.1.3",
+                "fw_templates": [
+                    {
+                        "id": "00000000-0000-0000-0000-000000000000",
+                        "vdc": null,
+                        "name": "Разрешить исходящие",
+                        "description": "Разрешить все исходящие соединения",
+                        "rules_count": 1,
+                        "mtime": "2022-02-22T07:39:30.218963",
+                        "shared": true,
+                        "job_id": null,
+                        "locked": false
+                    }
+                ],
+                "connected": {
+                    "id": "2c0ea79f-6c38-4ad0-859b-1d68a7a93288",
+                    "type": "vm",
+                    "name": "111",
+                    "vdc": {
+                        "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                        "name": "ВЦОД РУСТЭК",
+                        "hypervisor": {
+                            "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                            "name": "РУСТЭК",
+                            "type": "kvm",
+                            "position": 11,
+                            "icon": null
+                        }
+                    }
+                },
+                "type": "vm_int",
+                "router": {
+                    "id": "cd12c564-846f-40cf-b0d4-d40152e45f84",
+                    "name": "Роутер",
+                    "is_default": true,
+                    "locked": false,
+                    "vdc": {
+                        "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                        "name": "ВЦОД РУСТЭК",
+                        "hypervisor": {
+                            "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                            "name": "РУСТЭК",
+                            "type": "kvm",
+                            "position": 11,
+                            "icon": null
+                        }
+                    },
+                    "job_id": null
+                },
+                "enable_security": false,
+                "vdc": {
+                    "id": "8e93efdf-dee7-4a6f-85f7-3f7001d45a0f",
+                    "name": "ВЦОД РУСТЭК",
+                    "hypervisor": {
+                        "id": "a532b7ce-a3db-480f-be3e-e0772f203c4f",
+                        "name": "РУСТЭК",
+                        "type": "kvm",
+                        "position": 11,
+                        "icon": null
+                    }
+                },
+                "job_id": null,
+                "locked": false
+            },
+             "internal_port": 90,
+            "external_port": 90,
+            "protocol": "udp",
+            "job_id": "7ba68546-f235-47ea-9189-a3bec0327e8c",
+            "locked": true
+        },
+        "request": {}
     }
 ]
