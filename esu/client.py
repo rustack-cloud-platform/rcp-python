@@ -19,6 +19,7 @@ class Client(BaseAPI):
         name = Field()
         allowed_hypervisors = FieldList('esu.Hypervisor')
         payment_model = Field()
+        billing_enabled = Field()
 
     @property
     def balance(self):
