@@ -94,4 +94,4 @@ class FirewallTemplate(BaseAPI):
             raise ObjectHasNoId
 
         return self._get_list('v1/firewall/{}/rule'.format(self.id),
-                              FirewallTemplateRule)
+                              FirewallTemplateRule, with_pages=False)
