@@ -1,0 +1,4 @@
+Platform
+========
+
+.. autoclass:: esu.Platform

@@ -13,6 +13,7 @@ from .lbaas import Lbaas
 from .lbaas_pool import LbaasPool, LbaasPoolMember
 from .manager import Manager
 from .network import Network
+from .platform import Platform
 from .port import ConnectedObject, Port
 from .port_forwarding import PortForwarding
 from .port_forwarding_rule import PortForwardingRule
@@ -33,4 +34,4 @@ from .vdc import Vdc
 from .vm import Vm
 from .vm_metadata import VmMetadata
 
-__version__ = '0.1.15'
+__version__ = '0.1.16'

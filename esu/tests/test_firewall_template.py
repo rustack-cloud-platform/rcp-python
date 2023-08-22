@@ -1,5 +1,3 @@
-import pytest
-
 from esu.firewall_template import FirewallTemplate
 from esu.firewall_template_rule import FirewallTemplateRule
 from esu.tests import load_fixtures
@@ -28,6 +26,6 @@ def test_get_firewall_rules(rsps):
     assert rule.direction == 'ingress'
     assert rule.name == 'Разрешить порт 10050'
     assert rule.dst_port_range_min == 10050
-    assert rule.dst_port_range_max == None
+    assert rule.dst_port_range_max is None
     assert rule.destination_ip == "0.0.0.0/0"
     assert rule.protocol == "tcp"

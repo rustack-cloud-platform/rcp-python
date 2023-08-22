@@ -10369,5 +10369,342 @@
                 "direction": "ingress"
               }
         ]
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/platform",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow":"GET, POST, HEAD, OPTIONS"
+        },
+        "response":[
+            {
+                "id": "8c81d2cd-bf8b-4f47-b1e6-8bbc368d27ed",
+                "name": "Базовая kvm",
+                "hypervisor": {
+                    "id": "124d8f7d-c806-4221-8f59-19363c6b2d08",
+                    "name": "kvm",
+                    "type": "kvm",
+                    "position": 111,
+                    "icon": null
+                }
+            },
+            {
+                "id": "a4b4d376-f76b-41e7-a457-032b39c950f1",
+                "name": "Базовая vmware",
+                "hypervisor": {
+                    "id": "478f179a-037a-4795-a8c4-7cf0a83b5390",
+                    "name": "vmware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            },
+            {
+                "id": "ace18e86-9fba-4a50-845b-b36e677b2a3f",
+                "name": "Intel Cascade Lake",
+                "hypervisor": {
+                    "id": "478f179a-037a-4795-a8c4-7cf0a83b5390",
+                    "name": "vmware",
+                    "type": "vmware",
+                    "position": 40,
+                    "icon": null
+                }
+            }
+        ]
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/platform/ace18e86-9fba-4a50-845b-b36e677b2a3f",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow":"GET, POST, HEAD, OPTIONS"
+        },
+        "response":{
+            "id": "ace18e86-9fba-4a50-845b-b36e677b2a3f",
+            "name": "Intel Cascade Lake",
+            "hypervisor": {
+                "id": "478f179a-037a-4795-a8c4-7cf0a83b5390",
+                "name": "vmware",
+                "type": "vmware",
+                "position": 40,
+                "icon": null
+            }
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/firewall?page=1",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "ff573617-8b51-4843-9b43-a5bf8270c96b",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                    "name": "Разрешить WEB",
+                    "description": "Разрешить WEB порты, доступные из Интернета",
+                    "rules_count": 3,
+                    "mtime": "2021-09-06T12:46:57.409760",
+                    "shared": true,
+                    "locked": false,
+                    "job_id": null
+                },
+                {
+                    "id": "61a2acde-29da-405c-b5fe-b7abcdc86849",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                    "name": "Разрешить SSH",
+                    "description": "Разрешить SSH для управление хостом",
+                    "rules_count": 1,
+                    "mtime": "2021-09-06T12:46:57.408575",
+                    "shared": true,
+                    "locked": false,
+                    "job_id": null
+                },
+                {
+                    "id": "c09fd870-373a-408d-af63-1ce2b9ab04ed",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                    "name": "Разрешить ICMP",
+                    "description": "Разрешить ICMP",
+                    "rules_count": 2,
+                    "mtime": "2021-09-06T12:46:57.406778",
+                    "shared": true,
+                    "locked": false,
+                    "job_id": null
+                },
+                {
+                    "id": "0588e41b-c702-4fce-ba89-8b6c04551a9c",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                    "name": "Разрешить DNS",
+                    "description": "Разрешить DNS порты, доступные из Интернета",
+                    "rules_count": 1,
+                    "mtime": "2021-09-06T12:46:57.405350",
+                    "shared": true,
+                    "locked": false,
+                    "job_id": null
+                },
+                {
+                    "id": "6a92c8e2-d393-47bc-a517-18ecf41edf5a",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                    "name": "Разрешить RDP",
+                    "description": "Разрешить RDP для управления хостом",
+                    "rules_count": 1,
+                    "mtime": "2021-09-06T12:46:57.404165",
+                    "shared": true,
+                    "locked": false,
+                    "job_id": null
+                },
+                {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                    "name": "По-умолчанию",
+                    "description": "Разрешить все исходящие соединения",
+                    "rules_count": 1,
+                    "mtime": "2021-09-06T12:46:57.401514",
+                    "shared": true,
+                    "locked": false,
+                    "job_id": null
+                }
+            ],
+            "total": 6,
+            "limit": 10
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/firewall?page=2",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "That page contains no results - 2"
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/network?page=1",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "b9e6df93-0d04-4dac-a3c1-1a8539b8e445",
+                    "locked": false,
+                    "job_id": null,
+                    "vdc": {
+                        "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                        "name": "Vdc New Name",
+                        "hypervisor": {
+                            "id": "478f179a-037a-4795-a8c4-7cf0a83b5390",
+                            "name": "vmware",
+                            "type": "vmware"
+                        }
+                    },
+                    "name": "Default",
+                    "external_name": "",
+                    "external": false,
+                    "is_default": true,
+                    "zone": {
+                        "id": "6774805b-02f9-4c76-b30e-377dcac773f3",
+                        "name": "default",
+                        "segment_type": "vlan"
+                    },
+                    "vnid": 120,
+                    "subnets": [
+                        {
+                            "id": "d98b2bcc-aa73-428f-b7ed-a5a39d06e17d",
+                            "cidr": "10.0.1.0/24",
+                            "ip_version": 4,
+                            "gateway": "10.0.1.1",
+                            "start_ip": "10.0.1.2",
+                            "end_ip": "10.0.1.254",
+                            "enable_dhcp": true,
+                            "subnet_routes": [],
+                            "dns_servers": []
+                        },
+                        {
+                            "id": "0ac5fcf1-e264-483e-a2ac-37f7722ddab4",
+                            "cidr": "10.22.23.0/24",
+                            "ip_version": 4,
+                            "gateway": "10.22.23.1",
+                            "start_ip": "10.22.23.2",
+                            "end_ip": "10.22.23.254",
+                            "enable_dhcp": true,
+                            "subnet_routes": [],
+                            "dns_servers": []
+                        }
+                    ]
+                },
+                {
+                    "id": "b9f7ef93-0d04-4dac-a3c1-1a8539b8e445",
+                    "locked": false,
+                    "job_id": null,
+                    "vdc": {
+                        "id": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
+                        "name": "Vdc New Name",
+                        "hypervisor": {
+                            "id": "478f179a-037a-4795-a8c4-7cf0a83b5390",
+                            "name": "vmware",
+                            "type": "vmware"
+                        }
+                    },
+                    "name": "Not Default",
+                    "external_name": "",
+                    "external": false,
+                    "is_default": true,
+                    "zone": {
+                        "id": "6774805b-02f9-4c76-b30e-377dcac773f3",
+                        "name": "default",
+                        "segment_type": "vlan"
+                    },
+                    "vnid": 120,
+                    "subnets": [
+                        {
+                            "id": "d98b2bcc-aa73-428f-b7ed-a5a39d06e17d",
+                            "cidr": "10.0.1.0/24",
+                            "ip_version": 4,
+                            "gateway": "10.0.1.1",
+                            "start_ip": "10.0.1.2",
+                            "end_ip": "10.0.1.254",
+                            "enable_dhcp": true,
+                            "subnet_routes": [],
+                            "dns_servers": []
+                        },
+                        {
+                            "id": "0ac5fcf1-e264-483e-a2ac-37f7722ddab4",
+                            "cidr": "10.22.23.0/24",
+                            "ip_version": 4,
+                            "gateway": "10.22.23.1",
+                            "start_ip": "10.22.23.2",
+                            "end_ip": "10.22.23.254",
+                            "enable_dhcp": true,
+                            "subnet_routes": [],
+                            "dns_servers": []
+                        }
+                    ]
+                }
+            ],
+            "total": 2,
+            "limit": 10
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/network?page=2",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "That page contains no results - 2"
+            ]
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/storage_profile?page=1",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "286bb153-87b0-4f9e-9225-947554df6ddb",
+                    "name": "SATA VMWARE",
+                    "max_disk_size": 32768,
+                    "position": 1,
+                    "billing_class": {
+                        "id": "vmware_hdd_fast",
+                        "name": "Предоставление дискового пространства уровня SAS (ESXi)",
+                        "sku_mask": "IS-ESX-VHDD-SAS-CA-P-GB-D",
+                        "measure": "ГБ"
+                    }
+                },
+                {
+                    "id": "286bb153-87b0-4f9e-7525-947554df7deb",
+                    "name": "SATA VMWARE 2",
+                    "max_disk_size": 32768,
+                    "position": 1,
+                    "billing_class": {
+                        "id": "vmware_hdd_fast",
+                        "name": "Предоставление дискового пространства уровня SAS (ESXi)",
+                        "sku_mask": "IS-ESX-VHDD-SAS-CA-P-GB-D",
+                        "measure": "ГБ"
+                    }
+                }
+            ],
+            "total": 2,
+            "limit": 10
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/storage_profile?page=2",
+        "status": 404,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "non_field_errors": [
+                "That page contains no results - 2"
+            ]
+        }
     }
 ]
