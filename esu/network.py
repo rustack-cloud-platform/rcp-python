@@ -21,7 +21,7 @@ class Network(BaseAPI):
     class Meta:
         id = Field()
         name = Field()
-        vdc = Field('esu.Vdc')
+        vdc = Field('esu.Vdc', allow_none=True)
         is_default = Field()
         subnets = FieldList('esu.Subnet')
 
