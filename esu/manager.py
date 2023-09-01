@@ -54,3 +54,41 @@ class Manager(BaseAPI):
             list: Список объектов :class:`esu.Vm`
         """
         return self._get_list('v1/vm', 'esu.Vm')
+
+    def get_all_storage_profiles(self):
+        """
+        Возвращает список объектов всех доступных пользователю профилей
+        хранения.
+
+        Returns:
+            list: Список объектов :class:`esu.StorageProfile`
+        """
+        return self._get_list('v1/storage_profile', 'esu.StorageProfile')
+
+    def get_all_platforms(self):
+        """
+        Возвращает список объектов всех доступных пользователю платформ.
+
+        Returns:
+            list: Список объектов :class:`esu.Platform`
+        """
+        return self._get_list('v1/platform', 'esu.Platform', with_pages=False)
+
+    def get_all_firewall_templates(self):
+        """
+        Возвращает список объектов всех доступных пользователю шаблонов
+        брандмауэра.
+
+        Returns:
+            list: Список объектов :class:`esu.FirewallTemplate`
+        """
+        return self._get_list('v1/firewall', 'esu.FirewallTemplate')
+
+    def get_all_networks(self):
+        """
+        Возвращает список объектов всех доступных пользователю сетей.
+
+        Returns:
+            list: Список объектов :class:`esu.Network`
+        """
+        return self._get_list('v1/network', 'esu.Network')
