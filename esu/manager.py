@@ -63,7 +63,7 @@ class Manager(BaseAPI):
         Returns:
             list: Список объектов :class:`esu.StorageProfile`
         """
-        return self._get_list('v1/storage_profiles', 'esu.StorageProfile')
+        return self._get_list('v1/storage_profile', 'esu.StorageProfile')
 
     def get_all_platforms(self):
         """
