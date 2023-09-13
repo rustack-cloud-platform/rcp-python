@@ -44,7 +44,7 @@ class Port(BaseAPI):
         id = Field()
         ip_address = Field()
         type = Field()
-        vdc = Field("esu.Vdc")
+        vdc = Field("esu.Vdc", allow_none=True)
         fw_templates = FieldList('esu.FirewallTemplate', allow_none=True)
         network = Field('esu.Network')
         connected = Field(ConnectedObject, allow_none=True)
