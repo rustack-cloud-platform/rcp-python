@@ -101,7 +101,6 @@ class Disk(BaseAPI):
         """
         self._call('POST', 'v1/disk/{}/detach'.format(self.id))
         self.vm = None
-        self._fill()
 
     def destroy(self):
         """
