@@ -15,7 +15,7 @@ copyright = '2023, Rustack LLC'
 author = 'Development Team'
 
 # The full version, including alpha/beta/rc tags
-version = '0.1.17'
+version = '0.1.18'
 language = 'ru'
 
 extensions = [

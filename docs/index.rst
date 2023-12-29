@@ -48,6 +48,8 @@
    api/vm_metadata
    api/kubernetes
    api/kubernetes_template
+   api/paas_service
+   api/paas_template
 
 
 .. toctree::

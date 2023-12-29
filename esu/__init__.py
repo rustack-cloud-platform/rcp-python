@@ -36,4 +36,4 @@ from .vdc import Vdc
 from .vm import Vm
 from .vm_metadata import VmMetadata
 
-__version__ = '0.1.17'
+__version__ = '0.1.18'
