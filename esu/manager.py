@@ -92,3 +92,12 @@ class Manager(BaseAPI):
             list: Список объектов :class:`esu.Network`
         """
         return self._get_list('v1/network', 'esu.Network')
+
+    def get_all_paas_services(self):
+        """
+        Возвращает список объектов всех доступных пользователю PaaS сервисов.
+
+        Returns:
+            list: Список объектов :class:`esu.PaasService`
+        """
+        return self._get_list('v1/paas_service', 'esu.PaasService')

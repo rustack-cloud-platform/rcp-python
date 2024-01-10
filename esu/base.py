@@ -159,6 +159,8 @@ class BaseAPI:
             for item in answer['items']:
                 instance = resolve(cls)(token=self.token, **item)
                 result.append(instance)
+            if len(result) == answer['total']:
+                break
             page += 1
 
         return result

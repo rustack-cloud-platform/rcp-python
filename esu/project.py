@@ -148,3 +148,15 @@ class Project(BaseAPI):
             raise ObjectHasNoId
 
         return self._get_list('v1/s3_storage', S3, project=self.id)
+
+    def get_paas_templates(self):
+        """
+        Получить список доступных PaaS шаблонов в этом проекте. Вернет список
+        объектов :class:`esu.PaasTemplate`.
+
+        Returns:
+            list: Список объектов :class:`esu.PaasTemplate`
+        """
+        if self.id is None:
+            raise ObjectHasNoId
+        return self._get_list('v1/paas_template', 'esu.PaasTemplate', project_id=self.id)
