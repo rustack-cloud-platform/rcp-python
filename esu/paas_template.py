@@ -4,7 +4,7 @@ from esu.base import BaseAPI, Field
 class PaasTemplate(BaseAPI):
     """
     Args:
-        id (str): Идентификатор
+        id (int): Идентификатор
         name (str): Имя
         description (str): Описание
     """
@@ -19,7 +19,7 @@ class PaasTemplate(BaseAPI):
         Получить объект шаблона по его ID
 
         Args:
-            id (str): Идентификатор шаблона
+            id (int): Идентификатор шаблона
             project_id (str): Идентификатор проекта
             token (str): Токен для доступа к API. Если не передан, будет
                          использована переменная окружения **ESU_API_TOKEN**

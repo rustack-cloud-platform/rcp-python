@@ -10706,5 +10706,129 @@
                 "That page contains no results - 2"
             ]
         }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/paas_template/1?project_id=a737cd39-e7a7-46b8-a756-fb8ccceeed8f",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": 1,
+            "name": "rustack_esu_postgresql:0.1.0-SNAPSHOT",
+            "description": "Some description"
+       }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/paas_template?project_id=a737cd39-e7a7-46b8-a756-fb8ccceeed8f&page=1",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": 1,
+                    "name": "rustack_esu_postgresql:0.1.0-SNAPSHOT",
+                    "description": "Some description"
+                }
+            ],
+            "total": 1,
+            "limit": 1
+        }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/paas_service?page=1",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "items": [
+                {
+                    "id": "7b5ff7fd-998b-404a-87f0-2ef788a2308d",
+                    "ctime": "2023-12-28T06:55:46.346457",
+                    "name": "Test PAAS service",
+                    "status": "DEPLOYMENT_FAILED",
+                    "project": {
+                        "id": "a737cd39-e7a7-46b8-a756-fb8ccceeed8f",
+                        "name": "Project 1",
+                        "tags": []
+                    },
+                    "paas_service_id": 1,
+                    "paas_service_name": "rustack_esu_postgresql:0.1.0-SNAPSHOT",
+                    "paas_deploy_id": 93,
+                    "paas_internal_id": "a4ce82fe-75a1-46f8-b666-8a9de0630c0b",
+                    "paas_service_inputs": {
+                        "change_password": false,
+                        "enable_ssh_password": true,
+                        "enable_sudo": true,
+                        "passwordless_sudo": false,
+                        "cpu_num": 1,
+                        "ram_size": 4,
+                        "volume_size": 10,
+                        "network_id": "682b0127-a681-41d6-955b-fbba7ad3a4ca",
+                        "vdcs_id": "5fe1d1d0-4bdb-4745-ac49-05108fc6edd4",
+                        "vm_name": "Тестовый сервис",
+                        "template_id": "f9c57c00-93a8-4439-b3a1-fc07119f9f87",
+                        "storage_profile": "406d4c98-e2db-4e1c-807f-f26f58ba5b64",
+                        "user_name": "sa",
+                        "user_password": "123456789"
+                    },
+                    "job_id": null,
+                    "locked": false
+                }
+            ],
+            "total": 1,
+            "limit": 10
+       }
+    },
+    {
+        "method": "GET",
+        "url": "https://api.example.com/v1/paas_service/7b5ff7fd-998b-404a-87f0-2ef788a2308d",
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json",
+            "Allow": "GET, POST, HEAD, OPTIONS"
+        },
+        "response": {
+            "id": "7b5ff7fd-998b-404a-87f0-2ef788a2308d",
+            "ctime": "2023-12-28T06:55:46.346457",
+            "name": "Test PAAS service",
+            "status": "DEPLOYMENT_FAILED",
+            "project": {
+                "id": "a737cd39-e7a7-46b8-a756-fb8ccceeed8f",
+                "name": "Project 1",
+                "tags": []
+            },
+            "paas_service_id": 1,
+            "paas_service_name": "rustack_esu_postgresql:0.1.0-SNAPSHOT",
+            "paas_deploy_id": 93,
+            "paas_internal_id": "a4ce82fe-75a1-46f8-b666-8a9de0630c0b",
+            "paas_service_inputs": {
+                "change_password": false,
+                "enable_ssh_password": true,
+                "enable_sudo": true,
+                "passwordless_sudo": false,
+                "cpu_num": 1,
+                "ram_size": 4,
+                "volume_size": 10,
+                "network_id": "682b0127-a681-41d6-955b-fbba7ad3a4ca",
+                "vdcs_id": "5fe1d1d0-4bdb-4745-ac49-05108fc6edd4",
+                "vm_name": "Тестовый сервис",
+                "template_id": "f9c57c00-93a8-4439-b3a1-fc07119f9f87",
+                "storage_profile": "406d4c98-e2db-4e1c-807f-f26f58ba5b64",
+                "user_name": "sa",
+                "user_password": "123456789"
+            },
+            "job_id": null,
+            "locked": false
+        }
     }
 ]
