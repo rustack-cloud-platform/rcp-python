@@ -1,0 +1,10 @@
+LICENSE
+README.rst
+setup.py
+rcp/__init__.py
+rcp/manager.py
+rustack_rcp.egg-info/PKG-INFO
+rustack_rcp.egg-info/SOURCES.txt
+rustack_rcp.egg-info/dependency_links.txt
+rustack_rcp.egg-info/requires.txt
+rustack_rcp.egg-info/top_level.txt

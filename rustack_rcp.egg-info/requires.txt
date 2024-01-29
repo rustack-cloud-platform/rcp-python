@@ -1,0 +1,15 @@
+requests>=2.2.1
+
+[dev]
+responses
+yapf==0.30.0
+pylint
+tox>=3.9.0
+pytest>=4.6.2
+pytest-cov>=2.7.1
+
+[dev:platform_system == "darwin"]
+tox-pyenv
+
+[dev:python_version >= "3.6"]
+isort>=5.1.1

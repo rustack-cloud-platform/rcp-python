@@ -1,7 +1,7 @@
-apps = esu
+apps = rcp
 
 fixtures:
-	@cp ../toochka-new/src/api/core/tests/pylib_fixtures.json esu/tests/fixtures.json
+	@cp ../toochka-new/src/api/core/tests/pylib_fixtures.json rcp/tests/fixtures.json
 
 tests:
 	pytest -v $(apps)

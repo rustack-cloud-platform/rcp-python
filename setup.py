@@ -5,7 +5,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-with open('esu/__init__.py', 'r', encoding='utf-8') as file:
+with open('rcp/__init__.py', 'r', encoding='utf-8') as file:
     regex_version = r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]'
     version = re.search(regex_version, file.read(), re.MULTILINE).group(1)
 
@@ -13,7 +13,7 @@ with open('README.rst', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='rustack-esu',
+    name='rustack-rcp',
     version=version,
     description='RUSTACK-ESU Cloud API Wrapper',
     long_description=long_description,
@@ -41,7 +41,7 @@ setup(
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3 :: Only',
         ],
-    packages=['esu'],
+    packages=['rcp'],
     install_requires=[
         'requests>=2.2.1',
     ],
