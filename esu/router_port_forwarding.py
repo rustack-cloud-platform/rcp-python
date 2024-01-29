@@ -16,8 +16,6 @@ class RouterPortForwarding(BaseAPI):
                                     которого осуществляется перенаправление
         internal_port (int): Порт роутера, по которому доступен сервер
                             для которого, создаётся правило перенаправления
-        token (str): Токен для доступа к API. Если не передан, будет
-            использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Управление перенаправлением портов на роутере доступно только
               для ресурсного пула VMware.
@@ -37,20 +35,19 @@ class RouterPortForwarding(BaseAPI):
         protocol = Field()
 
     @classmethod
-    def get_object(cls, router, pf_id, token=None):
+    def get_object(cls, router, pf_id):
         """
         Получить объект правила перенаправления портов роутера по его ID
 
         Args:
-            id (str): Идентификатор правила перенаправления портов роутера
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
+            pf_id (str): Идентификатор правила перенаправления портов роутера
+            router: class:'esu.Router'
 
         Returns:
             object: Возвращает объект правила перенаправления портов на роутере
             :class:`esu.RouterPortForwarding`
         """
-        port_forwarding = cls(token=token, id=pf_id, router=router)
+        port_forwarding = cls(id=pf_id, router=router)
         port_forwarding._get_object(
             'v1/router/{}/port_forwarding'.format(port_forwarding.router.id),
             port_forwarding.id)

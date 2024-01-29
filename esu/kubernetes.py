@@ -33,20 +33,18 @@ class Kubernetes(BaseAPI):
         floating = Field('esu.Port', allow_none=True)
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект kubernetes по его ID
 
         Args:
             id (str): Идентификатор Kubernetes
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект кластера
             kubernetes :class:`esu.Kubernetes`
         """
-        k8s = cls(token=token, id=id)
+        k8s = cls(id=id)
         k8s._get_object('v1/kubernetes', k8s.id)
 
         return k8s

@@ -14,8 +14,6 @@ class FirewallTemplateRule(BaseAPI):
         dst_port_range_max (str): dst_port_range_max правила брандмауэра
         dst_port_range_min (str): dst_port_range_min правила брандмауэра
         protocol (str): protocol правила брандмауэра
-        token (str): Токен для доступа к API. Если не передан, будет
-                использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``direction``, ``name`` и ``protocol`` необходимы для
               создания.
@@ -32,20 +30,18 @@ class FirewallTemplateRule(BaseAPI):
         protocol = Field()
 
     @classmethod
-    def get_object(cls, firewall, rule_id, token=None):
+    def get_object(cls, firewall, rule_id):
         """
         Получить объект правил брандмауэра по его ID
 
         Args:
             id (str): Идентификатор правила шаблона брандмауэра
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект правила шаблона брандмауэра
             :class:`esu.FirewallTemplateRule`
         """
-        firewall_rule = cls(token=token, id=rule_id, firewall=firewall)
+        firewall_rule = cls(id=rule_id, firewall=firewall)
         firewall_rule._get_object(
             'v1/firewall/{}/rule'.format(firewall_rule.firewall.id),
             firewall_rule.id)

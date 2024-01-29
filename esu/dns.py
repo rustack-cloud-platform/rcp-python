@@ -9,8 +9,6 @@ class Dns(BaseAPI):
         name (str): Имя Dns
         project (object): Объект класса :class:`esu.Project`. Проект, к
                           которому относится данный Dns
-        token (str): Токен для доступа к API. Если не передан, будет
-                     использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``name`` и ``project`` необходимы для
               создания.
@@ -23,19 +21,17 @@ class Dns(BaseAPI):
         project = Field('esu.Project')
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект Dns по его ID
 
         Args:
             id (str): Идентификатор Dns
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект Dns :class:`esu.Dns`
         """
-        dns = cls(token=token, id=id)
+        dns = cls(id=id)
         dns._get_object('v1/dns', dns.id)
         return dns
 

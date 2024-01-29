@@ -8,8 +8,6 @@ class Client(BaseAPI):
         name (str): Имя
         payment_model (str): Модель взаиморасчетов. **prepay** или **postpay**
         balance (float): Баланс
-        token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
     .. warning:: Объект доступен только для чтения и не может быть создан,
                  изменен или удален.
@@ -26,19 +24,17 @@ class Client(BaseAPI):
         return self.kwargs['contract']['balance']
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект клиента по его ID
 
         Args:
             id (str): Идентификатор клиента
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект клиента :class:`esu.Client`
         """
-        client = cls(token=token, id=id)
+        client = cls(id=id)
         client._get_object('v1/client', client.id)
         return client
 

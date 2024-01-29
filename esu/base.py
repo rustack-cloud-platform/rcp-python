@@ -5,6 +5,8 @@ from time import sleep, time
 
 import requests
 
+from esu.consts import DEFAULT_TIMEOUT
+
 
 class BaseEx(Exception):
     pass
@@ -64,8 +66,10 @@ def resolve(cls):
 class BaseAPI:
     token = None
     endpoint_url = ''
+    test_mode = False
 
-    def __new__(cls, *args, token: str = None, **kwargs):
+    def __new__(cls, *args, token: str = None, endpoint_url: str = None,
+                test_mode: bool = False, **kwargs):
         rules = {}
         for k in cls.Meta.__dict__:
             if k.startswith('_'):
@@ -79,7 +83,8 @@ class BaseAPI:
             setattr(instance, k, None)
 
         instance.token = token or os.environ.get('ESU_API_TOKEN', cls.token)
-        instance.endpoint_url = os.environ.get('ESU_API_URL', cls.endpoint_url)
+        instance.endpoint_url = endpoint_url or os.environ.get(
+            'ESU_API_URL', cls.endpoint_url)
         instance.kwargs = kwargs
         instance._fill()
 
@@ -88,7 +93,8 @@ class BaseAPI:
     def __repr__(self):
         return '{} ({})'.format(self.__class__, self.id)
 
-    def _call(self, http_method, resource, **kwargs):
+    def _call(self, http_method, resource, wait_time=DEFAULT_TIMEOUT,
+              **kwargs):
         headers = {
             'Authorization': 'Bearer {}'.format(self.token),
             'Content-Type': 'application/json',
@@ -104,10 +110,12 @@ class BaseAPI:
         resp = method_(**request_params)
 
         answer = None
-        if resp.status_code == 404:
+        if self.test_mode and 'job' not in resource:
+            self._test_mode(resp)
+        elif resp.status_code == 404:
             raise NotFoundEx('Resource not found')
-
-        resp.raise_for_status()
+        else:
+            resp.raise_for_status()
 
         if resp.status_code not in (202, 204):
             if 'config' in resource:
@@ -119,15 +127,15 @@ class BaseAPI:
             task_id = task_id.strip()
             if not task_id:
                 continue
-            self._wait_job(task_id)
+            self._wait_job(task_id, wait_time)
 
         return answer
 
-    def _wait_job(self, job_id):
+    def _wait_job(self, job_id, wait_time):
         start_time = time()
 
         while True:
-            if time() - start_time > 800:
+            if time() - start_time > wait_time:
                 raise TaskTimeoutEx("Time for waiting a task is expired")
 
             try:
@@ -191,7 +199,7 @@ class BaseAPI:
                 if isinstance(v, BaseAPI) or fld.cls is None:
                     v_new = v
                 elif isinstance(v, str):  # ID case
-                    v_new = fld.cls.get_object(v, token=self.token)
+                    v_new = fld.cls.get_object(v)
                 else:  # dict
                     v_new = fld.cls(**v)
 
@@ -201,18 +209,23 @@ class BaseAPI:
         self.kwargs = self._call('GET', '{}/{}'.format(resource, id))
         self._fill()
 
-    def _commit_object(self, resource, **kwargs):
+    def _commit_object(self, resource, wait_time=DEFAULT_TIMEOUT, **kwargs):
         if self.id is None:
-            self.kwargs = self._call('POST', resource, **kwargs)
+            self.kwargs = self._call('POST', resource, wait_time, **kwargs)
         else:
             self.kwargs = self._call('PUT', '{}/{}'.format(resource, self.id),
-                                     **kwargs)
+                                     wait_time, **kwargs)
         self._fill()
 
-    def _destroy_object(self, resource, id):
-        self._call('DELETE', '{}/{}'.format(resource, id))
+    def _destroy_object(self, resource, id, wait_time=DEFAULT_TIMEOUT):
+        self._call('DELETE', '{}/{}'.format(resource, id), wait_time)
         self.id = None
 
-    def _patch_object(self, resource, id):
-        self._call('PATCH', '{}/{}'.format(resource, id))
+    def _patch_object(self, resource, id, wait_time=DEFAULT_TIMEOUT):
+        self._call('PATCH', '{}/{}'.format(resource, id), wait_time)
         self._fill()
+
+    def _test_mode(self, resp):
+        setattr(self, 'status_code', resp.status_code)
+        if resp.status_code not in (202, 204):
+            setattr(self, 'body', resp.json())

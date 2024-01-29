@@ -31,8 +31,6 @@ class LbaasPool(BaseAPI):
         port (str): порт по которому будет подключаться пул балансировщика
         protocol (str): протокол по которому будет работать пул балансировщика
         session_persistence (str): лимит соединений для пула балансировщика
-        token (str): Токен для доступа к API. Если не передан, будет
-                     использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``members`` и ``port`` необходимы для
               создания.
@@ -51,19 +49,18 @@ class LbaasPool(BaseAPI):
         session_persistence = Field()
 
     @classmethod
-    def get_object(cls, lbaas, pool_id, token=None):
+    def get_object(cls, lbaas, pool_id):
         """
         Получить объект пула балансировщика по его ID
 
         Args:
-            id (str): Идентификатор Lbaas Pool
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
+            lbaas :class:`esu.Lbaas`
+            pool_id (str): Идентификатор Lbaas Pool
 
         Returns:
             object: Возвращает объект LbaasPool :class:`esu.LbaasPool`
         """
-        pool = cls(token=token, id=pool_id, lbaas=lbaas)
+        pool = cls(id=pool_id, lbaas=lbaas)
         pool._get_object('v1/lbaas/{}/pool'.format(pool.lbaas.id), pool.id)
         return pool
 

@@ -15,8 +15,6 @@ class Lbaas(BaseAPI):
                            сети.
         ports (object): объект класса :class:`esu.Port`. Сеть,
                       к которой подключен данный балансировщик нагрузки
-        token (str): Токен для доступа к API. Если не передан, будет
-                     использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``name``, ``vdc`` и ``port`` необходимы для
               создания.
@@ -31,19 +29,17 @@ class Lbaas(BaseAPI):
         port = Field('esu.Port')
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект Lbaas по его ID
 
         Args:
             id (str): Идентификатор Lbaas
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект Lbaas :class:`esu.Lbaas`
         """
-        dns = cls(token=token, id=id)
+        dns = cls(id=id)
         dns._get_object('v1/lbaas', dns.id)
         return dns
 

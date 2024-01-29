@@ -14,19 +14,18 @@ class PublicKey(BaseAPI):
         public_key = Field()
 
     @classmethod
-    def get_object(cls, id, user, token=None):
+    def get_object(cls, id, user):
         """
         Получить объект публичного ключа по его ID
 
         Args:
             id (str): Идентификатор публичного ключа
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
+            user :class:`esu.User`
 
         Returns:
             object: Возвращает объект публичного ключа :class:`esu.PublicKey`
         """
-        key = cls(token=token, id=id)
+        key = cls(id=id)
         key._get_object('v1/account/{}/key'.format(user.id), key.id)
         return key
 

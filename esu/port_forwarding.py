@@ -7,8 +7,6 @@ class PortForwarding(BaseAPI):
         id (str): Идентификатор перенаправления портов
         floating (object): Объект класса :class:`esu.Port`. Порт на котором
                            будет создано перенаправление
-        token (str): Токен для доступа к API. Если не передан, будет
-            использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Управление перенаправлением портов создаваемом на порте возможно
               только в ресурсном пуле под управлением Openstack.
@@ -21,20 +19,18 @@ class PortForwarding(BaseAPI):
         floating = Field('esu.Port')
 
     @classmethod
-    def get_object(cls, port_forwarding_id, token=None):
+    def get_object(cls, port_forwarding_id):
         """
         Получить объект перенаправления портов по его ID
 
         Args:
-            id (str): Идентификатор перенаправления портов
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
+            port_forwarding_id (str): Идентификатор перенаправления портов
 
         Returns:
             object: Возвращает объект маршрута на роутере
             :class:`esu.RouterRoute`
         """
-        port_forwarding = cls(token=token, id=port_forwarding_id)
+        port_forwarding = cls(id=port_forwarding_id)
         port_forwarding._get_object('v1/port_forwarding', port_forwarding.id)
         return port_forwarding
 

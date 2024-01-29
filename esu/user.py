@@ -56,19 +56,17 @@ class User(BaseAPI):
         phone = Field(allow_none=True)
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект пользователя по его ID или
         id='me' для получения объекта к которому привязан токен
 
         Args:
             id (str): Идентификатор клиента
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект клиента :class:`esu.User`
         """
-        user = cls(token=token, id=id)
+        user = cls(id=id)
         user._get_object('v1/account', user.id)
         return user

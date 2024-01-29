@@ -15,19 +15,18 @@ class S3Bucket(BaseAPI):
         external_name = Field()
 
     @classmethod
-    def get_object(cls, id, s3, token=None):
+    def get_object(cls, id, s3):
         """
         Получить объект бакета хранилища S3 по его ID
 
         Args:
             id (str): Идентификатор бакета хранилища S3
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
+            s3: class:'esu.S3'
 
         Returns:
             object: Возвращает объект бакета хранилища S3 :class:`esu.S3bucket`
         """
-        s3bucket = cls(token=token, id=id)
+        s3bucket = cls(id=id)
         s3bucket._get_object('v1/s3_storage/{}/bucket'.format(s3.id),
                              s3bucket.id)
 

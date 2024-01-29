@@ -1,4 +1,4 @@
-from esu.base import BaseAPI
+from esu.base import BaseAPI, Field
 
 
 class Manager(BaseAPI):
@@ -6,9 +6,19 @@ class Manager(BaseAPI):
     Args:
         token (str): Токен для доступа к API. Если не передан, будет
                      использована переменная окружения **ESU_API_TOKEN**
+        endpoint_url (str): Доменное имя стенда. Если не передано, будет
+                            использована переменная окружения **ESU_API_URL**
+        test_mode (bool): Включение тестового режима работы библиотеки
     """
     class Meta:
-        pass
+        endpoint_url = Field()
+        token = Field()
+        test_mode = Field()
+
+    def save(self):
+        BaseAPI.endpoint_url = self.endpoint_url
+        BaseAPI.token = self.token
+        BaseAPI.test_mode = self.test_mode
 
     def get_all_clients(self):
         """
@@ -17,7 +27,7 @@ class Manager(BaseAPI):
         данный список будет содержать два элемента.
 
         Returns:
-            list: Список объектов :class:`esu.Client`
+            list: Список объектов: class:`esu.Client`
         """
         return self._get_list('v1/client', 'esu.Client')
 
@@ -28,7 +38,7 @@ class Manager(BaseAPI):
         доступ к стороннему проекту, данный список будет содержать их все.
 
         Returns:
-            list: Список объектов :class:`esu.Project`
+            list: Список объектов: class:`esu.Project`
         """
         return self._get_list('v1/project', 'esu.Project')
 
@@ -36,7 +46,7 @@ class Manager(BaseAPI):
         """
         Возвращает список объектов всех доступных пользователю ВЦОДов. Если
         текущий пользователь имеет несколько ВЦОДов или ему был предоставлен
-        доступ к сотронним проектам, данный список будет содержать их все.
+        доступ к сторонним проектам, данный список будет содержать их все.
 
         Returns:
             list: Список объектов :class:`esu.Vdc`

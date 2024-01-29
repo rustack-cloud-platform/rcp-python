@@ -21,20 +21,18 @@ class FirewallTemplate(BaseAPI):
         description = Field()
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект шаблона брандмауэра по его ID
 
         Args:
             id (str): Идентификатор шаблона брандмауэра
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект шаблона брандмауэра
             :class:`esu.FirewallTemplate`
         """
-        firewall = cls(token=token, id=id)
+        firewall = cls(id=id)
         firewall._get_object('v1/firewall', firewall.id)
         return firewall
 

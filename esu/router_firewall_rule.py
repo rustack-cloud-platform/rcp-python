@@ -19,8 +19,6 @@ class RouterFirewallRule(BaseAPI):
         dst_port_range_max (str): Максимальный порт диапазона портов назначения
         dst_port_range_min (str): Минимальный порт диапазона портов назначения
         protocol (str): protocol правила брандмауэра
-        token (str): Токен для доступа к API. Если не передан, будет
-            использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Управление брандмауэром на роутере доступно только для ресурсного
               пула VMware.
@@ -42,20 +40,19 @@ class RouterFirewallRule(BaseAPI):
         protocol = Field()
 
     @classmethod
-    def get_object(cls, router, rule_id, token=None):
+    def get_object(cls, router, rule_id):
         """
         Получить объект правила брандмауэра роутера по его ID
 
         Args:
-            id (str): Идентификатор правила брандмауэра на роутере
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
+            rule_id (str): Идентификатор правила брандмауэра на роутере
+            router: class:'esu.Router'
 
         Returns:
             object: Возвращает объект правила брандмауэра на роутере
             :class:`esu.RouterFirewallRule`
         """
-        firewall_rule = cls(token=token, id=rule_id, router=router)
+        firewall_rule = cls(id=rule_id, router=router)
         firewall_rule._get_object(
             'v1/router/{}/firewall_rule'.format(firewall_rule.router.id),
             firewall_rule.id)

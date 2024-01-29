@@ -1,5 +1,7 @@
 from esu.base import BaseAPI, Field, FieldList, ObjectAlreadyHasId, \
     ObjectHasNoId
+from esu.consts import DEFAULT_TIMEOUT, IMAGE_CREATE_TIMEOUT, \
+    IMAGE_DEPLOY_TIMEOUT
 from esu.vm import Vm
 
 
@@ -24,7 +26,7 @@ class Image(BaseAPI):
         id (str): Идентификатор
         name (str): Имя
         files (list): Список объектов класса :class:`esu.File`. Список файлов в
-        образе
+                        образе
         size (str): Размер образа
         type (str): Тип образа
         vdc (object): Объект класса :class:`esu.Vdc`. ВЦОД, к которому
@@ -39,19 +41,17 @@ class Image(BaseAPI):
         vdc = Field('esu.Vdc')
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект образа по его ID
 
         Args:
             id (str): Идентификатор образа
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект образа :class:`esu.Image`
         """
-        image = cls(token=token, id=id)
+        image = cls(id=id)
         image._get_object('v1/image', image.id)
 
         return image
@@ -67,7 +67,7 @@ class Image(BaseAPI):
         if self.id is not None:
             raise ObjectAlreadyHasId
 
-        self._commit(vm=vm)
+        self._commit(vm=vm, wait_time=IMAGE_CREATE_TIMEOUT)
 
     def create_for_upload(self):
         """
@@ -110,13 +110,13 @@ class Image(BaseAPI):
         self._commit()
         return self
 
-    def _commit(self, vm=None):
+    def _commit(self, vm=None, wait_time=DEFAULT_TIMEOUT):
         image = {'vdc': self.vdc.id, 'name': self.name}
         if vm is not None:
             image['vm'] = vm.id
         else:
             image['type'] = self.type
-        self._commit_object('v1/image', **image)
+        self._commit_object('v1/image', wait_time, **image)
 
     def destroy(self):
         """
@@ -161,6 +161,7 @@ class Image(BaseAPI):
             'storage_profile': vm.disks[0].storage_profile.id
         }
 
-        resp = self._call('POST', 'v1/image/{}/deploy'.format(self.id), **vm)
+        resp = self._call('POST', 'v1/image/{}/deploy'.format(self.id),
+                          wait_time=IMAGE_DEPLOY_TIMEOUT, **vm)
         vm = Vm.get_object(id=resp['id'])
         return vm
