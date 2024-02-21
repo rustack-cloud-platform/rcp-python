@@ -4,8 +4,7 @@
 rustack-esu
 ===========
 
-**rustack-esu** является Python библиотекой для работы с публичным облаком
-`СБКлауд <https://sbcloud.ru>`_.
+Python-библиотека для работы с Rustack Cloud Platform
 
 
 Установка
