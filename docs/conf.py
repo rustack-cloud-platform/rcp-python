@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 
 # -- Project information -----------------------------------------------------
-project = 'rustack-esu'
+project = 'rcp-python'
 copyright = '2023, Rustack LLC'
 author = 'Development Team'
 

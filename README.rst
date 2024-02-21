@@ -1,7 +1,7 @@
 |PyPI Version| |Build Status| |Codecov Badge|
 
 ===========
-rustack-esu
+rcp-python
 ===========
 
 Python-библиотека для работы с Rustack Cloud Platform
@@ -75,7 +75,7 @@ Python-библиотека для работы с Rustack Cloud Platform
 ============
 
 Более подробную информация можно получить в
-`документации <https://rustack-esu.readthedocs.io/>`_.
+`документации <https://rcp-python.readthedocs.io/>`_.
 
 
 .. |PyPI Version| image:: https://badge.fury.io/py/rustack-esu.svg
