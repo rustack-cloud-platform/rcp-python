@@ -49,6 +49,7 @@ setup(
         'dev': [
             "responses",
             "yapf==0.30.0",
+            "sphinx_rtd_theme==2.0.0",
             "pylint",
             "isort>=5.1.1 ; python_version>='3.6'",
             "tox>=3.9.0",
