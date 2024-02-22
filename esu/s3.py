@@ -1,4 +1,5 @@
 from esu.base import BaseAPI, Field, ObjectAlreadyHasId, ObjectHasNoId
+from esu.consts import S3_DELETE_TIMEOUT
 
 
 # pylint: disable=invalid-name
@@ -23,19 +24,17 @@ class S3(BaseAPI):
         client_endpoint = Field()
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект хранилища S3 по его ID
 
         Args:
             id (str): Идентификатор хранилища S3
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект хранилища S3 :class:`esu.S3`
         """
-        s3 = cls(token=token, id=id)
+        s3 = cls(id=id)
         s3._get_object('v1/s3_storage', s3.id)
 
         return s3
@@ -80,7 +79,8 @@ class S3(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        self._destroy_object('v1/s3_storage', self.id)
+        self._destroy_object('v1/s3_storage', self.id,
+                             wait_time=S3_DELETE_TIMEOUT)
         self.id = None
 
     def renew_keys(self):

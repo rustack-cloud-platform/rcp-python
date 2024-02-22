@@ -22,20 +22,18 @@ class PaasService(BaseAPI):
         paas_service_inputs = Field()
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект PaasService по его ID
 
         Args:
             id (str): Идентификатор
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект кластера
             paas_service :class:`esu.PaasService`
         """
-        service = cls(token=token, id=id)
+        service = cls(id=id)
         service._get_object('v1/paas_service', service.id)
 
         return service

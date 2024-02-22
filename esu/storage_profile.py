@@ -15,19 +15,17 @@ class StorageProfile(BaseAPI):
         name = Field()
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект профиля хранения по его ID
 
         Args:
             id (str): Идентификатор профиля хранения
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект профиля хранения
             :class:`esu.StorageProfile`
         """
-        storage_profile = cls(token=token, id=id)
+        storage_profile = cls(id=id)
         storage_profile._get_object('v1/storage_profile', storage_profile.id)
         return storage_profile

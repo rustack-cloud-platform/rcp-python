@@ -12,8 +12,6 @@ class Project(BaseAPI):
         name (str): Имя
         client (object): Объект класса :class:`esu.Client`. Клиент, к которому
                          относится проект
-        token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``name`` и ``client`` необходимы для создания.
 
@@ -25,19 +23,17 @@ class Project(BaseAPI):
         client = Field('esu.Client')
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект проекта по его ID
 
         Args:
             id (str): Идентификатор проекта
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект проекта :class:`esu.Project`
         """
-        project = cls(token=token, id=id)
+        project = cls(id=id)
         project._get_object('v1/project', project.id)
         return project
 
@@ -159,4 +155,5 @@ class Project(BaseAPI):
         """
         if self.id is None:
             raise ObjectHasNoId
-        return self._get_list('v1/paas_template', 'esu.PaasTemplate', project_id=self.id)
+        return self._get_list('v1/paas_template', 'esu.PaasTemplate',
+                              project_id=self.id)

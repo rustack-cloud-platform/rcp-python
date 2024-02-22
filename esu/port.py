@@ -32,7 +32,7 @@ class Port(BaseAPI):
     .. note:: Поле ``network`` необходимо для создания в качестве подключения
               к приватной сети ВЦОД.
 
-              Поля ``ip_address`` и ``fw_templates`` опцональны при создании
+              Поля ``ip_address`` и ``fw_templates`` опциональны при создании
               подключения к приватной сети ВЦОД
 
               Поля ``ip_address`` и ``fw_templates`` могут быть изменены для
@@ -52,30 +52,23 @@ class Port(BaseAPI):
         router = Field('esu.Router', allow_none=True)
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект порта по его ID
 
         Args:
             id (str): Идентификатор порта
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект порта :class:`esu.Port`
         """
-        port = cls(token=token, id=id)
+        port = cls(id=id)
         port._get_object('v1/port', port.id)
         return port
 
     def create_fip(self):
         """
-        Получить объект порта по его ID
-
-        Args:
-            id (str): Идентификатор порта
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
+        Создать объект
 
         Returns:
             object: Возвращает объект порта :class:`esu.Port`

@@ -1,4 +1,5 @@
 from esu.base import BaseAPI, Field, ObjectAlreadyHasId, ObjectHasNoId
+from esu.consts import SNAPSHOT_TIMEOUT
 
 
 class Snapshot(BaseAPI):
@@ -25,19 +26,17 @@ class Snapshot(BaseAPI):
         description = Field()
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект порта по его ID
 
         Args:
             id (str): Идентификатор снапшота
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект порта :class:`esu.Port`
         """
-        snapshot = cls(token=token, id=id)
+        snapshot = cls(id=id)
         snapshot._get_object('v2/snapshot', snapshot.id)
         return snapshot
 
@@ -67,11 +66,12 @@ class Snapshot(BaseAPI):
 
         self._commit()
 
-    #pylint: disable=import-outside-toplevel
+    # pylint: disable=import-outside-toplevel
     def _commit(self):
         description = self.description or ''
-        self._commit_object('v2/snapshot', name=self.name,
-                            description=description, vm=self.vm.id)
+        self._commit_object('v2/snapshot', wait_time=SNAPSHOT_TIMEOUT,
+                            name=self.name, description=description,
+                            vm=self.vm.id)
 
     def destroy(self):
         """
@@ -84,5 +84,6 @@ class Snapshot(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        self._destroy_object('v2/snapshot', self.id)
+        self._destroy_object('v2/snapshot', self.id,
+                             wait_time=SNAPSHOT_TIMEOUT)
         self.id = None

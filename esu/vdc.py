@@ -19,8 +19,6 @@ class Vdc(BaseAPI):
         hypervisor (object): Объект класса :class:`esu.Hypervisor`
         project (object): Объект класса :class:`esu.Project`. Проект, к
                           которому относится данный ВЦОД
-        token (str): Токен для доступа к API. Если не передан, будет
-                     использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``name``, ``hypervisor`` и ``project`` необходимы для
               создания.
@@ -34,19 +32,17 @@ class Vdc(BaseAPI):
         project = Field('esu.Project')
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект ВЦОД по его ID
 
         Args:
             id (str): Идентификатор ВЦОД
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект ВЦОД :class:`esu.Vdc`
         """
-        vdc = cls(token=token, id=id)
+        vdc = cls(id=id)
         vdc._get_object('v1/vdc', vdc.id)
         return vdc
 
@@ -112,7 +108,7 @@ class Vdc(BaseAPI):
         в данном ВЦОДе.
 
         Returns:
-            list: Список объектов :class:`esu.Template`
+            list: Список объектов: class:`esu.Template`
         """
         if self.id is None:
             raise ObjectHasNoId
@@ -201,8 +197,8 @@ class Vdc(BaseAPI):
         else:
             raise ValueError('Template not found')
 
-        firewall = next(f for f in self.get_firewall_templates() \
-            if f.id == '00000000-0000-0000-0000-000000000000')
+        firewall = next(f for f in self.get_firewall_templates()
+                        if f.id == '00000000-0000-0000-0000-000000000000')
         network = next(n for n in self.get_networks() if n.is_default)
         port = Port(network=network, fw_templates=[firewall])
 

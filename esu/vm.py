@@ -1,5 +1,6 @@
 from esu.base import BaseAPI, Field, FieldList, ObjectAlreadyHasId, \
     ObjectHasNoId
+from esu.consts import DEFAULT_TIMEOUT, SNAPSHOT_TIMEOUT, VM_CREATE_TIMEOUT
 
 
 class Vm(BaseAPI):
@@ -27,8 +28,6 @@ class Vm(BaseAPI):
                            виртаульаного выделенного сервера к внешней сети.
                            Если None, сервер не имеет подключения к внешней
                            сети.
-        token (str): Токен для доступа к API. Если не передан, будет
-                     использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``name``, ``cpu``, ``ram``, ``template``, ``ports``,
               ``disks`` и ``vdc`` необходимы для создания.
@@ -56,19 +55,17 @@ class Vm(BaseAPI):
         cdrom = Field('esu.Image', allow_none=True)
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект виртуального сервера по его ID
 
         Args:
             id (str): Идентификатор виртуального сервера
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект виртуального сервера :class:`esu.Vm`
         """
-        vm = cls(token=token, id=id)
+        vm = cls(id=id)
         vm._get_object('v1/vm', vm.id)
         for disk in vm.disks:
             disk.vm = vm
@@ -95,10 +92,10 @@ class Vm(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        self._commit()
+        self._commit(VM_CREATE_TIMEOUT)
         return self
 
-    def _commit(self):
+    def _commit(self, wait_time=DEFAULT_TIMEOUT):
         vm = {
             'vdc': self.vdc.id,
             'template': self.template.id,
@@ -134,7 +131,7 @@ class Vm(BaseAPI):
         if self.hotadd_feature:
             vm['hotadd_feature'] = True
 
-        self._commit_object('v1/vm', **vm)
+        self._commit_object('v1/vm', wait_time, **vm)
 
     def destroy(self):
         """
@@ -251,7 +248,8 @@ class Vm(BaseAPI):
         Args:
             snapshot (object): объект снапшота :class:`esu.Snapshot`
         """
-        vm = self._call('POST', 'v2/snapshot/{}/revert'.format(snapshot.id))
+        vm = self._call('POST', 'v2/snapshot/{}/revert'.format(snapshot.id),
+                        wait_time=SNAPSHOT_TIMEOUT)
         return vm
 
     def mount_iso(self, image):

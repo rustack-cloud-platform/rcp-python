@@ -16,8 +16,6 @@ class DnsRecord(BaseAPI):
         ttl (str): ttl Dns записи
         type (str): тип Dns записи
         weight (str): вес Dns записи
-        token (str): Токен для доступа к API. Если не передан, будет
-                     использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``data``, ``dns``, ``host``,
                     ``ttl``, ``type`` необходимы для создания.
@@ -37,19 +35,17 @@ class DnsRecord(BaseAPI):
         weight = Field()
 
     @classmethod
-    def get_object(cls, dns, id, token=None):
+    def get_object(cls, dns, id):
         """
         Получить объект Dns запись по его ID
 
         Args:
             id (str): Идентификатор Dns записи
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект Dns :class:`esu.DnsRecord`
         """
-        dns_record = cls(token=token, id=id, dns=dns)
+        dns_record = cls(id=id, dns=dns)
         dns_record._get_object('v1/dns/{}/record'.format(dns_record.dns.id),
                                dns_record.id)
         return dns_record

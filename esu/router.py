@@ -28,19 +28,17 @@ class Router(BaseAPI):
         ports = FieldList('esu.Port')
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект маршрутизатора по его ID
 
         Args:
             id (str): Идентификатор маршрутизатора
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект маршрутизатора :class:`esu.Router`
         """
-        router = cls(token=token, id=id)
+        router = cls(id=id)
         router._get_object('v1/router', router.id)
         return router
 

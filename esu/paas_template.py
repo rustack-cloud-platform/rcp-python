@@ -14,20 +14,18 @@ class PaasTemplate(BaseAPI):
         description = Field()
 
     @classmethod
-    def get_object(cls, id, project_id, token=None):
+    def get_object(cls, id, project_id):
         """
         Получить объект шаблона по его ID
 
         Args:
             id (int): Идентификатор шаблона
             project_id (str): Идентификатор проекта
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект шаблона :class:`esu.PaasTemplate`
         """
-        template = cls(token=token, id=id)
+        template = cls(id=id)
         template._get_object('v1/paas_template', template.id, project_id)
         return template
 

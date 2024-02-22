@@ -26,19 +26,17 @@ class Network(BaseAPI):
         subnets = FieldList('esu.Subnet')
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект сети по его ID
 
         Args:
             id (str): Идентификатор сети
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект сети :class:`esu.Network`
         """
-        network = cls(token=token, id=id)
+        network = cls(id=id)
         network._get_object('v1/network', network.id)
         return network
 

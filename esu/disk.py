@@ -27,19 +27,17 @@ class Disk(BaseAPI):
         storage_profile = Field('esu.StorageProfile')
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект диска по его ID
 
         Args:
             id (str): Идентификатор диска
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект диска :class:`esu.Disk`
         """
-        disk = cls(token=token, id=id)
+        disk = cls(id=id)
         disk._get_object('v1/disk', disk.id)
         return disk
 

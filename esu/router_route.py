@@ -11,8 +11,6 @@ class RouterRoute(BaseAPI):
         nexthop (str): Адрес шлюза - роутера в сети из которой будет
                        осуществляться маршрутизация, подключенного к исходной
                        сети и к сети в которую будет маршрутизироваться трафик
-        token (str): Токен для доступа к API. Если не передан, будет
-            использована переменная окружения **ESU_API_TOKEN**
 
     .. note:: Поля ``destination``, ``nexthop``, необходимы для создания.
 
@@ -24,20 +22,19 @@ class RouterRoute(BaseAPI):
         destination = Field()
 
     @classmethod
-    def get_object(cls, router, route_id, token=None):
+    def get_object(cls, router, route_id):
         """
         Получить объект маршрута на роутере по его ID
 
         Args:
-            id (str): Идентификатор маршрута на роутере
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
+            router: class:'esu.Router'
+            route_id (str): Идентификатор маршрута на роутере
 
         Returns:
             object: Возвращает объект маршрута на роутере
             :class:`esu.RouterRoute`
         """
-        route = cls(token=token, id=route_id, router=router)
+        route = cls(id=route_id, router=router)
         route._get_object('v1/router/{}/route'.format(route.router.id),
                           route.id)
         return route

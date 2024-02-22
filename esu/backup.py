@@ -1,5 +1,6 @@
 from esu.base import BaseAPI, Field, FieldList, ObjectAlreadyHasId, \
     ObjectHasNoId
+from esu.consts import BACKUP_TIMEOUT
 
 
 class RestorePoint(BaseAPI):
@@ -55,19 +56,17 @@ class Backup(BaseAPI):
         size = Field()
 
     @classmethod
-    def get_object(cls, id, token=None):
+    def get_object(cls, id):
         """
         Получить объект задачи резервного копирования по ее ID
 
         Args:
             id (str): Идентификатор задачи резервного копирования
-            token (str): Токен для доступа к API. Если не передан, будет
-                         использована переменная окружения **ESU_API_TOKEN**
 
         Returns:
             object: Возвращает объект диска :class:`esu.Disk`
         """
-        job = cls(token=token, id=id)
+        job = cls(id=id)
         job._get_object('v1/backup', job.id)
         return job
 
@@ -108,13 +107,14 @@ class Backup(BaseAPI):
             'retain_cycles': self.retain_cycles,
             'vms': vms
         }
-        self._commit_object('v1/backup', **job)
+        self._commit_object('v1/backup', wait_time=BACKUP_TIMEOUT, **job)
 
     def start_immediately(self):
         """
         Запустить выполнение задачи - создание точек восстановления
         """
-        self._call('POST', 'v1/backup/{}/start_immediately'.format(self.id))
+        self._call('POST', 'v1/backup/{}/start_immediately'.format(self.id),
+                   wait_time=BACKUP_TIMEOUT)
 
     def get_restore_points(self):
         """
@@ -153,7 +153,8 @@ class Backup(BaseAPI):
             "vm": restore_point.vm.id,
             "restore_point": restore_point.id
         }
-        self._call('POST', 'v1/backup/{}/restore'.format(self.id), **restore)
+        self._call('POST', 'v1/backup/{}/restore'.format(self.id),
+                   wait_time=BACKUP_TIMEOUT, **restore)
 
     def get_backup_log(self):
         """
@@ -191,5 +192,5 @@ class Backup(BaseAPI):
         if self.id is None:
             raise ObjectHasNoId
 
-        self._destroy_object('v1/backup', self.id)
+        self._destroy_object('v1/backup', self.id, wait_time=BACKUP_TIMEOUT)
         self.id = None
