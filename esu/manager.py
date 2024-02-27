@@ -5,7 +5,9 @@ class Manager(BaseAPI):
     """
     Args:
         token (str): Токен для доступа к API. Если не передан, будет
-                     использована переменная окружения **ESU_API_TOKEN**
+                     использована переменная окружения **ESU_API_TOKEN**,
+        endpoint_url (str): Адрес API. Если не передан, будет
+                     использована переменная окружения **ESU_API_URL**
     """
     class Meta:
         pass

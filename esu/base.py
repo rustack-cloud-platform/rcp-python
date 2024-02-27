@@ -65,7 +65,7 @@ class BaseAPI:
     token = None
     endpoint_url = ''
 
-    def __new__(cls, *args, token: str = None, **kwargs):
+    def __new__(cls, *args, token: str = None, endpoint_url: str = '', **kwargs):
         rules = {}
         for k in cls.Meta.__dict__:
             if k.startswith('_'):
@@ -79,7 +79,7 @@ class BaseAPI:
             setattr(instance, k, None)
 
         instance.token = token or os.environ.get('ESU_API_TOKEN', cls.token)
-        instance.endpoint_url = os.environ.get('ESU_API_URL', cls.endpoint_url)
+        instance.endpoint_url = endpoint_url or os.environ.get('ESU_API_URL', cls.endpoint_url)
         instance.kwargs = kwargs
         instance._fill()
 
