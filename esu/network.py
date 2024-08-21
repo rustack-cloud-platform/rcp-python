@@ -11,6 +11,7 @@ class Network(BaseAPI):
                       относится сеть
         is_default (bool): True для сети по умолчанию
         subnets (object): Список объектов класса :class:`esu.Subnet`
+        mtu (int): MTU сети
 
     .. note:: Поля ``name`` и ``vdc`` необходимы для создания.
 
@@ -24,6 +25,7 @@ class Network(BaseAPI):
         vdc = Field('esu.Vdc', allow_none=True)
         is_default = Field()
         subnets = FieldList('esu.Subnet')
+        mtu = Field()
 
     @classmethod
     def get_object(cls, id, token=None):
@@ -54,6 +56,8 @@ class Network(BaseAPI):
             raise ObjectAlreadyHasId
 
         subnets = self.subnets or []
+        if self.vdc.hypervisor.type == 'vmware':
+            self.mtu = 1500
         self._commit()
 
         for subnet in subnets:
@@ -74,7 +78,7 @@ class Network(BaseAPI):
 
     def _commit(self):
         return self._commit_object('v1/network', vdc=self.vdc.id,
-                                   name=self.name)
+                                   name=self.name, mtu=self.mtu)
 
     def destroy(self):
         """
