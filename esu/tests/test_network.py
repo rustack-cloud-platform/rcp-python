@@ -32,7 +32,7 @@ def test_create(rsps):
     vdc_id = 'e5d9a192-c5da-485a-b134-1b14ec9c57d9'
     vdc = Vdc.get_object(vdc_id)
 
-    network = Network(name='Brand New Network', vdc=vdc)
+    network = Network(name='Brand New Network', vdc=vdc, mtu=1450)
     network.create()
 
     assert network.id
@@ -50,7 +50,7 @@ def test_create_with_subnet(rsps):
                     enable_dhcp=True)
 
     network = Network(name='Brand New Network with subnet', vdc=vdc,
-                      subnets=[subnet])
+                      subnets=[subnet], mtu=1450)
     network.create()
 
     assert len(network.subnets) == 1

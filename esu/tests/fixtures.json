@@ -4710,6 +4710,7 @@
                     "type": "vmware"
                 }
             },
+            "mtu": 1500,
             "name": "Brand New Network",
             "external_name": "",
             "external": false,
@@ -4724,7 +4725,8 @@
         },
         "request": {
             "vdc": "e5d9a192-c5da-485a-b134-1b14ec9c57d9",
-            "name": "Brand New Network"
+            "name": "Brand New Network",
+            "mtu":1500
         }
     },
     {
@@ -4739,6 +4741,7 @@
         "response": {
             "id": "426653c2-0004-4731-bf6d-ab25bc415096",
             "locked": true,
+            "mtu": 1450,
             "job_id": "98bfa059-769b-40a9-a913-8eaa691247b4",
             "vdc": {
                 "id": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
@@ -4763,7 +4766,8 @@
         },
         "request": {
             "vdc": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
-            "name": "Brand New Network with subnet"
+            "name": "Brand New Network with subnet",
+            "mtu": 1450
         }
     },
     {
@@ -4820,6 +4824,7 @@
             "external_name": "",
             "external": false,
             "is_default": false,
+            "mtu": 1450,
             "zone": {
                 "id": "6774805b-02f9-4c76-b30e-377dcac773f3",
                 "name": "default",
@@ -4875,6 +4880,7 @@
             },
             "name": "Net1",
             "external_name": "",
+            "mtu": 1450,
             "external": false,
             "is_default": false,
             "zone": {
@@ -4910,7 +4916,8 @@
         },
         "request": {
             "name": "Net1",
-            "vdc": "70eb1ec5-3e54-4df8-a096-ec26526ec89b"
+            "vdc": "70eb1ec5-3e54-4df8-a096-ec26526ec89b",
+            "mtu": 1450
         }
     },
     {
