@@ -13,7 +13,7 @@ with open('README.rst', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='rcp-python',
+    name='rustack-esu',
     version=version,
     description='Rustack Cloud Platform API Wrapper',
     long_description=long_description,
@@ -24,7 +24,7 @@ setup(
     author_email='urushev@yandex.ru',
     maintainer='Vladimir K Urushev',
     maintainer_email='urushev@yandex.ru',
-    keywords=['cloud', 'api', 'python'],
+    keywords=['cloud', 'api'],
     license='MIT',
     classifiers=[
         'Development Status :: 3 - Alpha',
