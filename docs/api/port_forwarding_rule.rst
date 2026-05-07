@@ -7,7 +7,7 @@ PortForwardingRule
 настраивается перенаправление, а также подключение сервера на которое будет
 осуществляться перенаправление.
 Такое перенаправление портов создаётся на отдельно зарезервированном публичном IP
-адресе :func:`esu.Port.create_fip`
+адресе :func:`bcc.Port.create_fip`
 
 Функционал создания такого перенаправления портов доступен только для
 ресурсного пула под управлением Openstack.
@@ -15,7 +15,7 @@ PortForwardingRule
 Объект "Правило перенаправления портов"
 ----------------------
 
-.. autoclass:: esu.PortForwardingRule
+.. autoclass:: bcc.PortForwardingRule
 
 
 Примеры использования
@@ -25,7 +25,7 @@ PortForwardingRule
 
 .. code-block:: python
 
-  from esu import Port, PortForwarding, PortForwardingRule
+  from bcc import Port, PortForwarding, PortForwardingRule
 
   port_id = '954fd467-fd9a-4ce7-b4df-1e81e557bce9'
   port = Port.get_object(port_id)

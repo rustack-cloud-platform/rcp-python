@@ -10,12 +10,12 @@ sys.path.insert(0, os.path.abspath('..'))
 
 
 # -- Project information -----------------------------------------------------
-project = 'rcp-python'
-copyright = '2023, Rustack LLC'
+project = 'bcc-python'
+copyright = '2026, Basis LLC'
 author = 'Development Team'
 
 # The full version, including alpha/beta/rc tags
-version = '0.1.18'
+version = '0.2.0'
 language = 'ru'
 
 extensions = [

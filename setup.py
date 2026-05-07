@@ -5,7 +5,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-with open('esu/__init__.py', 'r', encoding='utf-8') as file:
+with open('bcc/__init__.py', 'r', encoding='utf-8') as file:
     regex_version = r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]'
     version = re.search(regex_version, file.read(), re.MULTILINE).group(1)
 
@@ -13,17 +13,17 @@ with open('README.rst', encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='rustack-esu',
+    name='bcc-python',
     version=version,
-    description='Rustack Cloud Platform API Wrapper',
+    description='Basis Cloud Control API Wrapper',
     long_description=long_description,
-    url='https://github.com/rustack-cloud-platform/rcp-python',
-    download_url='https://github.com/rustack-cloud-platform/rcp-python/tarball/{0}'\
+    url='https://github.com/basis-cloud/bcc-python',
+    download_url='https://github.com/basis-cloud/bcc-python/tarball/{0}'\
         .format(version),
-    author='Vladimir K Urushev',
-    author_email='urushev@yandex.ru',
-    maintainer='Vladimir K Urushev',
-    maintainer_email='urushev@yandex.ru',
+    author='Basis',
+    author_email='avkurilenko@basis.ru',
+    maintainer='Andrey Kurilenko',
+    maintainer_email='avkurilenko@basis.ru',
     keywords=['cloud', 'api'],
     license='MIT',
     classifiers=[
@@ -41,7 +41,7 @@ setup(
         'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3 :: Only',
         ],
-    packages=['esu'],
+    packages=['bcc'],
     install_requires=[
         'requests>=2.2.1',
     ],

@@ -13,7 +13,7 @@ RouterPortForwarding
 Объект "Правило перенаправления портов на роутере"
 ----------------------
 
-.. autoclass:: esu.RouterPortForwarding
+.. autoclass:: bcc.RouterPortForwarding
 
 
 Примеры использования
@@ -23,7 +23,7 @@ RouterPortForwarding
 
 .. code-block:: python
 
-  from esu import Router, RouterPortForwarding
+  from bcc import Router, RouterPortForwarding
 
   router = Router.get_object('58385696-32c6-4a5c-bafe-895815eedf04')
   router_pf = RouterPortForwarding(protocol="tcp", local_ip="10.0.1.2",

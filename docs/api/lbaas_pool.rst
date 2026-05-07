@@ -10,7 +10,7 @@ LbaasPool
 Объект "пул балансировщика нагрузки"
 ---------------------------
 
-.. autoclass:: esu.LbaasPool
+.. autoclass:: bcc.LbaasPool
 
 
 Примеры использования
@@ -20,7 +20,7 @@ LbaasPool
 
 .. code-block:: python
 
-  from esu import Lbaas, LbaasPool, LbaasPoolMember, Vm
+  from bcc import Lbaas, LbaasPool, LbaasPoolMember, Vm
 
   lbaas = Lbaas.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   vm1 = Vm.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')

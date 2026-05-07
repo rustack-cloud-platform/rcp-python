@@ -4,8 +4,8 @@ Vdc
 Объект виртуального центра обработки данных (ВЦОД). ВЦОДы включают в себя
 ИТ-инфраструктуру, вычислительные ресурсы и ресурсы для хранения информации.
 
-При создании ВЦОД автоматически создаются сеть :class:`esu.Network` и
-маршрутизатор :class:`esu.Router`, которые не могут быть удалены.
+При создании ВЦОД автоматически создаются сеть :class:`bcc.Network` и
+маршрутизатор :class:`bcc.Router`, которые не могут быть удалены.
 
 Поддерживается два типа гипервизора: **VMware vSphere ESXi** и
 **OpenStack KVM**.
@@ -14,7 +14,7 @@ Vdc
 Объект "ВЦОД"
 -------------
 
-.. autoclass:: esu.Vdc
+.. autoclass:: bcc.Vdc
 
 
 Примеры использования
@@ -26,7 +26,7 @@ Vdc
 
 .. code-block:: python
 
-  from esu import Manager, Vdc
+  from bcc import Manager, Vdc
 
   project = Manager().get_all_projects()[0]
   hypervisor = next(h for h in project.get_available_hypervisors() \
@@ -42,7 +42,7 @@ Vdc
 
 .. code-block:: python
 
-  from esu import Manager, Vdc
+  from bcc import Manager, Vdc
 
   project = Manager().get_all_projects()[0]
   vdc = Vdc.get_object('e5d9a192-c5da-485a-b134-1b14ec9c57d9')

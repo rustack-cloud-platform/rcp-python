@@ -8,7 +8,7 @@ FirewallTemplateRule
 Объект "правило шаблона брандмауэра"
 ---------------------------
 
-.. autoclass:: esu.FirewallTemplateRule
+.. autoclass:: bcc.FirewallTemplateRule
 
 
 Примеры использования
@@ -17,7 +17,7 @@ FirewallTemplateRule
 
 .. code-block:: python
 
-  from esu import FirewallTemplate, FirewallTemplateRule
+  from bcc import FirewallTemplate, FirewallTemplateRule
 
   fw_template = FirewallTemplate.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   firewall_rule = QAFirewallRule(firewall=fw_template, name="Rule",

@@ -12,7 +12,7 @@ Kubernetes
 Объект "кластер kubernetes"
 ---------------------------
 
-.. autoclass:: esu.Kubernetes
+.. autoclass:: bcc.Kubernetes
 
 
 Примеры использования
@@ -22,7 +22,7 @@ Kubernetes
 
 .. code-block:: python
 
-  from esu import Vdc, Kubernetes, PublicKey
+  from bcc import Vdc, Kubernetes, PublicKey
   vdc = Vdc.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   key = PublicKey.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   storage_profile = vdc.get_storage_profiles()[0]  # Первый доступный профиль хранения

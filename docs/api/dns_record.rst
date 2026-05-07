@@ -8,7 +8,7 @@ DnsRecord
 Объект "запись доменной зоны"
 ---------------------------
 
-.. autoclass:: esu.DnsRecord
+.. autoclass:: bcc.DnsRecord
 
 
 Примеры использования
@@ -18,7 +18,7 @@ DnsRecord
 
 .. code-block:: python
 
-  from esu import Dns, DnsRecord
+  from bcc import Dns, DnsRecord
 
   dns = Dns.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   record = DnsRecord(type="A", host="host", data="10.0.1.1",

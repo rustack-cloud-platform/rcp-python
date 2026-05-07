@@ -3,13 +3,13 @@ Hypervisor
 
 Объект гипервизора. Не имеет самостоятельных методов, используется только при
 создании ВЦОДа. Может быть получен из метода
-:func:`esu.Project.get_available_hypervisors`
+:func:`bcc.Project.get_available_hypervisors`
 
 
 Объект "гипервизор"
 -------------------
 
-.. autoclass:: esu.Hypervisor
+.. autoclass:: bcc.Hypervisor
 
 
 Примеры использования

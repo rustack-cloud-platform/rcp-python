@@ -3,4 +3,4 @@ Manager
 
 Позволяет получить списки всех объектов, доступных текущему пользователю.
 
-.. autoclass:: esu.Manager
+.. autoclass:: bcc.Manager

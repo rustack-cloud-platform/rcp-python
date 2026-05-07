@@ -9,7 +9,7 @@ Router
 Объект "маршрутизатор"
 ----------------------
 
-.. autoclass:: esu.Router
+.. autoclass:: bcc.Router
 
 
 Примеры использования
@@ -19,7 +19,7 @@ Router
 
 .. code-block:: python
 
-  from esu import Vdc, Port, Router
+  from bcc import Vdc, Port, Router
 
   vdc = Vdc.get_object('e5d9a192-c5da-485a-b134-1b14ec9c57d9')
   network = vdc.get_networks()[0]
@@ -31,7 +31,7 @@ Router
 
 .. code-block:: python
 
-  from esu import Router, Network, Port
+  from bcc import Router, Network, Port
 
   router = Router.get_object('58385696-32c6-4a5c-bafe-895815eedf04')
   network = Network.get_object('b9e6df93-0d04-4dac-a3c1-1a8539b8e445')

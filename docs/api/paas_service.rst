@@ -4,4 +4,4 @@ PaasService
 Объект "платформенный сервис"
 ---------------------------
 
-.. autoclass:: esu.PaasService
+.. autoclass:: bcc.PaasService

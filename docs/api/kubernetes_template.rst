@@ -3,13 +3,13 @@ KubernetesTemplate
 
 Шаблон кластера Kubernetes - необходим для создания кластера Kubernetes.
 Список шаблонов кластера Kubernetes доступных для созданного ВЦОД можно
-получить используя метод :func:`esu.Vdc.get_k8s_templates`
+получить используя метод :func:`bcc.Vdc.get_k8s_templates`
 
 
 Объект "шаблон кластера kubernetes"
 ---------------------------
 
-.. autoclass:: esu.KubernetesTemplate
+.. autoclass:: bcc.KubernetesTemplate
 
 
 Примеры использования
@@ -19,7 +19,7 @@ KubernetesTemplate
 
 .. code-block:: python
 
-  from esu import Vdc
+  from bcc import Vdc
 
   vdc = Vdc.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   k8s_templates = vdc.get_k8s_templates()

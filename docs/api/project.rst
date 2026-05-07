@@ -9,7 +9,7 @@ Project
 Объект "проект"
 ---------------
 
-.. autoclass:: esu.Project
+.. autoclass:: bcc.Project
 
 
 Примеры использования
@@ -19,7 +19,7 @@ Project
 
 .. code-block:: python
 
-  from esu import Client, Project
+  from bcc import Client, Project
 
   client = Client.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   project = Project(client=client, name='Новый проект')
@@ -30,7 +30,7 @@ Project
 
 .. code-block:: python
 
-  from esu import Client, Project
+  from bcc import Client, Project
 
   client = Client.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   project = client.get_projects()[0]

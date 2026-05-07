@@ -1,4 +1,4 @@
 Platform
 ========
 
-.. autoclass:: esu.Platform
+.. autoclass:: bcc.Platform
