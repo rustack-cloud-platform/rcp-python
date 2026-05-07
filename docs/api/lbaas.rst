@@ -12,7 +12,7 @@ Lbaas
 Объект "балансировщик нагрузки"
 ---------------------------
 
-.. autoclass:: esu.Lbaas
+.. autoclass:: bcc.Lbaas
 
 
 Примеры использования
@@ -22,7 +22,7 @@ Lbaas
 
 .. code-block:: python
 
-  from esu import Lbaas, Vdc, Port
+  from bcc import Lbaas, Vdc, Port
 
   vdc = Vdc.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   port = Port.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')

@@ -10,7 +10,7 @@ RouterFirewallRule
 Объект "Правило брандмауэра на роутере"
 ----------------------
 
-.. autoclass:: esu.RouterFirewallRule
+.. autoclass:: bcc.RouterFirewallRule
 
 
 Примеры использования
@@ -20,7 +20,7 @@ RouterFirewallRule
 
 .. code-block:: python
 
-  from esu import Router, RouterFirewallRule
+  from bcc import Router, RouterFirewallRule
 
   router = Router.get_object('58385696-32c6-4a5c-bafe-895815eedf04')
   fw_rule = RouterFirewallRule(name="Rule", protocol="tcp", router=router,

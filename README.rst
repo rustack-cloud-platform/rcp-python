@@ -1,10 +1,10 @@
 |PyPI Version| |Build Status| |Codecov Badge|
 
 ===========
-rcp-python
+bcc-python
 ===========
 
-Python-библиотека для работы с BCC
+Python-библиотека для работы с Basis Cloud Control (BCC)
 
 
 Установка
@@ -14,7 +14,7 @@ Python-библиотека для работы с BCC
 
 .. code-block:: bash
 
-    $ pip install rustack-esu
+    $ pip install bcc-sdk
 
 Примеры использования
 =====================
@@ -25,7 +25,7 @@ Python-библиотека для работы с BCC
 
 .. code:: python
 
-    from esu import Manager, Project, Vdc
+    from bcc import Manager, Project, Vdc
 
     token = '72321013a102d2d3da2eaa79f0a613d40cf642fb'
 
@@ -55,7 +55,7 @@ Python-библиотека для работы с BCC
 
 .. code:: python
 
-    from esu import Manager, Project, Vdc
+    from bcc import Manager, Project, Vdc
 
     vdc = Vdc.get_object('62a2df46-5412-4ca2-9d60-f6fcbe5f4b5f', token=token)
     vm = vdc.create_vm('Новый сервер', 'KVM Ubuntu 18', 'xj3$mNW11')
@@ -75,12 +75,12 @@ Python-библиотека для работы с BCC
 ============
 
 Более подробную информация можно получить в
-`документации <https://rcp-python.readthedocs.io/>`_.
+`документации <https://bcc-python.readthedocs.io/>`_.
 
 
-.. |PyPI Version| image:: https://badge.fury.io/py/rustack-esu.svg
-   :target: https://badge.fury.io/py/rustack-esu
-.. |Build Status| image:: https://github.com/pilat/rustack-esu/actions/workflows/tests.yaml/badge.svg?branch=master
-   :target: https://github.com/pilat/rustack-esu/actions/workflows/tests.yaml
-.. |Codecov Badge| image:: https://codecov.io/gh/pilat/rustack-esu/branch/master/graph/badge.svg?token=KZ4T5XZ8T3 
-   :target: https://codecov.io/gh/pilat/rustack-esu
+.. |PyPI Version| image:: https://badge.fury.io/py/bcc-sdk.svg
+   :target: https://badge.fury.io/py/bcc-sdk
+.. |Build Status| image:: https://github.com/pilat/bcc-sdk/actions/workflows/tests.yaml/badge.svg?branch=master
+   :target: https://github.com/pilat/bcc-sdk/actions/workflows/tests.yaml
+.. |Codecov Badge| image:: https://codecov.io/gh/pilat/bcc-sdk/branch/master/graph/badge.svg?token=KZ4T5XZ8T3
+   :target: https://codecov.io/gh/pilat/bcc-sdk

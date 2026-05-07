@@ -3,7 +3,7 @@ Disk
 
 Диск является сущностью для хранения информации. Диск нельзя создать отдельно
 от виртуального сервера. Чтобы создать диск, следует использовать метод
-:func:`esu.Vm.add_disk` у уже существующего сервера.
+:func:`bcc.Vm.add_disk` у уже существующего сервера.
 
 В то же время, уже созданный диск может быть от него отключен и подключен
 позднее к другому виртуальному серверу или удален.
@@ -14,7 +14,7 @@ Disk
 Объект "диск"
 -------------
 
-.. autoclass:: esu.Disk
+.. autoclass:: bcc.Disk
 
 Примеры использования
 ---------------------
@@ -23,7 +23,7 @@ Disk
 
 .. code-block:: python
 
-  from esu import Vm, Disk
+  from bcc import Vm, Disk
 
   vm = Vm.get_object('954fd467-fd9a-4ce7-b4df-1e81e557bce9')
 
@@ -39,7 +39,7 @@ Disk
 
 .. code-block:: python
 
-  from esu import Vm
+  from bcc import Vm
 
   vm = Vm.get_object('954fd467-fd9a-4ce7-b4df-1e81e557bce9')
   disk = vm.disks[0]

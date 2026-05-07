@@ -9,7 +9,7 @@ Snapshot
 Объект "снапшот"
 ---------------
 
-.. autoclass:: esu.Snapshot
+.. autoclass:: bcc.Snapshot
 
 
 Примеры использования
@@ -19,7 +19,7 @@ Snapshot
 
 .. code-block:: python
 
-  from esu import Vm, Snapshot
+  from bcc import Vm, Snapshot
 
   vm = Vm.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   snapshot = Snapshot(vm=vm, name='Новый снапшот')
@@ -30,7 +30,7 @@ Snapshot
 
 .. code-block:: python
 
-  from esu import Vm, Snapshot
+  from bcc import Vm, Snapshot
 
   snapshot = Snapshot.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   vm = Vm.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')

@@ -8,7 +8,7 @@ S3
 Объект "хранилище S3"
 ---------------------------
 
-.. autoclass:: esu.S3
+.. autoclass:: bcc.S3
 
 
 Примеры использования
@@ -18,7 +18,7 @@ S3
 
 .. code-block:: python
 
-  from esu import S3, Project
+  from bcc import S3, Project
 
   project = Project.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   s3 = S3(name="MyS3", project=project)

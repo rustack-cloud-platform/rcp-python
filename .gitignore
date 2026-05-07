@@ -4,7 +4,7 @@ __pycache__
 *.pyo
 .vscode/
 .tox/
-rustack_esu.egg-info/
+basis.egg-info/
 build/
 dist/
 .coverage

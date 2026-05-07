@@ -9,7 +9,7 @@ Windows, может иметь несколько сетевых подключ�
 Объект "виртуальный сервер"
 ---------------------------
 
-.. autoclass:: esu.Vm
+.. autoclass:: bcc.Vm
 
 
 Примеры использования
@@ -22,7 +22,7 @@ Windows, может иметь несколько сетевых подключ�
 .. code-block:: python
 
   from requests import HTTPError
-  from esu import Manager, VmMetadata, Port, Disk, Vm
+  from bcc import Manager, VmMetadata, Port, Disk, Vm
 
   vdc = Manager().get_all_vdcs()[0]  # Первый доступный пользователю ВЦОД
   network = next(n for n in vdc.get_networks() if n.is_default)  # Сеть по умолчанию
@@ -56,7 +56,7 @@ Windows, может иметь несколько сетевых подключ�
 
 .. code-block:: python
 
-  from esu import Vm, Port
+  from bcc import Vm, Port
 
   vm = Vm.get_object('954fd467-fd9a-4ce7-b4df-1e81e557bce9')
   vm.floating = Port()

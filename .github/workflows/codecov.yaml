@@ -16,7 +16,7 @@ jobs:
       run: pip install -e ".[dev]"
     - name: Run tests
       run: |
-        pytest --cov esu/
+        pytest --cov bcc/
         coverage xml
     - name: Upload coverage to Codecov
       uses: codecov/codecov-action@v2

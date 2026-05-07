@@ -4,15 +4,15 @@ Network
 Приватная сеть обеспечивает обмен данными между различными вычислительными
 устройствами во ВЦОДе. К примеру, виртуальные машинамы и маршрутизаторы
 соединяются сетью. Для правильного функционирования сети, необходимо создать
-как минимум одну подсеть :class:`esu.Subnet` внутри.
+как минимум одну подсеть :class:`bcc.Subnet` внутри.
 
-При создании :class:`esu.Vdc` автоматически создается сеть по умолчанию,
+При создании :class:`bcc.Vdc` автоматически создается сеть по умолчанию,
 которую нельзя удалить.
 
 Объект "сеть"
 -------------
 
-.. autoclass:: esu.Network
+.. autoclass:: bcc.Network
 
 
 Примеры использования
@@ -22,7 +22,7 @@ Network
 
 .. code-block:: python
 
-  from esu import Network, Subnet
+  from bcc import Network, Subnet
 
   vdc = Vdc.get_object('e5d9a192-c5da-485a-b134-1b14ec9c57d9')
   network = next(n for n in vdc.get_networks() if n.is_default)

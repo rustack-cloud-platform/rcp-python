@@ -1,0 +1,51 @@
+from bcc.base import BaseAPI, Field
+
+
+class Template(BaseAPI):
+    """
+    Args:
+        id (str): Идентификатор шаблона
+        name (str): Имя шаблона
+        min_cpu (int): Минимальное количество ядер, необходимое для
+                       развертывания этого шаблона
+        min_ram (int): Минимальное количество RAM, необходимое для
+                       развертывания этого шаблона
+        min_hdd (int): Минимальный размер первого диска, необходимого для
+                       развертывания этого шаблона
+
+    .. warning:: Объект доступен только для чтения и не может быть создан,
+                 изменен или удален.
+    """
+    class Meta:
+        id = Field()
+        name = Field()
+        min_cpu = Field()
+        min_ram = Field()
+        min_hdd = Field()
+
+    @classmethod
+    def get_object(cls, id, token=None):
+        """
+        Получить объект шаблона по его ID
+
+        Args:
+            id (str): Идентификатор шаблона
+            token (str): Токен для доступа к API. Если не передан, будет
+                         использована переменная окружения **BCC_API_TOKEN**
+
+        Returns:
+            object: Возвращает объект шаблона :class:`bcc.Template`
+        """
+        template = cls(token=token, id=id)
+        template._get_object('v1/template', template.id)
+        return template
+
+    def get_fields(self):
+        """
+        Получить список полей шаблона ОС.
+
+        Returns:
+            list: Список объектов :class:`bcc.TemplateField`
+        """
+        return self._get_list('v1/template/{}/field'.format(self.id),
+                              'bcc.TemplateField', False)

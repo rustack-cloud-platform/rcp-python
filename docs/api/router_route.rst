@@ -12,7 +12,7 @@ RouterRoute
 Объект "Маршрут на роутере"
 ----------------------
 
-.. autoclass:: esu.RouterRoute
+.. autoclass:: bcc.RouterRoute
 
 
 Примеры использования
@@ -22,7 +22,7 @@ RouterRoute
 
 .. code-block:: python
 
-  from esu import Router, RouterRoute
+  from bcc import Router, RouterRoute
 
   router_id = '58385696-32c6-4a5c-bafe-895815eedf04'
   router = Router.get_object(router_id)

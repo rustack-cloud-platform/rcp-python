@@ -11,7 +11,7 @@ Image
 Объект "образ"
 ---------------
 
-.. autoclass:: esu.Image
+.. autoclass:: bcc.Image
 
 
 Примеры использования
@@ -21,7 +21,7 @@ Image
 
 .. code-block:: python
 
-  from esu import Vm, Image, Vdc
+  from bcc import Vm, Image, Vdc
 
   vm = Vm.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   vdc = Vdc.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
@@ -34,7 +34,7 @@ Image
 .. code-block:: python
 
   import requests
-  from esu import Image, Vdc
+  from bcc import Image, Vdc
 
   vdc = Vdc.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   image = Image(vdc=vdc, name='NewImage')
@@ -59,7 +59,7 @@ Image
 
 .. code-block:: python
 
-  from esu import Image
+  from bcc import Image
 
   image = Image.get_object('d5cd2cdc-b5b0-4d2e-8bc6-ea3f019745f9')
   vm = image.deploy_vm_from_image()

@@ -4,8 +4,8 @@ PortForwarding
 Перенаправление портов. Используется для того, чтобы по IP адресу по определённому порту
 попадать на порт сервера для которого настроено перенаправление.
 Такое перенаправление портов создаётся на отдельно зарезервированном публичном IP
-адресе :func:`esu.Port.create_fip` и представляет собой устройство.
-Правила перенаправления портов создаются отдельно :class:`esu.PortForwardingRule`
+адресе :func:`bcc.Port.create_fip` и представляет собой устройство.
+Правила перенаправления портов создаются отдельно :class:`bcc.PortForwardingRule`
 
 Функционал создания такого перенаправления портов доступен только для
 ресурсного пула под управлением Openstack.
@@ -13,7 +13,7 @@ PortForwarding
 Объект "Перенаправление портов"
 ----------------------
 
-.. autoclass:: esu.PortForwarding
+.. autoclass:: bcc.PortForwarding
 
 
 Примеры использования
@@ -23,7 +23,7 @@ PortForwarding
 
 .. code-block:: python
 
-  from esu import Port, PortForwarding
+  from bcc import Port, PortForwarding
 
   port_id = '954fd467-fd9a-4ce7-b4df-1e81e557bce9'
   port = Port.get_object(port_id)
